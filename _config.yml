@@ -1,5 +1,28 @@
+# Global Site Metadata
 title: RPI Flying Club
-description: The official hub for aviation at Rensselaer Polytechnic Institute.
-theme: jekyll-theme-architect
-show_downloads: false
-google_analytics: # Leave blank for now
+name: Rensselaer Flying Club
+description: "The official hub for aviation education, ground school, and aviation events at RPI."
+url: "https://rpiflying.github.io"
+baseurl: ""
+
+# Branding Assets 
+branding:
+  primary_color: "#D6001C"
+  secondary_color: "#011E5D"
+
+# Navigation Updated for current organizational structure 
+navigation:
+  - title: "About"
+    url: /about/
+  - title: "Ground School"
+    url: /ground-school/
+  - title: "Officer Team"
+    url: /officer-team/
+  - title: "Calendar"
+    url: /calendar/
+  - title: "Join Us"
+    url: /join/
+
+# Social Media & Contact
+contact_email: "rpiflying@gmail.com"
+discord_url: "https://discord.gg/rXG86ZeBwj"
