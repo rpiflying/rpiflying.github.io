@@ -1,3 +1,4 @@
 title: RPI Flying Club
 description: Official Aviation Club of Rensselaer Polytechnic Institute
 theme: minima
+remote_theme: pages-themes/architect@v0.2.0
