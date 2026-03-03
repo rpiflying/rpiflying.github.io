@@ -59,8 +59,8 @@ layout: home
 </div>
 
 <div class="grid-container">
-  <img src="assets/pic1.jpg" class="gallery-img" alt="Aviation 1">
-  <img src="assets/pic2.jpg" class="gallery-img" alt="Aviation 2">
+  <img src="assets/20240915_141521.jpg" class="gallery-img" alt="Aviation 1">
+  <img src="assets/20241027_1202123.jpg" class="gallery-img" alt="Aviation 2">
   <img src="assets/pic3.jpg" class="gallery-img" alt="Aviation 3">
 </div>
 
