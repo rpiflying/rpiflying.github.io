@@ -3,53 +3,94 @@ layout: home
 ---
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
   :root {
     --rpi-red: #D6001C;
-    --sidebar-width: 250px;
+    --dark-blue: #011E5D;
   }
 
-  /* 1. Reset the Jekyll Container constraints */
+  /* 1. Hiding the default Jekyll Header */
+  header.site-header, .site-title, #header { 
+    display: none !important; 
+  }
+
   body, html {
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
     overflow-x: hidden;
     font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
   }
 
-  /* This targets the default Jekyll wrapper to allow full-width children */
-  .wrapper, .main-content, .container {
-    max-width: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  /* 2. The Full-Width Hero Section */
-  .hero-section {
-    position: relative;
-    width: 100vw; /* Forces 100% of viewport width */
-    height: 70vh;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+  /* 2. Custom Top Navigation Bar */
+  .top-nav {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    z-index: 9999;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    box-sizing: border-box;
+  }
+
+  .nav-logo {
+    font-weight: 800;
+    color: var(--rpi-red);
+    text-decoration: none;
+    font-size: 1.2rem;
+    letter-spacing: -1px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav-item {
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+
+  .nav-item:hover {
+    color: var(--rpi-red);
+    background: rgba(214, 0, 28, 0.05);
+  }
+
+  .nav-btn-special {
+    background: var(--rpi-red);
+    color: white !important;
+    box-shadow: 0 4px 10px rgba(214, 0, 28, 0.2);
+  }
+
+  /* 3. Full-Width Hero Section */
+  .hero-section {
+    position: relative;
+    width: 100vw;
+    height: 85vh; /* Taller hero since nav is now at top */
     background-image: url('assets/BANNER.png');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Darkens banner for text pop */
-    backdrop-filter: blur(4px); /* The blur you requested */
-    z-index: 1;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+    backdrop-filter: blur(2px);
   }
 
   .hero-text {
@@ -58,156 +99,121 @@ layout: home
     color: white;
     z-index: 2;
     padding: 20px;
-    animation: fadeInUp 1s ease-out;
   }
 
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* 3. Navigation Sidebar (Desktop) */
-  .custom-sidebar {
-    width: var(--sidebar-width);
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.98);
-    border-right: 1px solid #eee;
-    position: fixed;
-    top: 0; left: 0;
-    padding: 40px 20px;
-    z-index: 1000;
-  }
-
-  .sidebar-link {
-    display: block;
-    text-decoration: none;
-    color: #444;
-    font-weight: 600;
-    padding: 12px 15px;
-    margin-bottom: 8px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-  }
-
-  .sidebar-link:hover {
-    background: var(--rpi-red);
-    color: white !important;
-    transform: translateX(8px);
-  }
-
-  /* 4. Content Area */
-  .page-body {
-    margin-left: var(--sidebar-width);
+  /* 4. Content Styling */
+  .main-wrapper {
     background: white;
-    min-height: 100vh;
     position: relative;
+    z-index: 10;
+    margin-top: -5vh; /* Overlaps hero slightly */
+    border-radius: 40px 40px 0 0;
+    padding: 80px 5%;
   }
 
-  .section-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 80px 40px;
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto;
   }
 
-  /* Buttons & Cards */
-  .btn-join { 
-    background-color: var(--rpi-red); 
-    color: white !important; 
-    padding: 16px 45px; 
-    text-decoration: none; 
-    border-radius: 50px; 
-    font-weight: 800; 
-    display: inline-block;
+  .benefit-card {
+    padding: 40px;
+    border-radius: 24px;
+    background: #fdfdfd;
+    border: 1px solid #f0f0f0;
+    transition: 0.4s;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+  }
+
+  /* 5. Discord Floating Button */
+  .discord-fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #5865F2;
+    color: white !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(88, 101, 242, 0.4);
+    z-index: 9999;
+    text-decoration: none;
     transition: 0.3s;
-    box-shadow: 0 10px 20px rgba(214, 0, 28, 0.3);
-    text-transform: uppercase;
-    letter-spacing: 1px;
   }
 
-  .btn-join:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(214, 0, 28, 0.4); }
+  .discord-fab:hover { transform: scale(1.1) rotate(5deg); }
 
-  .benefit-card { 
-    border: 1px solid #f0f0f0; 
-    padding: 35px; 
-    border-radius: 20px; 
-    background: #fff; 
-    transition: 0.4s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-  }
-
-  .benefit-card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-
-  /* Mobile Adjustments */
-  @media (max-width: 900px) {
-    .custom-sidebar { width: 100%; height: auto; position: relative; display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
-    .page-body { margin-left: 0; }
-    .hero-section { width: 100%; left: 0; margin: 0; }
+  @media (max-width: 768px) {
+    .nav-links { display: none; } /* We can add a mobile menu later */
+    .hero-text h1 { font-size: 2.5rem !important; }
   }
 </style>
 
-<nav class="custom-sidebar">
-  <div style="font-weight: 800; color: #D6001C; margin-bottom: 30px; font-size: 1.4em;">RPI FLYING CLUB</div>
-  <a href="/" class="sidebar-link">Home</a>
-  <a href="/join" class="sidebar-link">Join Now</a>
-  <a href="#benefits" class="sidebar-link">Benefits</a>
-  <a href="#leadership" class="sidebar-link">Leadership</a>
-  <a href="mailto:rpiflying@gmail.com" class="sidebar-link">Contact</a>
+<nav class="top-nav">
+  <a href="/" class="nav-logo">RPI FLYING CLUB</a>
+  <div class="nav-links">
+    <a href="/about" class="nav-item">About</a>
+    <a href="/ground-school" class="nav-item">Ground School</a>
+    <a href="#leadership" class="nav-item">Officers</a>
+    <a href="/calendar" class="nav-item">Calendar</a>
+    <a href="/join" class="nav-item nav-btn-special">Join Us</a>
+  </div>
 </nav>
 
-<div class="page-body">
-  <header class="hero-section">
-    <div class="hero-overlay"></div>
-    <div class="hero-text">
-      <h1 style="font-size: 4em; font-weight: 800; margin: 0; letter-spacing: -2px;">Your Journey Starts Here</h1>
-      <p style="font-size: 1.5em; font-weight: 300; opacity: 0.9; margin-top: 10px;">Advancing Aviation at Rensselaer</p>
-    </div>
-  </header>
+<a href="https://discord.gg/rXG86ZeBwj" class="discord-fab" target="_blank">
+  <span style="font-weight: 800; font-size: 0.7rem;">DISCORD</span>
+</a>
 
-  <div class="section-container">
-  <div style="text-align: center; margin-bottom: 100px;">
-    <h2 style="font-size: 2.2em; color: #111;">Pilot? Planespotter? Aviation enthusiast?</h2>
-    <p style="color: #666; font-size: 1.2em; max-width: 650px; margin: 25px auto; line-height: 1.8;">
-      We are the club for you. We provide the resources, community, and connections to help you take to the skies and jumpstart your aviation journey.
+<header class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <h1 style="font-size: 5rem; font-weight: 800; margin: 0; letter-spacing: -3px; line-height: 0.9;">YOUR JOURNEY<br>STARTS HERE</h1>
+    <p style="font-size: 1.5rem; font-weight: 300; margin-top: 20px; letter-spacing: 2px; text-transform: uppercase;">Advancing Aviation at Rensselaer</p>
+  </div>
+</header>
+
+<div class="main-wrapper">
+  <div style="text-align: center; max-width: 800px; margin: 0 auto 60px;">
+    <h2 style="font-size: 2.5rem; font-weight: 800; color: #111;">Pilot? Planespotter?<br>Aviation enthusiast?</h2>
+    <p style="font-size: 1.2rem; color: #666; line-height: 1.8; margin-top: 20px;">
+      We are the club for you. From flight training resources to industry networking, we make aviation accessible to the RPI community.
     </p>
-    <br>
-    <a href="/join" class="btn-join">Get On The Flight List</a>
   </div>
 
-  <div id="benefits" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+  <div class="grid">
     <div class="benefit-card">
-      <h3 style="color: var(--rpi-red); font-size: 1.5em;">Membership</h3>
-      <p style="font-size: 1.1em;"><strong>$30 / Semester</strong> or <strong>$50 / Year</strong></p>
-      <ul style="padding-left: 20px; color: #555; line-height: 2;">
-        <li>All club meetings, trips, & events</li>
-        <li>Discounted paid trip fees</li>
-        <li>Free food & drinks at Social Nights</li>
-        <li>Exclusive club merchandise & stickers</li>
-      </ul>
+      <h3 style="color: var(--rpi-red); font-size: 1.8rem;">Membership</h3>
+      <p style="font-size: 1.1rem; font-weight: 600;">$30 / Semester • $50 / Year</p>
+      <p style="color: #666;">Includes access to all fly-ins, airport tours, social nights (with free food), and exclusive merchandise.</p>
     </div>
-    <div class="benefit-card">
-      <h3 style="color: var(--rpi-red); font-size: 1.5em;">Industry Network</h3>
-      <p>Access alumni connections from companies like:</p>
-      <div style="font-weight: 800; color: #222; margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.8em; letter-spacing: 1px;">
-        <span>BOEING</span>
-        <span>DELTA</span>
-        <span>LOCKHEED MARTIN</span>
-        <span>PRATT & WHITNEY</span>
-      </div>
-    </div>
+
+  <div class="benefit-card">
+    <h3 style="color: var(--rpi-red); font-size: 1.8rem;">Career Path</h3>
+    <p style="color: #666;">Join a network of alumni at <strong>Boeing, Delta, Lockheed Martin,</strong> and <strong>Pratt & Whitney</strong>.</p>
+  </div>
   </div>
 
-  <h2 id="leadership" style="margin-top: 100px; text-align: center; font-weight: 800; font-size: 2em;">Our Leadership</h2>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; margin-top: 50px; text-align: center;">
-    <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Andreas</strong><br><small style="text-transform: uppercase; color: #888;">President</small></div>
-    <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Jordan</strong><br><small style="text-transform: uppercase; color: #888;">Vice President</small></div>
-    <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Shane</strong><br><small style="text-transform: uppercase; color: #888;">Treasurer</small></div>
-    <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Stella</strong><br><small style="text-transform: uppercase; color: #888;">Secretary</small></div>
-    <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Matthew</strong><br><small style="text-transform: uppercase; color: #888;">Safety Officer</small></div>
+  <h2 id="leadership" style="text-align: center; font-size: 2.5rem; font-weight: 800; margin-top: 100px;">Our Leadership</h2>
+  <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); text-align: center;">
+    <div><strong style="color: var(--rpi-red); font-size: 1.3rem;">Andreas</strong><br><small>President</small></div>
+    <div><strong style="color: var(--rpi-red); font-size: 1.3rem;">Jordan</strong><br><small>Vice President</small></div>
+    <div><strong style="color: var(--rpi-red); font-size: 1.3rem;">Shane</strong><br><small>Treasurer</small></div>
+    <div><strong style="color: var(--rpi-red); font-size: 1.3rem;">Stella</strong><br><small>Secretary</small></div>
+    <div><strong style="color: var(--rpi-red); font-size: 1.3rem;">Matthew</strong><br><small>Safety Officer</small></div>
   </div>
 
-  <footer style="margin-top: 120px; text-align: center; border-top: 1px solid #eee; padding-top: 50px; color: #bbb; font-size: 0.9em;">
+  <footer style="margin-top: 100px; text-align: center; padding-top: 40px; border-top: 1px solid #eee; color: #ccc; font-size: 0.9rem;">
     <p>Rensselaer Union, Troy, NY | rpiflying@gmail.com</p>
-    <p style="margin-top: 10px;">© 2026 RPI Flying Club. All rights reserved.</p>
+    <p>© 2026 RPI Flying Club</p>
   </footer>
-  </div>
 </div>
