@@ -1,12 +1,14 @@
 ---
 layout: home
+title: RPI Flying Club
 ---
 
-# Clear for Takeoff ✈️
-Welcome to the **RPI Flying Club**! We are a community of pilots, enthusiasts, and students dedicated to aviation at RPI.
+## Clear for Takeoff ✈️
+The RPI Flying Club is the hub for aviation enthusiasts, student pilots, and anyone interested in the skies at Rensselaer Polytechnic Institute.
 
-### Join the Club
-* **Meetings:** Union Room 3202 (Tuesdays at 7 PM)
-* **Fly-ins:** Monthly trips to KSYR or KALB.
+### What We Do
+* **Ground School Study:** Prep for your FAA written exams with fellow students.
+* **Fly-ins:** Join us for trips to local airports like KALB and KSCH.
+* **Simulator Sessions:** Practice your maneuvers on campus.
 
-[Contact Us](mailto:flying-officers@rpi.edu)
+[**Ready to join? Fill out our Membership Form!**](/join)
