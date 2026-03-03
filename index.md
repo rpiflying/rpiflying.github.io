@@ -5,47 +5,79 @@ layout: home
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
 
-  body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; }
-  
-  /* Theme Overrides */
-  #header { background: #ffffff; border-bottom: 1px solid #eee; padding: 20px 0; }
-  #header h1 { color: #D6001C !important; font-weight: 700; letter-spacing: -1px; }
-  
-  .banner-container { width: 100%; margin-bottom: 40px; }
-  .banner-img { width: 100%; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-  
+  body { 
+    font-family: 'Inter', sans-serif; 
+    color: #333; 
+    line-height: 1.6; 
+    /* Fade in the whole page on load */
+    animation: fadeInPage 0.8s ease-in;
+  }
+
+  @keyframes fadeInPage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Dynamic Join Button */
   .btn-join { 
     background-color: #D6001C; 
     color: white !important; 
-    padding: 12px 30px; 
+    padding: 14px 35px; 
     text-decoration: none; 
-    border-radius: 2px; 
-    font-weight: 600; 
+    border-radius: 4px; 
+    font-weight: 700; 
     display: inline-block;
-    transition: opacity 0.2s;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+    box-shadow: 0 4px 15px rgba(214, 0, 28, 0.3);
   }
-  .btn-join:hover { opacity: 0.8; }
 
-  /* Sections */
-  .section-title { text-align: center; font-weight: 700; color: #111; margin-top: 50px; }
-  .grid-container { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 20px; 
-    margin: 40px 0; 
+  .btn-join:hover { 
+    transform: scale(1.05); 
+    box-shadow: 0 8px 25px rgba(214, 0, 28, 0.4);
+    background-color: #ff0022;
+  }
+
+  /* Interactive Cards (Benefits & Career) */
+  .card { 
+    border: 1px solid #eee; 
+    padding: 25px; 
+    border-radius: 12px; 
+    background: #ffffff; 
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-10px); /* Lift up effect */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border-color: #D6001C;
+  }
+
+  /* Image Gallery Hover */
+  .gallery-img { 
+    width: 100%; 
+    height: 250px; 
+    object-fit: cover; 
+    border-radius: 8px;
+    transition: all 0.5s ease;
+    filter: brightness(0.9);
+  }
+
+  .gallery-img:hover { 
+    filter: brightness(1.1);
+    transform: scale(1.02);
+    cursor: pointer;
+  }
+
+  /* Officer Grid Interaction */
+  .officer-item {
+    padding: 10px;
+    transition: transform 0.2s;
   }
   
-  .card { border: 1px solid #eee; padding: 20px; border-radius: 8px; background: #fafafa; }
-  .benefit-list { list-style: none; padding: 0; }
-  .benefit-list li::before { content: "✓ "; color: #D6001C; font-weight: bold; }
-
-  .officer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    text-align: center;
-    margin-top: 30px;
+  .officer-item:hover {
+    transform: scale(1.1);
   }
+
   .officer-name { font-weight: 700; display: block; color: #D6001C; }
   .officer-title { font-size: 0.85em; text-transform: uppercase; color: #666; }
 </style>
@@ -86,11 +118,11 @@ layout: home
 
 <h2 class="section-title">Our Leadership</h2>
 <div class="officer-grid">
-  [cite_start]<div><span class="officer-name">Andreas</span><span class="officer-title">President</span></div> [cite: 58]
-  [cite_start]<div><span class="officer-name">Jordan</span><span class="officer-title">Vice President</span></div> [cite: 61, 62]
-  [cite_start]<div><span class="officer-name">Shane</span><span class="officer-title">Treasurer</span></div> [cite: 63]
-  [cite_start]<div><span class="officer-name">Stella</span><span class="officer-title">Secretary</span></div> [cite: 69]
-  [cite_start]<div><span class="officer-name">Matthew</span><span class="officer-title">Flight Safety</span></div> [cite: 59, 60]
+  <div class="officer-item"><span class="officer-name">Andreas</span><span class="officer-title">President</span></div>
+  <div class="officer-item"><span class="officer-name">Jordan</span><span class="officer-title">Vice President</span></div>
+  <div class="officer-item"><span class="officer-name">Shane</span><span class="officer-title">Treasurer</span></div>
+  <div class="officer-item"><span class="officer-name">Stella</span><span class="officer-title">Secretary</span></div>
+  <div class="officer-item"><span class="officer-name">Matthew</span><span class="officer-title">Flight Safety</span></div>
 </div>
 
 <h2 class="section-title">Gallery</h2>
