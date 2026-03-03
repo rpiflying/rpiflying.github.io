@@ -164,50 +164,50 @@ layout: home
   </header>
 
   <div class="section-container">
-    <div style="text-align: center; margin-bottom: 100px;">
-      <h2 style="font-size: 2.2em; color: #111;">Pilot? Planespotter? Aviation enthusiast?</h2>
-      <p style="color: #666; font-size: 1.2em; max-width: 650px; margin: 25px auto; line-height: 1.8;">
-        We are the club for you. We provide the resources, community, and connections to help you take to the skies and jumpstart your aviation journey.
-      </p>
-      <br>
-      <a href="/join" class="btn-join">Get On The Flight List</a>
-    </div>
+  <div style="text-align: center; margin-bottom: 100px;">
+    <h2 style="font-size: 2.2em; color: #111;">Pilot? Planespotter? Aviation enthusiast?</h2>
+    <p style="color: #666; font-size: 1.2em; max-width: 650px; margin: 25px auto; line-height: 1.8;">
+      We are the club for you. We provide the resources, community, and connections to help you take to the skies and jumpstart your aviation journey.
+    </p>
+    <br>
+    <a href="/join" class="btn-join">Get On The Flight List</a>
+  </div>
 
-    <div id="benefits" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-      <div class="benefit-card">
-        <h3 style="color: var(--rpi-red); font-size: 1.5em;">Membership</h3>
-        <p style="font-size: 1.1em;"><strong>$30 / Semester</strong> or <strong>$50 / Year</strong></p>
-        <ul style="padding-left: 20px; color: #555; line-height: 2;">
-          <li>All club meetings, trips, & events</li>
-          <li>Discounted paid trip fees</li>
-          <li>Free food & drinks at Social Nights</li>
-          <li>Exclusive club merchandise & stickers</li>
-        </ul>
+  <div id="benefits" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+    <div class="benefit-card">
+      <h3 style="color: var(--rpi-red); font-size: 1.5em;">Membership</h3>
+      <p style="font-size: 1.1em;"><strong>$30 / Semester</strong> or <strong>$50 / Year</strong></p>
+      <ul style="padding-left: 20px; color: #555; line-height: 2;">
+        <li>All club meetings, trips, & events</li>
+        <li>Discounted paid trip fees</li>
+        <li>Free food & drinks at Social Nights</li>
+        <li>Exclusive club merchandise & stickers</li>
+      </ul>
+    </div>
+    <div class="benefit-card">
+      <h3 style="color: var(--rpi-red); font-size: 1.5em;">Industry Network</h3>
+      <p>Access alumni connections from companies like:</p>
+      <div style="font-weight: 800; color: #222; margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.8em; letter-spacing: 1px;">
+        <span>BOEING</span>
+        <span>DELTA</span>
+        <span>LOCKHEED MARTIN</span>
+        <span>PRATT & WHITNEY</span>
       </div>
-      <div class="benefit-card">
-        <h3 style="color: var(--rpi-red); font-size: 1.5em;">Industry Network</h3>
-        <p>Access alumni connections from companies like:</p>
-        <div style="font-weight: 800; color: #222; margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.8em; letter-spacing: 1px;">
-          <span>BOEING</span>
-          <span>DELTA</span>
-          <span>LOCKHEED MARTIN</span>
-          <span>PRATT & WHITNEY</span>
-        </div>
-      </div>
     </div>
+  </div>
 
-    <h2 id="leadership" style="margin-top: 100px; text-align: center; font-weight: 800; font-size: 2em;">Our Leadership</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; margin-top: 50px; text-align: center;">
-      <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Andreas</strong><br><small style="text-transform: uppercase; color: #888;">President</small></div>
-      <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Jordan</strong><br><small style="text-transform: uppercase; color: #888;">Vice President</small></div>
-      <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Shane</strong><br><small style="text-transform: uppercase; color: #888;">Treasurer</small></div>
-      <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Stella</strong><br><small style="text-transform: uppercase; color: #888;">Secretary</small></div>
-      <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Matthew</strong><br><small style="text-transform: uppercase; color: #888;">Safety Officer</small></div>
-    </div>
+  <h2 id="leadership" style="margin-top: 100px; text-align: center; font-weight: 800; font-size: 2em;">Our Leadership</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; margin-top: 50px; text-align: center;">
+    <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Andreas</strong><br><small style="text-transform: uppercase; color: #888;">President</small></div>
+    <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Jordan</strong><br><small style="text-transform: uppercase; color: #888;">Vice President</small></div>
+    <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Shane</strong><br><small style="text-transform: uppercase; color: #888;">Treasurer</small></div>
+    <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Stella</strong><br><small style="text-transform: uppercase; color: #888;">Secretary</small></div>
+    <div><strong style="color: var(--rpi-red); font-size: 1.2em;">Matthew</strong><br><small style="text-transform: uppercase; color: #888;">Safety Officer</small></div>
+  </div>
 
-    <footer style="margin-top: 120px; text-align: center; border-top: 1px solid #eee; padding-top: 50px; color: #bbb; font-size: 0.9em;">
-      <p>Rensselaer Union, Troy, NY | rpiflying@gmail.com</p>
-      <p style="margin-top: 10px;">© 2026 RPI Flying Club. All rights reserved.</p>
-    </footer>
+  <footer style="margin-top: 120px; text-align: center; border-top: 1px solid #eee; padding-top: 50px; color: #bbb; font-size: 0.9em;">
+    <p>Rensselaer Union, Troy, NY | rpiflying@gmail.com</p>
+    <p style="margin-top: 10px;">© 2026 RPI Flying Club. All rights reserved.</p>
+  </footer>
   </div>
 </div>
