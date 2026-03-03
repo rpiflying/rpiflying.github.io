@@ -5,7 +5,6 @@ layout: home
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
 
-  /* 1. Global Reset & Layout */
   :root {
     --rpi-red: #D6001C;
     --sidebar-width: 250px;
@@ -14,191 +13,176 @@ layout: home
   body { 
     font-family: 'Inter', sans-serif; 
     color: #333; 
-    line-height: 1.6; 
     margin: 0;
-    animation: fadeInPage 0.8s ease-in;
-    display: flex; /* Flexbox for Sidebar + Main Content */
+    background-color: #fff; /* Solid background for the bottom */
   }
 
-  @keyframes fadeInPage {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  /* 1. The Blurred Background Hero */
+  .hero-section {
+    position: relative;
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
 
-  /* 2. Responsive Sidebar */
+  .hero-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('assets/BANNER.png');
+    background-attachment: fixed; /* This keeps it from moving */
+    background-position: center;
+    background-size: cover;
+    filter: blur(4px) brightness(0.7); /* Subtle blur and darken for text readability */
+    transform: scale(1.1); /* Prevents white edges from the blur */
+    z-index: -1;
+  }
+
+  .hero-text {
+    text-align: center;
+    color: white;
+    z-index: 1;
+    padding: 20px;
+  }
+
+  /* 2. Sidebar Navigation */
   .sidebar {
     width: var(--sidebar-width);
     height: 100vh;
-    background: #f8f9fa;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     border-right: 1px solid #eee;
     position: fixed;
     padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
     z-index: 1000;
   }
 
   .sidebar-link {
+    display: block;
     text-decoration: none;
     color: #555;
     font-weight: 600;
-    padding: 10px 15px;
+    padding: 12px 15px;
+    margin-bottom: 5px;
     border-radius: 8px;
-    transition: all 0.2s;
+    transition: 0.3s;
   }
 
   .sidebar-link:hover {
     background: var(--rpi-red);
     color: white !important;
-    transform: translateX(5px);
   }
 
-  /* 3. Main Content Area */
+  /* 3. Main Content (The "Solid" Part) */
   .main-content {
-    margin-left: var(--sidebar-width); /* Push content past sidebar */
-    width: calc(100% - var(--sidebar-width));
-    min-height: 100vh;
+    margin-left: var(--sidebar-width);
+    background: white; /* This ensures it stays solid while scrolling */
+    position: relative;
+    box-shadow: 0 -20px 40px rgba(0,0,0,0.1);
   }
 
-  /* 4. Full-Width Banner Strategy */
-  .banner-container {
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-  }
-
-  .banner-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    max-height: 500px; /* Limits height on ultra-wide screens */
-  }
-
-  /* 5. Typography & Buttons */
   .content-wrapper {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 60px 40px;
   }
 
+  /* 4. Interactive Elements */
   .btn-join { 
     background-color: var(--rpi-red); 
     color: white !important; 
-    padding: 14px 35px; 
+    padding: 15px 40px; 
     text-decoration: none; 
-    border-radius: 4px; 
+    border-radius: 50px; 
     font-weight: 700; 
     display: inline-block;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 4px 15px rgba(214, 0, 28, 0.3);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(214, 0, 28, 0.3);
   }
 
-  .btn-join:hover { 
-    transform: scale(1.05); 
-    box-shadow: 0 8px 25px rgba(214, 0, 28, 0.4);
-  }
+  .btn-join:hover { transform: scale(1.05) translateY(-3px); }
 
-  /* 6. Mobile Responsiveness */
+  .card { 
+    border: 1px solid #f0f0f0; 
+    padding: 30px; 
+    border-radius: 16px; 
+    background: #fff; 
+    transition: 0.4s; 
+    margin-bottom: 20px;
+  }
+  .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+
+  /* Responsive Fixes */
   @media (max-width: 768px) {
-    body { flex-direction: column; }
-    .sidebar { 
-      width: 100%; 
-      height: auto; 
-      position: relative; 
-      flex-direction: row; 
-      flex-wrap: wrap;
-      padding: 15px;
-      justify-content: center;
-    }
-    .main-content { margin-left: 0; width: 100%; }
-    .sidebar-link { font-size: 0.8em; padding: 5px 10px; }
+    .sidebar { width: 100%; height: auto; position: relative; display: flex; flex-wrap: wrap; justify-content: center; }
+    .main-content { margin-left: 0; }
   }
-
-  /* Grid Styling */
-  .grid-container { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 20px; 
-    margin: 40px 0; 
-  }
-  .card { border: 1px solid #eee; padding: 25px; border-radius: 12px; background: #fff; transition: 0.3s; }
-  .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-  
-  .officer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 20px; }
-  .officer-item { text-align: center; transition: 0.2s; }
-  .officer-item:hover { transform: scale(1.1); }
-  .officer-name { font-weight: 700; display: block; color: var(--rpi-red); }
-  .officer-title { font-size: 0.8em; color: #666; }
 </style>
 
 <nav class="sidebar">
-  <div style="font-weight: 800; color: #D6001C; margin-bottom: 20px; font-size: 1.2em;">RPI FLYING CLUB</div>
+  <div style="font-weight: 800; color: #D6001C; margin-bottom: 30px; font-size: 1.3em; letter-spacing: -1px;">RPI FLYING CLUB</div>
   <a href="/" class="sidebar-link">Home</a>
   <a href="/join" class="sidebar-link">Join Now</a>
-  <a href="#calendar" class="sidebar-link">Calendar</a>
-  <a href="#leadership" class="sidebar-link">Officer Team</a>
-  <a href="#gallery" class="sidebar-link">Gallery</a>
-  [cite_start]<a href="mailto:rpiflying@gmail.com" class="sidebar-link">Contact</a> [cite: 44]
+  <a href="#benefits" class="sidebar-link">Benefits</a>
+  <a href="#leadership" class="sidebar-link">Leadership</a>
+  <a href="mailto:rpiflying@gmail.com" class="sidebar-link">Contact</a>
 </nav>
 
 <main class="main-content">
-  <div class="banner-container">
-    <img src="assets/BANNER.png" class="banner-img" alt="RPI Flying Club Banner">
-  </div>
+  <section class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="hero-text">
+      <h1 style="font-size: 3.5em; font-weight: 800; margin-bottom: 10px;">Your Journey Starts Here</h1>
+      <p style="font-size: 1.4em; font-weight: 300; opacity: 0.9;">Advancing Aviation at Rensselaer</p>
+    </div>
+  </section>
 
   <div class="content-wrapper">
-    <div style="text-align: center; margin-bottom: 60px;">
-      [cite_start]<h1 style="font-weight: 700; font-size: 2.5em; color: #111;">Your Journey Starts Here</h1> [cite: 1]
-      <p style="font-size: 1.2em; color: #666; max-width: 700px; margin: 0 auto 30px;">
-        Pilot? Planespotter? [cite_start]Aviation enthusiast? [cite: 8, 9] [cite_start]We are the club for you. [cite: 13, 15] <br>
-        Advancing aviation at Rensselaer by making flight accessible to everyone.
+    <div style="text-align: center; margin-bottom: 80px;">
+      <h2 style="font-size: 2em; color: #111;">Pilot? Planespotter? Aviation enthusiast?</h2>
+      <p style="color: #666; font-size: 1.1em; max-width: 600px; margin: 20px auto;">
+        We are the club for you. We provide the resources, community, and connections to help you take to the skies.
       </p>
+      <br>
       <a href="/join" class="btn-join">Get On The Flight List</a>
     </div>
 
-  <h2 id="benefits" style="font-weight: 700;">Member Benefits</h2>
-    <div class="grid-container">
+  <div id="benefits" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
       <div class="card">
-        [cite_start]<h3 style="color: #D6001C;">Membership</h3> [cite: 46]
-        [cite_start]<p><strong>$30 / Semester</strong> [cite: 19][cite_start]<br>Or save $10 with the $50 Annual Plan! [cite: 21, 22]</p>
-        <ul style="padding-left: 18px;">
-          [cite_start]<li>All club meetings, trips, & events [cite: 24, 25]</li>
-          [cite_start]<li>Discounted paid trip fees [cite: 26]</li>
-          [cite_start]<li>Free food & drinks at Social Nights [cite: 28, 29]</li>
-          [cite_start]<li>Coming Soon: RFC Stickers & Merch [cite: 31, 32, 33]</li>
+        <h3 style="color: var(--rpi-red);">Membership</h3>
+        <p><strong>$30 / Semester</strong> or <strong>$50 / Year</strong></p>
+        <ul style="padding-left: 20px; color: #555;">
+          <li>Access to all club meetings & trips</li>
+          <li>Discounted paid trip fees</li>
+          <li>Free food & drinks at Social Nights</li>
+          <li>Exclusive club merchandise</li>
         </ul>
       </div>
       <div class="card">
-        [cite_start]<h3 style="color: #D6001C;">Industry Connections</h3> [cite: 38]
-        [cite_start]<p>Gain access to alumni at top-tier aviation companies: [cite: 38, 39]</p>
-        <div style="font-weight: 700; color: #444; margin-top: 15px; font-size: 0.9em; letter-spacing: 1px;">
-          BOEING | DELTA | LOCKHEED MARTIN | [cite_start]PRATT & WHITNEY [cite: 40, 41, 42, 43]
+        <h3 style="color: var(--rpi-red);">Career Growth</h3>
+        <p>Connect with alumni at industry leaders:</p>
+        <div style="font-weight: 700; color: #333; margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px;">
+          <span>BOEING</span> | <span>DELTA</span> | <span>LOCKHEED</span> | <span>PRATT & WHITNEY</span>
         </div>
       </div>
     </div>
 
-  <h2 id="leadership" style="font-weight: 700;">Our Leadership</h2>
-    <div class="officer-grid">
-      [cite_start]<div class="officer-item"><span class="officer-name">Andreas</span><span class="officer-title">President</span></div> [cite: 58]
-      [cite_start]<div class="officer-item"><span class="officer-name">Jordan</span><span class="officer-title">Vice President</span></div> [cite: 61, 62]
-      [cite_start]<div class="officer-item"><span class="officer-name">Shane</span><span class="officer-title">Treasurer</span></div> [cite: 63]
-      [cite_start]<div class="officer-item"><span class="officer-name">Stella</span><span class="officer-title">Secretary</span></div> [cite: 69]
-      [cite_start]<div class="officer-item"><span class="officer-name">Matthew</span><span class="officer-title">Flight Safety Officer</span></div> [cite: 59, 60]
+  <h2 id="leadership" style="margin-top: 80px; text-align: center;">Our Leadership</h2>
+    <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-top: 40px;">
+      <div style="text-align: center;"><strong style="color: var(--rpi-red);">Andreas</strong><br><small>President</small></div>
+      <div style="text-align: center;"><strong style="color: var(--rpi-red);">Jordan</strong><br><small>Vice President</small></div>
+      <div style="text-align: center;"><strong style="color: var(--rpi-red);">Shane</strong><br><small>Treasurer</small></div>
+      <div style="text-align: center;"><strong style="color: var(--rpi-red);">Stella</strong><br><small>Secretary</small></div>
+      <div style="text-align: center;"><strong style="color: var(--rpi-red);">Matthew</strong><br><small>Safety Officer</small></div>
     </div>
 
-  <h2 id="gallery" style="font-weight: 700; margin-top: 60px;">Gallery</h2>
-    <div class="grid-container">
-      <img src="assets/20240915_141521.jpg" style="width:100%; height:250px; object-fit:cover; border-radius:12px;" alt="Aviation 1">
-      <img src="assets/20241027_1202123.jpg" style="width:100%; height:250px; object-fit:cover; border-radius:12px;" alt="Aviation 2">
-      <img src="assets/pic3.jpg" style="width:100%; height:250px; object-fit:cover; border-radius:12px;" alt="Aviation 3">
-    </div>
-
-  <hr style="margin: 60px 0; border: 0; border-top: 1px solid #eee;">
-
-  <div style="text-align: center; color: #999; font-size: 0.85em; padding-bottom: 40px;">
-      <p>Rensselaer Union, Troy, NY | [cite_start]rpiflying@gmail.com</p> [cite: 44]<br>
-      <p>© 2026 RPI Flying Club. [cite_start]All rights reserved.</p> [cite: 66, 67]
+  <hr style="margin: 80px 0; border: 0; border-top: 1px solid #eee;">
+    
+  <div style="text-align: center; color: #aaa; font-size: 0.9em;">
+      <p>Rensselaer Union, Troy, NY | rpiflying@gmail.com</p>
+      <p>© 2026 RPI Flying Club</p>
     </div>
   </div>
 </main>
