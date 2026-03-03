@@ -47,7 +47,7 @@ layout: home
 </style>
 
 <div class="banner-container">
-  <img src="BANNER.png" class="banner-img" alt="RPI Flying Club">
+  <img src="assets/BANNER.png" class="banner-img" alt="RPI Flying Club">
 </div>
 
 <div style="text-align: center; max-width: 800px; margin: 0 auto;">
@@ -59,14 +59,14 @@ layout: home
 </div>
 
 <div class="grid-container">
-  <img src="pic1.jpg" class="gallery-img" alt="Aviation 1">
-  <img src="pic2.jpg" class="gallery-img" alt="Aviation 2">
-  <img src="pic3.jpg" class="gallery-img" alt="Aviation 3">
+  <img src="assets/pic1.jpg" class="gallery-img" alt="Aviation 1">
+  <img src="assets/pic2.jpg" class="gallery-img" alt="Aviation 2">
+  <img src="assets/pic3.jpg" class="gallery-img" alt="Aviation 3">
 </div>
 
 ---
 
 ### Operations
 * **Location:** Rensselaer Union, Troy, NY
-* **Contact:** [flying-officers@rpi.edu](mailto:flying-officers@rpi.edu)
+* **Contact:** [rpiflying@gmail.com](mailto:flying-officers@rpi.edu)
 * **Status:** [Check Membership Requirements](/join)
