@@ -20,9 +20,10 @@ layout: home
     font-family: 'Inter', sans-serif;
     background: url('assets/bannerbackground.png') no-repeat center center fixed;
     background-size: cover;
+    background-color: #000; /* Dark base for the fade-in */
   }
 
-  /* 1. Navigation */
+  /* 1. Navigation (Hidden on start, fades in) */
   .top-nav {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 80px;
@@ -31,19 +32,16 @@ layout: home
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%; z-index: 9999;
     border-bottom: 1px solid rgba(0,0,0,0.05);
+    animation: fadeIn 2s ease-in-out;
   }
 
-  .nav-logo-img { height: 50px; }
-  .nav-links { display: flex; gap: 20px; align-items: center; }
-  .nav-item { text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; transition: 0.3s; padding: 8px 12px; }
-  .nav-btn-special { background: var(--rpi-red); color: white !important; padding: 10px 20px; border-radius: 4px; }
-
-  /* 2. BLURRED STICKY HERO */
+  /* 2. THE CINEMATIC HERO */
   .hero-container {
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    background: #000;
   }
 
   .hero-banner-bg {
@@ -51,8 +49,9 @@ layout: home
     top: 0; left: 0; width: 100%; height: 100%;
     background: url('assets/BANNER.png') no-repeat center center;
     background-size: cover;
-    filter: blur(8px) brightness(0.7); /* Blurred out as requested */
-    transform: scale(1.1); /* Prevents white edges from the blur */
+    /* Stronger blur and initial darkness */
+    filter: blur(10px) brightness(0.5); 
+    transform: scale(1.1);
     z-index: 1;
   }
 
@@ -61,52 +60,65 @@ layout: home
     height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;    /* Center Horizontal */
-    justify-content: center; /* Center Vertical */
+    align-items: center;
+    justify-content: center;
     z-index: 5;
     color: white;
     text-align: center;
+    /* The Fade-Up Animation */
+    animation: onLoadFadeUp 1.5s cubic-bezier(0.2, 1, 0.3, 1);
   }
 
-  .animated-logo {
-    width: 140px; 
-    margin-top: 50px; /* Positions it a bit lower */
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
-  }
-
+  /* TEXT AT 95% WIDTH */
   .hero-title { 
-    font-size: 13vw; 
+    font-size: 15vw; /* Adjusted for maximum impact */
     font-weight: 900; 
     font-style: italic;
-    line-height: 0.85; 
-    letter-spacing: -0.04em; 
+    line-height: 0.8; 
+    letter-spacing: -0.05em; 
     margin: 0;
     text-transform: uppercase;
-    text-shadow: 0 10px 50px rgba(0,0,0,0.5);
+    width: 95vw; /* 95% width as requested */
+    text-shadow: 0 20px 80px rgba(0,0,0,0.8);
   }
 
   .hero-subtitle {
-    font-size: 2vw;
+    font-size: 2.2vw;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 2vw;
-    margin-top: 30px;
-    padding-left: 2vw;
-    color: white;
+    letter-spacing: 3vw; /* Very wide spread */
+    margin-top: 20px;
+    padding-left: 3vw;
+    opacity: 0.8;
   }
 
-  /* 3. Main Content Wrapper */
+  .animated-logo {
+    width: 150px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 30px rgba(255,255,255,0.4));
+  }
+
+  /* 3. ANIMATIONS */
+  @keyframes onLoadFadeUp {
+    0% { opacity: 0; transform: translateY(50px); filter: blur(10px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* 4. CONTENT SLIDE-OVER */
   .main-wrapper {
     background: white;
     position: relative;
     z-index: 10;
     border-radius: 60px 60px 0 0;
     padding: 100px 8%;
-    box-shadow: 0 -30px 60px rgba(0,0,0,0.3);
+    box-shadow: 0 -40px 100px rgba(0,0,0,0.5); /* Strong shadow for depth */
   }
 
-  /* Achievement / Award Section */
   .achievement-panel {
     background: #ffffff;
     padding: 60px;
@@ -121,7 +133,6 @@ layout: home
 
   .bar-logo { height: 180px; }
 
-  /* Discord FAB */
   .discord-fab {
     position: fixed; bottom: 30px; right: 30px; 
     background: #5865F2;
@@ -134,7 +145,7 @@ layout: home
 </style>
 
 <nav class="top-nav">
-  <a href="/"><img src="assets/RFCLOGO.png" class="nav-logo-img" alt="RFC Logo"></a>
+  <a href="/"><img src="assets/RFCLOGO.png" style="height:50px;" alt="RFC Logo"></a>
   <div class="nav-links">
     <a href="/about" class="nav-item">About</a>
     <a href="/ground-school" class="nav-item">Ground School</a>
@@ -147,7 +158,8 @@ layout: home
 </a>
 
 <div class="hero-container">
-  <div class="hero-banner-bg"></div> <div class="hero-content-layer">
+  <div class="hero-banner-bg"></div>
+  <div class="hero-content-layer">
     <img src="assets/RFC-Discord-Logo-Animated-Extended.gif" class="animated-logo" alt="RFC Logo">
     <h1 class="hero-title">YOUR JOURNEY<br>STARTS HERE</h1>
     <p class="hero-subtitle">RPI FLYING CLUB</p>
@@ -166,20 +178,19 @@ layout: home
   </div>
 
   <div style="text-align: center; margin: 80px 0;">
-    <h2 style="font-size: 3rem; font-weight: 800;">Advancing Aviation at Rensselaer</h2>
-    <p style="color: #666; font-size: 1.25rem; max-width: 750px; margin: 25px auto;">
-      We are the RPI Flying Club. From the flight deck to the classroom, we provide the community and resources to help you take flight.
+    <h2 style="font-size: 3.5rem; font-weight: 800; letter-spacing: -2px;">Advancing Aviation at RPI</h2>
+    <p style="color: #666; font-size: 1.3rem; max-width: 800px; margin: 25px auto; line-height: 1.6;">
+      Whether you're training for your Private Pilot License or just love spotting, the RPI Flying Club is your home on campus.
     </p>
   </div>
 
-  <h2 style="font-weight: 800; font-size: 2rem;">Life at RFC</h2>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
-    <img src="assets/event1.jpg" style="width:100%; height:400px; object-fit:cover; border-radius:20px;" alt="Event 1">
-    <img src="assets/event2.jpg" style="width:100%; height:400px; object-fit:cover; border-radius:20px;" alt="Event 2">
-    <img src="assets/event3.jpg" style="width:100%; height:400px; object-fit:cover; border-radius:20px;" alt="Event 3">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+    <img src="assets/event1.jpg" style="width:100%; height:450px; object-fit:cover; border-radius:25px;" alt="Event 1">
+    <img src="assets/event2.jpg" style="width:100%; height:450px; object-fit:cover; border-radius:25px;" alt="Event 2">
+    <img src="assets/event3.jpg" style="width:100%; height:450px; object-fit:cover; border-radius:25px;" alt="Event 3">
   </div>
 
-  <footer style="text-align: center; padding-top: 80px; margin-top: 100px; border-top: 1px solid #eee; color: #bbb;">
+  <footer style="text-align: center; padding-top: 100px; margin-top: 100px; border-top: 1px solid #eee; color: #bbb;">
     <img src="assets/RFCLOGO.png" style="height: 80px; opacity: 0.8; margin-bottom: 20px;" alt="RFC Logo">
     <p>Rensselaer Union, Troy, NY | rpiflying@gmail.com</p>
     <p>© 2026 RPI Flying Club</p>
