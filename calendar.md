@@ -48,6 +48,11 @@ permalink: /calendar/
   /* Ensure mobile height matches index.md exactly */
   @media (max-width: 768px) { 
     .top-nav { height: 4.5rem; } 
+    .nav-logo-img { 
+      height: 3rem !important; /* The specific mobile height from index.md */
+      width: auto;
+      mix-blend-mode: darken; /* Keeps the logo background invisible */
+    }
   }
 
   .nav-logo-img { height: 3.5rem; width: auto; mix-blend-mode: darken; transition: transform 0.3s; }
