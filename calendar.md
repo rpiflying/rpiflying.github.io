@@ -60,7 +60,7 @@ permalink: /calendar/
   /* BACKGROUND & HERO */
   .hero-banner-bg {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: url('{{ "/assets/BANNER.png" | relative_url }}') no-repeat center center;
+    background: url('{{ "/assets/Heading.png" | relative_url }}') no-repeat center center;
     background-size: cover; filter: blur(3px) brightness(0.6);
     z-index: 1; transition: filter 0.6s ease-out;
   }
