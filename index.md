@@ -287,6 +287,32 @@ layout: home
     cursor: default;
   }
 
+  /* Developer Credit Stuff Footer */
+  .developer-credit {
+    text-decoration: none;
+    color: var(--rfc-blue);
+    font-weight: 800;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  
+  .developer-credit span {
+    font-size: 0.8rem;
+    margin-left: 4px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+  
+  .developer-credit:hover {
+    color: var(--rfc-red);
+    transform: translateY(-2px);
+  }
+  
+  .developer-credit:hover span {
+    transform: translate(2px, -2px); /* Makes the arrow "fly" up and right */
+  }
+
 </style>
 
 <nav class="top-nav">
@@ -395,10 +421,16 @@ layout: home
 </div>
 
   <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
-    <img src="assets/RFCLOGOthin.png" style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; mix-blend-mode: darken;" alt="RFC Logo">
-    <p>© 2026 RPI Flying Club. All rights reserved.</p>
-  </footer>
-</div>
+  <img src="assets/RFCLOGOthin.png" style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; mix-blend-mode: darken;" alt="RFC Logo">
+  
+  <p style="margin-bottom: 0.5rem;">
+    <a href="https://www.linkedin.com/in/your-profile-here" target="_blank" class="developer-credit">
+      Made by Andreas Spiratos <span>↗</span>
+    </a>
+  </p>
+  
+  <p style="font-size: 0.9rem; opacity: 0.7;">© 2026 RPI Flying Club. All rights reserved.</p>
+</footer>
 
 <script>
   window.onscroll = function() {
