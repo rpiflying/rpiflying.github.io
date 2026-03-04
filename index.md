@@ -175,7 +175,7 @@ layout: home
     gap: 3rem; width: 100%; box-sizing: border-box;
   }
 
-  .achievement-text { flex: 1; min-width: 60%; }
+  .achievement-text { flex: 1; } /*min-width: 60%;*/
   .bar-logo { height: 13rem; width: auto; }
 
   /* Social Floating Stack */
