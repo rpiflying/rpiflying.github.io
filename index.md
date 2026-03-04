@@ -38,38 +38,47 @@ layout: home
 
   header.site-header, .site-title, #header, .header-site { display: none !important; }
 
-  /* 1. NAVIGATION */
+  /* 1. NAVIGATION - Made Thinner */
   .top-nav {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 7rem; /* Increased height for the thin logo */
+    top: 0; left: 0; width: 100%; height: 5rem; /* Thinner bar */
     background: #FFF3DC; 
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%; z-index: 9999;
-    border-bottom: 0.25rem solid var(--rfc-gold);
+    border-bottom: 0.2rem solid var(--rfc-gold);
     box-sizing: border-box;
   }
 
-  /* NEW THIN LOGO - BIGGER */
+  /* Thin Logo implementation */
   .nav-logo-img { 
-    height: 6rem; /* Now much larger thanks to the thin aspect ratio */
+    height: 3.5rem; /* Sized for thinner bar */
     width: auto; 
     mix-blend-mode: darken; 
-    transition: transform 0.3s ease;
+    transition: transform 0.3s;
   }
-  .nav-logo-img:hover { transform: scale(1.02); }
+  .nav-logo-img:hover { transform: scale(1.05); }
 
   .nav-links { display: flex; gap: 1rem; align-items: center; }
   .nav-item { 
     text-decoration: none; color: var(--rfc-blue); font-weight: 800; 
-    font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;
-    padding: 0.6rem 1rem; transition: 0.3s;
+    font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+    padding: 0.5rem 0.8rem; transition: 0.3s;
   }
   .nav-item:hover { color: var(--rfc-red); }
 
-  .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 10001; }
-  .menu-toggle span { width: 35px; height: 3px; background: var(--rfc-blue); border-radius: 10px; }
+  .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 10001; }
+  .menu-toggle span { width: 30px; height: 3px; background: var(--rfc-blue); border-radius: 10px; }
 
   /* 2. HERO SECTION */
+  .hero-banner-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: url('assets/BANNER.png') no-repeat center center;
+    background-size: cover;
+    filter: blur(3px) brightness(0.6);
+    z-index: 1; transition: filter 0.6s ease-out;
+  }
+  .blurred-more { filter: blur(18px) brightness(0.35) !important; }
+
   .hero-content-layer {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -102,39 +111,61 @@ layout: home
 
   .section-title {
     font-family: 'Notable', sans-serif;
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-size: clamp(2rem, 5vw, 3.8rem);
     color: var(--rfc-blue);
     text-align: center;
     margin-bottom: 3rem;
+    line-height: 1.1;
   }
 
-  /* 4. SOCIAL BUTTONS (Discord & Instagram) */
+  .advancing-panel { text-align: center; margin-bottom: 6rem; }
+  .advancing-panel p { color: #333; font-size: 1.4rem; max-width: 900px; margin: 0 auto; line-height: 1.7; }
+
+  .achievement-panel {
+    background: white; padding: 4rem; border-radius: 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; margin-bottom: 6rem; border: 0.6rem solid var(--rfc-red);
+    gap: 3rem; width: 100%; box-sizing: border-box;
+  }
+
+  .achievement-text { flex: 1; min-width: 60%; }
+  .bar-logo { height: 13rem; width: auto; }
+
+  /* Social Floating Stack */
   .social-stack {
     position: fixed; bottom: 2.5rem; right: 2.5rem; 
     display: flex; flex-direction: column; gap: 1rem; z-index: 99999;
   }
-
   .social-fab {
     width: 4.5rem; height: 4.5rem; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.3);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     background: white; overflow: hidden;
   }
-  .social-fab:hover { transform: scale(1.15) translateY(-5px); box-shadow: 0 1rem 2rem rgba(0,0,0,0.4); }
+  .social-fab:hover { transform: scale(1.15) translateY(-5px); }
   .social-fab img { width: 100%; height: 100%; object-fit: cover; }
 
-  /* Mobile Responsive */
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 2rem; }
+  .gallery-img { width: 100%; height: 30rem; object-fit: cover; border-radius: 2rem; }
+
   @media (max-width: 992px) {
     .menu-toggle { display: flex; }
     .nav-links {
       position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
       background: var(--rfc-tan); flex-direction: column; 
       justify-content: center; transition: 0.5s; z-index: 10000;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.3);
     }
     .nav-links.active { right: 0; }
+    .nav-item { font-size: 1.5rem; width: 100%; text-align: center; padding: 1.5rem 0; }
   }
 
+  @media (max-width: 768px) {
+    .hero-subtitle { font-size: 4.5vw; letter-spacing: 1vw; }
+    .top-nav { height: 4.5rem; }
+    .nav-logo-img { height: 3rem; }
+  }
 </style>
 
 <nav class="top-nav">
@@ -154,7 +185,7 @@ layout: home
 </nav>
 
 <div class="social-stack">
-  <a href="https://www.instagram.com/rpiflyingclub/" class="social-fab" target="_blank">
+  <a href="https://www.instagram.com/flyrpi" class="social-fab" target="_blank">
     <img src="assets/Instagram_logo_2016.png" alt="Instagram">
   </a>
   <a href="https://discord.gg/rXG86ZeBwj" class="social-fab" target="_blank">
@@ -182,21 +213,21 @@ layout: home
     <div class="achievement-text">
       <h2 style="font-family: 'Notable', sans-serif; color: var(--rfc-blue); font-size: 2.8rem; margin: 0; line-height: 1.1;">AWARD WINNING BRAND</h2>
       <p style="font-size: 1.3rem; margin-top: 1.5rem; color: var(--rfc-blue); line-height: 1.5;">Winner of the RPI Brand Competition. Designed to reflect the speed and precision of aviation. Our identity is built to represent the future of flight on campus.</p>
-      <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 1rem;">Brand design by Kaden Tennent '25</p>
+      <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 1rem;">Brand design by Kaden Tennent, Ex-President '23-'25</p>
     </div>
     <img src="assets/RPI-Brand-Comp_Runway-Bar_Black-BG-Logo.png" class="bar-logo" alt="Runway Bar Award">
   </div>
 
   <h2 class="section-title">Life at RFC</h2>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 2rem;">
-    <img src="assets/event1.jpg" style="width:100%; height:30rem; object-fit:cover; border-radius:2rem;" alt="Event 1">
-    <img src="assets/event2.jpg" style="width:100%; height:30rem; object-fit:cover; border-radius:2rem;" alt="Event 2">
-    <img src="assets/event3.jpg" style="width:100%; height:30rem; object-fit:cover; border-radius:2rem;" alt="Event 3">
-    <img src="assets/event4.jpg" style="width:100%; height:30rem; object-fit:cover; border-radius:2rem;" alt="Event 4">
+  <div class="gallery-grid">
+    <img src="assets/event1.jpg" class="gallery-img" alt="Event 1">
+    <img src="assets/event2.jpg" class="gallery-img" alt="Event 2">
+    <img src="assets/event3.jpg" class="gallery-img" alt="Event 3">
+    <img src="assets/event4.jpg" class="gallery-img" alt="Event 4">
   </div>
 
   <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
-    <img src="assets/RFCLOGOthin.png" style="height: 6rem; opacity: 0.9; margin-bottom: 2rem; mix-blend-mode: darken;" alt="RFC Logo">
+    <img src="assets/RFCLOGOthin.png" style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; mix-blend-mode: darken;" alt="RFC Logo">
     <p>© 2026 RPI Flying Club. All rights reserved.</p>
   </footer>
 </div>
