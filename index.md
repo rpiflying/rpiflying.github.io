@@ -92,7 +92,7 @@ layout: home
     margin: 0; text-transform: uppercase; 
     width: 90vw; 
     white-space: normal; 
-    text-shadow: 0 1rem 4rem rgba(0,0,0,0.8); color: var(--rfc-tan);
+    text-shadow: 0 1rem 4rem rgba(0,0,0,0.8); color: var(--rfc-red);
   }
 
   .hero-subtitle {
