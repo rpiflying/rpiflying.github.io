@@ -89,15 +89,25 @@ permalink: /join/
     border-radius: 2rem; padding: 2.5rem; margin-bottom: 3rem;
     box-shadow: 0 1rem 2rem rgba(0,0,0,0.05);
   }
-  .onboarding-box h2 { font-family: 'Notable', sans-serif; color: var(--rfc-blue); margin-top: 0; }
+  .onboarding-box h2 { font-family: 'Notable', sans-serif; color: var(--rfc-blue); margin-top: 0; font-size: 1.8rem; }
   
-  .step-list { list-style: none; padding: 0; }
-  .step-list li { margin-bottom: 1rem; font-size: 1.1rem; display: flex; align-items: flex-start; gap: 1rem; }
+  .step-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+  .step-list li { margin-bottom: 1rem; font-size: 1.1rem; display: flex; align-items: flex-start; gap: 1rem; line-height: 1.4; }
   .step-num { 
     background: var(--rfc-red); color: white; border-radius: 50%; 
     min-width: 1.8rem; height: 1.8rem; display: flex; align-items: center; 
     justify-content: center; font-weight: bold; font-size: 0.9rem; margin-top: 0.2rem;
   }
+
+  /* BUTTON STYLING */
+  .external-button {
+    display: inline-block; background: var(--rfc-blue); color: white;
+    text-decoration: none; padding: 1rem 2rem; border-radius: 12px;
+    font-family: 'Loubag-SemiBold', sans-serif; text-transform: uppercase;
+    letter-spacing: 1px; transition: 0.3s; margin-bottom: 2rem;
+    border: 2px solid var(--rfc-blue);
+  }
+  .external-button:hover { background: transparent; color: var(--rfc-blue); transform: scale(1.02); }
 
   .form-container {
     background: white; border-radius: 2rem; border: 4px solid var(--rfc-gold);
@@ -107,7 +117,6 @@ permalink: /join/
   @media (max-width: 900px) {
     .hero-title-small { font-size: 14vw; }
     .main-wrapper { padding: 3rem 5%; }
-    .nav-links { display: none; }
   }
 
   .developer-credit { text-decoration: none; color: var(--rfc-blue); font-weight: 800; transition: 0.3s; }
@@ -142,10 +151,14 @@ permalink: /join/
   <div class="onboarding-box">
     <h2>Become a Member</h2>
     <ul class="step-list">
-      <li><div class="step-num">1</div> <span>Fill out the interest form below to be added to our <strong>official mailing list</strong>.</span></li>
-      <li><div class="step-num">2</div> <span>Join our <strong>Discord server</strong> (link in the bottom right) for real-time updates and community chat.</span></li>
-      <li><div class="step-num">3</div> <span>Come to our next <strong>General Meeting</strong> (check the Calendar for details)!</span></li>
+      <li><div class="step-num">1</div> <span>Complete the <strong>RPI Flying Club Membership Sign-Up | Spring 2026</strong> form below.</span></li>
+      <li><div class="step-num">2</div> <span>Join our <strong>Discord server</strong> (bottom right button) for immediate updates.</span></li>
+      <li><div class="step-num">3</div> <span>Check the <strong>Calendar</strong> for our next Phalanx Room meeting!</span></li>
     </ul>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScA8EwJXh_nF05OwQ8YK7MFxR7l7vNgNr0qqi2jQ5tdF0d3gQ/viewform" target="_blank" class="external-button">
+      Open Form in New Tab ↗
+    </a>
   </div>
 
   <div class="form-container">
