@@ -50,7 +50,12 @@ layout: home
     box-sizing: border-box;
   }
 
-  .nav-logo-img { height: 4rem; width: auto; }
+  /* SOFTWARE FIX FOR WHITE BACKGROUND ON LOGO */
+  .nav-logo-img { 
+    height: 4.5rem; 
+    width: auto; 
+    mix-blend-mode: multiply; /* Removes white background from the PNG */
+  }
 
   .nav-links { display: flex; gap: 1rem; align-items: center; }
   .nav-item { 
@@ -79,12 +84,7 @@ layout: home
     z-index: 5; color: white; text-align: center;
   }
 
-  .animated-logo { 
-    width: 11rem; 
-    margin-bottom: 3.5rem; 
-    opacity: 0.5; 
-    filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
-  }
+  .animated-logo { width: 11rem; margin-bottom: 3.5rem; opacity: 0.65; }
 
   .hero-title { 
     font-family: 'Notable', sans-serif;
@@ -105,15 +105,21 @@ layout: home
     position: relative; z-index: 100; margin-top: 100vh;
     border-radius: 4rem 4rem 0 0; padding: 6rem 8%;
     box-shadow: 0 -3rem 6rem rgba(0,0,0,0.6);
+    box-sizing: border-box; /* Ensures padding doesn't push width out */
   }
 
-  .advancing-panel { text-align: center; margin-bottom: 6rem; }
+  .advancing-panel { 
+    text-align: center; 
+    margin-bottom: 6rem;
+    width: 100%;
+  }
 
   .advancing-panel h2 {
     font-family: 'Notable', sans-serif; 
-    font-size: 3.2vw; /* Scaled to help stay on one line */
+    font-size: clamp(1.5rem, 4.5vw, 4rem); /* Dynamic scaling to prevent overflow */
     color: var(--rfc-blue);
-    margin-bottom: 1.5rem;
+    margin: 0 0 1.5rem 0;
+    width: 100%;
     white-space: nowrap; 
   }
 
@@ -135,8 +141,12 @@ layout: home
   /* Gallery Section */
   .gallery-section { margin-top: 4rem; text-align: center; }
   .gallery-title { font-family: 'Notable', sans-serif; font-size: 2.5rem; color: var(--rfc-blue); margin-bottom: 3rem; }
-  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); gap: 2rem; }
-  .gallery-img { width: 100%; height: 30rem; object-fit: cover; border-radius: 2rem; box-shadow: 0 1rem 2rem rgba(0,0,0,0.1); }
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 2rem; }
+  .gallery-img { width: 100%; height: 25rem; object-fit: cover; border-radius: 2rem; }
+
+  @media (max-width: 1024px) {
+    .advancing-panel h2 { white-space: normal; line-height: 1.2; }
+  }
 
   @media (max-width: 768px) {
     .menu-toggle { display: flex; }
@@ -148,8 +158,8 @@ layout: home
     .nav-links.active { right: 0; }
     .hero-title { font-size: 12vw; white-space: normal; }
     .hero-subtitle { font-size: 4.5vw; letter-spacing: 1vw; }
-    .advancing-panel h2 { font-size: 6vw; white-space: normal; }
     .achievement-text { min-width: 100%; text-align: center; }
+    .achievement-text h2 { font-size: 1.8rem !important; }
   }
 
   .discord-fab {
@@ -163,7 +173,7 @@ layout: home
 </style>
 
 <nav class="top-nav">
-  <a href="/"><img src="assets/RFC_icon.png" class="nav-logo-img" alt="RFC Icon"></a>
+  <a href="/"><img src="assets/RFCLOGO.png" class="nav-logo-img" alt="RFC Logo"></a>
   
   <div class="menu-toggle" id="mobile-menu">
     <span></span><span></span><span></span>
@@ -200,7 +210,7 @@ layout: home
 
   <div class="achievement-panel">
     <div class="achievement-text">
-      <h2 style="font-family: 'Notable', sans-serif; color: var(--rfc-blue); font-size: 2.8rem; margin: 0; line-height: 1.1;">AWARD WINNING BRAND</h2>
+      <h2 style="font-family: 'Notable', sans-serif; color: var(--rfc-blue); font-size: 2.2rem; margin: 0; line-height: 1.1; white-space: nowrap;">AWARD WINNING BRAND</h2>
       <p style="font-size: 1.3rem; margin-top: 1.5rem; color: var(--rfc-blue); line-height: 1.5;">Winner of the RPI Brand Competition. Designed to reflect the speed and precision of aviation. Our identity is built to represent the future of flight on campus.</p>
       <span style="font-size: 0.9rem; color: #888; font-style: italic; display: block; margin-top: 1rem;">Logo designed by Kaden Tennent, Ex-President '23-'25</span>
     </div>
@@ -218,8 +228,8 @@ layout: home
   </div>
 
   <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
-    <img src="assets/RFC_icon.png" style="height: 6rem; opacity: 0.9; margin-bottom: 2rem;" alt="RFC Icon">
-    <p>© 2025 RPI Flying Club. All rights reserved.</p>
+    <img src="assets/RFCLOGO.png" style="height: 6rem; opacity: 0.9; margin-bottom: 2rem; mix-blend-mode: multiply;" alt="RFC Logo">
+    <p>© 2026 RPI Flying Club. All rights reserved.</p>
   </footer>
 </div>
 
