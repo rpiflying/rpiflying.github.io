@@ -38,10 +38,10 @@ layout: home
 
   header.site-header, .site-title, #header, .header-site { display: none !important; }
 
-  /* 1. NAVIGATION - Made Thinner */
+  /* 1. NAVIGATION */
   .top-nav {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 5rem; /* Thinner bar */
+    top: 0; left: 0; width: 100%; height: 5rem;
     background: #FFF3DC; 
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%; z-index: 9999;
@@ -49,9 +49,8 @@ layout: home
     box-sizing: border-box;
   }
 
-  /* Thin Logo implementation */
   .nav-logo-img { 
-    height: 3.5rem; /* Sized for thinner bar */
+    height: 3.5rem; 
     width: auto; 
     mix-blend-mode: darken; 
     transition: transform 0.3s;
@@ -90,7 +89,9 @@ layout: home
   .hero-title { 
     font-family: 'Notable', sans-serif;
     font-size: 11.2vw; font-weight: 900; font-style: italic; line-height: 1; 
-    margin: 0; text-transform: uppercase; width: 98vw; white-space: nowrap;
+    margin: 0; text-transform: uppercase; 
+    width: 90vw; 
+    white-space: normal; 
     text-shadow: 0 1rem 4rem rgba(0,0,0,0.8); color: var(--rfc-tan);
   }
 
@@ -109,9 +110,10 @@ layout: home
     box-shadow: 0 -3rem 6rem rgba(0,0,0,0.6);
   }
 
+  /* RESTORED TITLE SIZE */
   .section-title {
     font-family: 'Notable', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-size: 3.5rem; 
     color: var(--rfc-blue);
     text-align: center;
     margin-bottom: 3rem;
@@ -162,6 +164,8 @@ layout: home
   }
 
   @media (max-width: 768px) {
+    .section-title { font-size: 2.5rem; } /* Mobile Title size */
+    .hero-title { font-size: 14vw; } 
     .hero-subtitle { font-size: 4.5vw; letter-spacing: 1vw; }
     .top-nav { height: 4.5rem; }
     .nav-logo-img { height: 3rem; }
@@ -203,7 +207,7 @@ layout: home
 <div class="main-wrapper">
   
   <div class="advancing-panel">
-    <h1 class="section-title">Advancing Aviation at RPI</h1>
+    <h2 class="section-title">Advancing Aviation at RPI</h2>
     <p>
       Students, Pilots, Engineers, Nerds. We are the community for all aviation enthusiasts at Rensselaer. We provide the resources, networking, and environment to jumpstart your aviation journey.
     </p>
