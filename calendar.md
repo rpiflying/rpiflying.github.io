@@ -139,7 +139,7 @@ permalink: /calendar/
     <div class="meeting-info-box">
       <h2>General Meetings</h2>
       <p style="font-size: 1.1rem; line-height: 1.6; margin: 0;">
-        <strong style="color: var(--rfc-red);">WHEN:</strong> Wednesdays, 8:00 PM <br>
+        <strong style="color: var(--rfc-red);">WHEN:</strong> Wednesdays, 8:00 PM – 9:00 PM <br>
         <strong style="color: var(--rfc-red);">WHERE:</strong> Phalanx Room (RU3502)
       </p>
     </div>
@@ -147,7 +147,7 @@ permalink: /calendar/
       <h2>Officer Meetings</h2>
       <p style="font-size: 1.1rem; line-height: 1.6; margin: 0;">
         <strong style="color: var(--rfc-red);">WHEN:</strong> Tuesdays, 5:00 PM – 6:00 PM <br>
-        <strong style="color: var(--rfc-red);">WHERE:</strong> Room 3602 (RU3602)
+        <strong style="color: var(--rfc-red);">WHERE:</strong> Union 3rd Floor Room 3602 (RU3602)
       </p>
     </div>
   </div>
