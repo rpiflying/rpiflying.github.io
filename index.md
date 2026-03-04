@@ -18,16 +18,16 @@ layout: home
   body { 
     margin: 0; padding: 0;
     font-family: 'Inter', sans-serif;
+    /* This is the base beige background */
     background: url('assets/bannerbackground.png') no-repeat center center fixed;
     background-size: cover;
-    scroll-behavior: smooth;
   }
 
   /* 1. Navigation */
   .top-nav {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 80px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(15px);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%; z-index: 9999;
@@ -49,22 +49,24 @@ layout: home
     padding: 10px 20px; border-radius: 4px;
   }
 
-  /* 2. Massive Hero Banner */
+  /* 2. FIXED HERO BANNER */
   .hero-banner {
     position: relative;
     width: 100%;
-    height: 100vh; /* Fills entire screen on load */
-    background: url('assets/BANNER.png') no-repeat center center;
+    height: 100vh;
+    /* This makes the banner STAY while you scroll */
+    background: url('assets/BANNER.png') no-repeat center center fixed;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
   }
 
   .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+    background: rgba(0, 0, 0, 0.2);
   }
 
   .hero-content {
@@ -72,43 +74,46 @@ layout: home
     z-index: 5;
     text-align: center;
     color: white;
-    width: 90%;
+    width: 100%; /* Ensure full width for text */
   }
 
+  /* ULTRA WIDE & BIG TEXT */
   .hero-title { 
-    font-size: clamp(3rem, 10vw, 8rem); /* Fluid sizing: Big and Wide */
+    font-size: 14vw; /* Scales with screen width */
     font-weight: 900; 
-    font-style: italic; /* Added for extra "speed" look */
+    font-style: italic;
     line-height: 0.8; 
-    letter-spacing: -5px; 
+    letter-spacing: -0.05em; 
     margin: 0;
     text-transform: uppercase;
-    text-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    text-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    width: 100vw;
+    display: block;
   }
 
   .hero-subtitle {
-    font-size: clamp(1rem, 3vw, 2rem);
-    font-weight: 300;
+    font-size: 2.5vw;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 12px; /* Super wide tracking */
-    margin-top: 30px;
-    opacity: 0.9;
+    letter-spacing: 2vw; /* Spreads letters across the page */
+    margin-top: 40px;
+    opacity: 1;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
   }
 
-  /* 3. Main Content Wrapper */
+  /* 3. Main Content Wrapper (Slides UP over the banner) */
   .main-wrapper {
     background: white;
     position: relative;
-    z-index: 10;
+    z-index: 10; /* Sits on top of hero */
     border-radius: 60px 60px 0 0;
     padding: 100px 8%;
-    margin-top: -80px;
-    box-shadow: 0 -20px 60px rgba(0,0,0,0.15);
+    box-shadow: 0 -30px 60px rgba(0,0,0,0.3);
   }
 
-  /* 4. Inverted Achievement Box (Transparent Logo) */
+  /* 4. Achievement Box */
   .achievement-panel {
-    background: #ffffff; /* White background */
+    background: #ffffff;
     padding: 60px;
     border-radius: 30px;
     display: flex;
@@ -117,40 +122,24 @@ layout: home
     flex-wrap: wrap;
     margin: 60px 0;
     color: #111;
-    border: 8px solid var(--rpi-red); /* Thick RPI Red border */
-    box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+    border: 8px solid var(--rpi-red);
   }
 
   .bar-logo {
-    height: 160px; /* Even bigger */
+    height: 180px; 
     transition: transform 0.3s;
   }
-  .bar-logo:hover { transform: scale(1.05); }
 
-  .credit-tag {
-    font-size: 0.8rem;
-    color: #888;
-    margin-top: 10px;
-    display: block;
-    font-style: italic;
-  }
-
-  /* 5. Fixed Discord Button (Removing white outline) */
+  /* 5. Discord FAB */
   .discord-fab {
     position: fixed; bottom: 30px; right: 30px; 
     background: #5865F2;
     width: 70px; height: 70px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 10px 25px rgba(88, 101, 242, 0.4); z-index: 9999;
-    transition: 0.3s;
-    overflow: hidden; /* Clips the white corners of the JPG */
+    overflow: hidden;
   }
-  .discord-fab img { 
-    width: 100%; height: 100%; 
-    object-fit: cover; 
-    mix-blend-mode: multiply; /* Helps blend JPG white background if visible */
-  }
-  .discord-fab:hover { transform: scale(1.1) rotate(-5deg); border: 3px solid white; }
+  .discord-fab img { width: 100%; height: 100%; object-fit: cover; }
 
 </style>
 
@@ -179,21 +168,21 @@ layout: home
   
   <div class="achievement-panel">
     <div style="max-width: 450px;">
-      <h2 style="font-size: 2.5rem; font-weight: 900; margin: 0; letter-spacing: -1px;">AWARD WINNING BRAND</h2>
-      <p style="font-size: 1.2rem; margin-top: 15px; color: #444;">Winner of the RPI Brand Competition. Our identity reflects the speed and precision of the flight line.</p>
-      <span class="credit-tag">Logo designed by Kaden Tennent, Ex-President '23-'25</span>
+      <h2 style="font-size: 2.5rem; font-weight: 900; margin: 0;">AWARD WINNING BRAND</h2>
+      <p style="font-size: 1.2rem; margin-top: 15px; color: #444;">Winner of the RPI Brand Competition. Designed to reflect the speed and precision of aviation.</p>
+      <span style="font-size: 0.8rem; color: #888; font-style: italic;">Logo designed by Kaden Tennent, Ex-President '23-'25</span>
     </div>
-    <img src="assets/RPI-Brand-Comp_Runway-Bar_Black-transparent-Logo.png" class="bar-logo" alt="Runway Bar Award">
+    <img src="assets/RPI-Brand-Comp_Runway-Bar_Black-BG-Logo.png" class="bar-logo" alt="Runway Bar Award">
   </div>
 
   <div style="text-align: center; margin: 100px 0;">
-    <h2 style="font-size: 3rem; font-weight: 800; letter-spacing: -1px;">Advancing Aviation at Rensselaer</h2>
+    <h2 style="font-size: 3rem; font-weight: 800;">Advancing Aviation at Rensselaer</h2>
     <p style="color: #666; font-size: 1.25rem; max-width: 750px; margin: 25px auto; line-height: 1.8;">
-      We are more than just a club; we are a flight crew. Whether you're chasing your PPL or just love the sound of a turboprop, you've found your hangar.
+      We are the RPI Flying Club. Whether you are chasing your private pilot license or simply love aviation, we provide the community and resources to help you take flight.
     </p>
   </div>
 
-  <h2 id="events" style="font-weight: 800; font-size: 2rem;">Life at RFC</h2>
+  <h2 style="font-weight: 800; font-size: 2rem;">Life at RFC</h2>
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
     <img src="assets/event1.jpg" style="width:100%; height:400px; object-fit:cover; border-radius:20px;" alt="Event 1">
     <img src="assets/event2.jpg" style="width:100%; height:400px; object-fit:cover; border-radius:20px;" alt="Event 2">
@@ -201,7 +190,7 @@ layout: home
   </div>
 
   <footer style="text-align: center; padding-top: 80px; margin-top: 100px; border-top: 1px solid #eee; color: #bbb;">
-    <img src="assets/RFCLOGO.png" style="height: 40px; filter: grayscale(1); opacity: 0.3; margin-bottom: 20px;">
+    <img src="assets/RFCLOGO.png" style="height: 80px; opacity: 0.8; margin-bottom: 20px;" alt="RFC Logo">
     <p>Rensselaer Union, Troy, NY | rpiflying@gmail.com</p>
     <p>© 2026 RPI Flying Club</p>
   </footer>
