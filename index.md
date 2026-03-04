@@ -18,16 +18,15 @@ layout: home
   body { 
     margin: 0; padding: 0;
     font-family: 'Inter', sans-serif;
-    /* This is the base beige background */
     background: url('assets/bannerbackground.png') no-repeat center center fixed;
     background-size: cover;
   }
 
-  /* 1. Navigation */
+  /* 1. Navigation Bar */
   .top-nav {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 80px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(15px);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%; z-index: 9999;
@@ -49,69 +48,77 @@ layout: home
     padding: 10px 20px; border-radius: 4px;
   }
 
-  /* 2. FIXED HERO BANNER */
-  .hero-banner {
+  /* 2. CENTERED & SCALED HERO */
+  .hero-container {
     position: relative;
     width: 100%;
     height: 100vh;
-    /* This makes the banner STAY while you scroll */
-    background: url('assets/BANNER.png') no-repeat center center fixed;
-    background-size: cover;
+    overflow: hidden;
+  }
+
+  .hero-banner {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('assets/BANNER.png') no-repeat center center;
+    background-size: cover; /* Ensures the image covers the area without distortion */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;    /* Horizontal Center */
+    justify-content: center; /* Vertical Center */
     z-index: 1;
   }
 
   .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.25);
   }
 
   .hero-content {
     position: relative;
     z-index: 5;
     text-align: center;
-    color: white;
-    width: 100%; /* Ensure full width for text */
+    width: 100%;
   }
 
-  /* ULTRA WIDE & BIG TEXT */
+  /* MASSIVE CENTERED TEXT */
   .hero-title { 
-    font-size: 14vw; /* Scales with screen width */
+    font-size: 13vw; 
     font-weight: 900; 
     font-style: italic;
-    line-height: 0.8; 
-    letter-spacing: -0.05em; 
-    margin: 0;
+    line-height: 0.85; 
+    letter-spacing: -0.04em; 
+    margin: 0 auto;
     text-transform: uppercase;
-    text-shadow: 0 10px 40px rgba(0,0,0,0.5);
-    width: 100vw;
-    display: block;
+    text-shadow: 0 10px 50px rgba(0,0,0,0.6);
+    display: inline-block;
+    width: 100%;
   }
 
   .hero-subtitle {
-    font-size: 2.5vw;
+    font-size: 2.2vw;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 2vw; /* Spreads letters across the page */
-    margin-top: 40px;
-    opacity: 1;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    letter-spacing: 2.2vw;
+    margin-top: 30px;
+    padding-left: 2.2vw; /* Balances the letter spacing offset */
+    text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+    color: white;
   }
 
-  /* 3. Main Content Wrapper (Slides UP over the banner) */
+  /* 3. Main Content Wrapper */
   .main-wrapper {
     background: white;
     position: relative;
-    z-index: 10; /* Sits on top of hero */
+    z-index: 10;
     border-radius: 60px 60px 0 0;
     padding: 100px 8%;
     box-shadow: 0 -30px 60px rgba(0,0,0,0.3);
   }
 
-  /* 4. Achievement Box */
+  /* Achievement Box */
   .achievement-panel {
     background: #ffffff;
     padding: 60px;
@@ -127,10 +134,10 @@ layout: home
 
   .bar-logo {
     height: 180px; 
-    transition: transform 0.3s;
+    border-radius: 10px;
   }
 
-  /* 5. Discord FAB */
+  /* Discord FAB */
   .discord-fab {
     position: fixed; bottom: 30px; right: 30px; 
     background: #5865F2;
@@ -140,7 +147,6 @@ layout: home
     overflow: hidden;
   }
   .discord-fab img { width: 100%; height: 100%; object-fit: cover; }
-
 </style>
 
 <nav class="top-nav">
@@ -156,13 +162,15 @@ layout: home
   <img src="assets/discord-logo-icon-editorial-free-vector.jpg" alt="Discord">
 </a>
 
-<header class="hero-banner">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1 class="hero-title">YOUR JOURNEY<br>STARTS HERE</h1>
-    <p class="hero-subtitle">RPI FLYING CLUB</p>
-  </div>
-</header>
+<div class="hero-container">
+  <header class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">YOUR JOURNEY<br>STARTS HERE</h1>
+      <p class="hero-subtitle">RPI FLYING CLUB</p>
+    </div>
+  </header>
+</div>
 
 <div class="main-wrapper">
   
