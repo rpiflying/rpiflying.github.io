@@ -121,8 +121,7 @@ layout: home
   }
   
   #main-heading {
-    /*font-size: 4rem;  Increased from 3.5rem */
-    font-size: clamp(2rem, 4vw, 4rem);
+    font-size: 4rem;  /*Increased from 3.5rem */
     margin-top: 2rem;
     white-space: nowrap;
   }
