@@ -1,19 +1,20 @@
 ---
 layout: home
 title: RPI Flying Club
-seo_title: RPI Flying Club
+title_override: true 
 ---
 
 <head>
   <title>RPI Flying Club</title>
-  <meta name="description" content="RPI Flying Club">
+  
+  {% seo title=false %}
 
-  <link rel="icon" type="image/png" href="{{ '/assets/RFC_icon.png?v=30' | relative_url }}">
-  <link rel="shortcut icon" type="image/png" href="{{ '/assets/RFC_icon.png?v=30' | relative_url }}">
-  <link rel="apple-touch-icon" href="{{ '/assets/RFC_icon.png?v=30' | relative_url }}">
+  <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico?v=2' | relative_url }}">
+  
+  <meta property="og:title" content="RPI Flying Club">
+  <meta property="og:description" content="The official hub for aviation education, ground school, and aviation events at RPI.">
 
   <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
-  <meta property="og:title" content="RPI Flying Club">
 </head>
 
 <style>
