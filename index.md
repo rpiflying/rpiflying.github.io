@@ -89,14 +89,6 @@ layout: home
     transform: scale(1.05) translateY(-2px) !important; /* Grow and lift */
     color: white !important;
   }
-  /*
-  .nav-item { 
-    text-decoration: none; color: var(--rfc-blue); font-weight: 800; 
-    font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
-    padding: 0.5rem 0.8rem; transition: 0.3s;
-  }
-  .nav-item:hover { color: var(--rfc-red); }
-  */
   .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 10001; }
   .menu-toggle span { width: 30px; height: 3px; background: var(--rfc-blue); border-radius: 10px; }
 
@@ -121,8 +113,7 @@ layout: home
     margin-bottom: 4rem; 
     opacity: 0.75; 
     
-    /*border-radius: 50%;                  Makes it a perfect circle */
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Diamond/Wing shape */
+    border-radius: 50%;                  Makes it a perfect circle */
     border: 4px solid var(--rfc-gold);  /* Adds an aviation gold ring */
     background: rgba(255,255,255,0.1);  /* Subtle glass effect */
     box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Makes the circle "pop" */
