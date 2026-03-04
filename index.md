@@ -92,14 +92,14 @@ layout: home
     margin: 0; text-transform: uppercase; 
     width: 90vw; 
     white-space: normal; 
-    text-shadow: 0 1rem 4rem rgba(0,0,0,0.8); color: var(--rfc-red);
+    text-shadow: 0 1rem 4rem rgba(0,0,0,0.8); color: var(--rfc-tan);
   }
 
   .hero-subtitle {
     font-family: 'Loubag-SemiBold', sans-serif;
     font-weight: 900; font-size: 2.8vw; text-transform: uppercase;
-    letter-spacing: 2.4vw; margin-top: 1.8rem; padding-left: 2.4vw; color: var(--rfc-gold);
-    text-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.5);
+    letter-spacing: 2.4vw; margin-top: 1.8rem; padding-left: 2.4vw; color: var(--rfc-red);
+    text-shadow: 0 1rem 4rem rgba(0,0,0,0.8);
   }
 
   /* 3. MAIN CONTENT */
