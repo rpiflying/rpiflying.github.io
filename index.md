@@ -121,7 +121,7 @@ layout: home
   }
   
   #main-heading {
-    font-size: 3.25rem;  /*Increased from 3.5rem */
+    font-size: 3rem;  /*Increased from 3.5rem */
     margin-top: 1rem;
     white-space: nowrap;
   }
