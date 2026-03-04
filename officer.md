@@ -21,8 +21,10 @@ permalink: /officer-team/
     --rfc-gold: #CC8917;
   }
 
+  /* UI CONSISTENCY FIXES */
   * { box-sizing: border-box; }
-  html { overflow-y: scroll; } 
+  html { overflow-y: scroll; font-size: 16px; }
+  @media (max-width: 768px) { html { font-size: 14px; } }
 
   body { 
     margin: 0; padding: 0;
@@ -33,23 +35,45 @@ permalink: /officer-team/
     overflow-x: hidden;
   }
 
-  /* NAVIGATION */
+  header.site-header, .site-title, #header, .header-site { display: none !important; }
+
+  /* 1. NAVIGATION - Standardized */
   .top-nav {
     position: fixed; top: 0; left: 0; width: 100%; height: 5rem;
     background: #FFF3DC; display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%; z-index: 9999; border-bottom: 0.2rem solid var(--rfc-gold);
+    box-sizing: border-box;
   }
-  .nav-logo-img { height: 3.5rem; width: auto; mix-blend-mode: darken; transition: 0.3s; }
+
+  .nav-logo-img { height: 3.5rem; width: auto; mix-blend-mode: darken; transition: transform 0.3s; }
   .nav-logo-img:hover { transform: scale(1.05); }
+
   .nav-links { display: flex; gap: 1rem; align-items: center; }
+
   .nav-item { 
     text-decoration: none; color: var(--rfc-blue); font-weight: 800; font-size: 0.85rem; 
     text-transform: uppercase; letter-spacing: 1px; padding: 0.6rem 1.2rem; 
-    border-radius: 8px; transition: 0.3s; display: inline-block;
+    border-radius: 8px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative; display: inline-block;
   }
-  .nav-item:hover { color: var(--rfc-red); background-color: rgba(5, 61, 90, 0.08); transform: translateY(-2px); }
 
-  /* SIDEBAR STACK */
+  .nav-item:hover { 
+    background-color: rgba(5, 61, 90, 0.08); 
+    color: var(--rfc-red); 
+    transform: translateY(-2px); 
+  }
+
+  .nav-links a[style*="background: var(--rfc-red)"]:hover {
+    background-color: #a30302 !important;
+    box-shadow: 0 4px 15px rgba(204, 4, 3, 0.3);
+    transform: scale(1.05) translateY(-2px) !important;
+    color: white !important;
+  }
+
+  .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 10001; }
+  .menu-toggle span { width: 30px; height: 3px; background: var(--rfc-blue); border-radius: 10px; }
+
+  /* 2. SIDEBAR STACK */
   .social-stack {
     position: fixed; bottom: 2.5rem; right: 2.5rem; 
     display: flex; flex-direction: column; gap: 1rem; z-index: 99999;
@@ -64,7 +88,7 @@ permalink: /officer-team/
   .social-fab:hover { transform: scale(1.15) translateY(-5px); }
   .social-fab img { width: 100%; height: 100%; object-fit: cover; }
 
-  /* BACKGROUND & HERO */
+  /* 3. HERO SECTION */
   .hero-banner-bg {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: url('{{ "/assets/Heading.png" | relative_url }}') no-repeat center center;
@@ -79,19 +103,16 @@ permalink: /officer-team/
   }
   .hero-title-small { font-family: 'Notable', sans-serif; font-size: 6vw; text-shadow: 0 1rem 3rem rgba(0,0,0,0.8); margin: 0; }
 
-  /* CONTENT WRAPPER */
+  /* 4. MAIN CONTENT WRAPPER */
   .main-wrapper {
     background: var(--rfc-tan); position: relative; z-index: 100;
     border-radius: 4rem 4rem 0 0; padding: 6rem 8%;
     box-shadow: 0 -3rem 6rem rgba(0,0,0,0.6); min-height: 100vh;
   }
 
-  /* OFFICER GRID LOGIC */
+  /* OFFICER GRID LOGIC (FLEX FOR CENTERING) */
   .officer-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem;
   }
 
   .officer-card {
@@ -103,21 +124,12 @@ permalink: /officer-team/
   }
   .officer-card:hover { transform: translateY(-10px); border-color: var(--rfc-red); }
 
-  .officer-img {
-    width: 100%; height: 350px; object-fit: cover;
-    border-bottom: 4px solid var(--rfc-gold);
-  }
-
+  .officer-img { width: 100%; height: 350px; object-fit: cover; border-bottom: 4px solid var(--rfc-gold); }
   .officer-info { padding: 2rem; }
   .officer-name { font-family: 'Notable', sans-serif; color: var(--rfc-blue); font-size: 1.5rem; margin: 0; text-transform: uppercase; }
   .officer-title { color: var(--rfc-red); font-family: 'Loubag-SemiBold'; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 5px; display: block; }
   
-  .officer-meta {
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    color: var(--rfc-blue);
-    opacity: 0.8;
-  }
+  .officer-meta { margin-top: 1rem; font-size: 0.85rem; color: var(--rfc-blue); opacity: 0.8; line-height: 1.6; }
   .officer-meta a { color: var(--rfc-red); text-decoration: none; font-weight: bold; }
 
   .officer-fact { 
@@ -125,25 +137,51 @@ permalink: /officer-team/
     font-size: 1rem; color: #444; line-height: 1.5; font-style: italic;
   }
 
+  /* FOOTER & CREDITS */
+  .developer-credit {
+    text-decoration: none; color: var(--rfc-blue); font-weight: 800; font-size: 1.1rem;
+    transition: all 0.3s ease; display: inline-block;
+  }
+  .developer-credit span { font-size: 0.8rem; margin: 0 4px; transition: transform 0.3s ease; display: inline-block; }
+  .developer-credit:hover { color: var(--rfc-red); transform: translateY(-2px); }
+  .developer-credit:hover span { transform: translate(2px, -2px); }
+
+  /* RESPONSIVENESS */
   @media (max-width: 1100px) {
     .officer-card { flex: 0 1 calc(50% - 2rem); }
+  }
+
+  @media (max-width: 992px) {
+    .menu-toggle { display: flex; }
+    .nav-links {
+      position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
+      background: var(--rfc-tan); display: flex; flex-direction: column; 
+      justify-content: flex-start; padding-top: 6rem; transition: 0.5s; z-index: 10000;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+    }
+    .nav-links.active { right: 0; }
+    .nav-item { font-size: 1.5rem; width: 100%; text-align: center; padding: 1.5rem 0; }
   }
 
   @media (max-width: 768px) {
     .hero-title-small { font-size: 12vw; }
     .main-wrapper { padding: 4rem 5%; }
     .officer-card { flex: 0 1 100%; }
+    .social-stack { bottom: 1.5rem; right: 1.5rem; }
+    .social-fab { width: 3.5rem; height: 3.5rem; }
   }
-
-  .developer-credit { text-decoration: none; color: var(--rfc-blue); font-weight: 800; transition: 0.3s; }
-  .developer-credit:hover { color: var(--rfc-red); }
 </style>
 
 <div class="hero-banner-bg" id="heroBg"></div>
 
 <nav class="top-nav">
   <a href="{{ '/' | relative_url }}"><img src="{{ '/assets/RFCLOGOthin.png' | relative_url }}" class="nav-logo-img" alt="RFC Logo"></a>
-  <div class="nav-links">
+  
+  <div class="menu-toggle" id="mobile-menu">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="nav-links" id="nav-list">
     <a href="{{ '/about' | relative_url }}" class="nav-item">About</a>
     <a href="{{ '/ground-school' | relative_url }}" class="nav-item">Ground School</a>
     <a href="{{ '/officer-team' | relative_url }}" class="nav-item" style="color: var(--rfc-red);">Officers</a>
@@ -220,7 +258,7 @@ permalink: /officer-team/
         <p class="officer-fact">"Fun Fact: I am currently working on my Private Pilot License!"</p>
       </div>
     </div>
-
+  
   <div class="officer-card">
       <img src="{{ '/assets/officer_matthew.jpg' | relative_url }}" class="officer-img" alt="Matthew Fiorenza">
       <div class="officer-info">
@@ -236,9 +274,16 @@ permalink: /officer-team/
   </div>
 
   <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
-    <img src="{{ '/assets/RFCLOGOthin.png' | relative_url }}" style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; display: block; margin-left: auto; margin-right: auto; mix-blend-mode: darken;" alt="RFC Logo">
-    <p><a href="https://www.linkedin.com/in/andreas-spiratos/" target="_blank" class="developer-credit">✈︎ Made by Andreas Spiratos ✈︎</a></p>
-    <p style="font-size: 0.9rem; opacity: 0.7;">© 2026 RPI Flying Club. All rights reserved.</p>
+    <img src="{{ '/assets/RFCLOGOthin.png' | relative_url }}" 
+         style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; display: block; margin-left: auto; margin-right: auto; mix-blend-mode: darken;" 
+         alt="RFC Logo">
+  
+  <p style="margin-bottom: 0.5rem;">
+      <a href="https://www.linkedin.com/in/andreas-spiratos/" target="_blank" class="developer-credit">
+        <span>✈︎</span> Made by Andreas Spiratos (President '25-'26) <span>✈︎</span>
+      </a>
+    </p>
+  <p style="font-size: 0.9rem; opacity: 0.7;">© 2026 RPI Flying Club. All rights reserved.</p>
   </footer>
 </div>
 
@@ -251,4 +296,10 @@ permalink: /officer-team/
       bg.classList.remove("blurred-more");
     }
   };
+
+  const menuToggle = document.getElementById('mobile-menu');
+  const navList = document.getElementById('nav-list');
+  menuToggle.addEventListener('click', () => {
+    navList.classList.toggle('active');
+  });
 </script>
