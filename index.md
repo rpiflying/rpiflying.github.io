@@ -121,7 +121,7 @@ layout: home
   }
   
   #main-heading {
-    font-size: 4.5rem; /* Increased from 3.5rem */
+    font-size: 4rem; /* Increased from 3.5rem */
     margin-top: 2rem;
   }
   @media (max-width: 768px) {
