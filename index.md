@@ -223,7 +223,68 @@ layout: home
     .top-nav { height: 4.5rem; }
     .nav-logo-img { height: 3rem; }
   }
+
+  /*Gallery Clickable Section */
+    /* Full-screen background */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 100000;
+    align-items: center;
+    justify-content: center;
+  }
   
+  /* Show when clicked */
+  .lightbox:target { display: flex; }
+  
+  /* The container for the image/text */
+  .lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .lightbox-content img {
+    max-height: 70vh;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 2px solid var(--rfc-gold);
+  }
+  
+  /* Exit Button Styling */
+  .exit-btn {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    color: white;
+    font-size: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  .exit-btn:hover { color: var(--rfc-red); }
+  
+  /* Caption Styling */
+  .lightbox-caption {
+    text-align: center;
+    margin-top: 15px;
+    color: var(--rfc-tan);
+  }
+  .lightbox-caption h3 { font-family: 'Notable', sans-serif; margin: 0; color: var(--rfc-gold); }
+  
+  /* Click outside image to close */
+  .lightbox-close-overlay {
+    position: absolute;
+    width: 100%; height: 100%;
+    cursor: default;
+  }
+
 </style>
 
 <nav class="top-nav">
@@ -277,12 +338,59 @@ layout: home
   </div>
 
   <h2 class="section-title">Life at RFC</h2>
-  <div class="gallery-grid">
-    <img src="assets/event1.jpg" class="gallery-img" alt="Event 1">
-    <img src="assets/event2.jpg" class="gallery-img" alt="Event 2">
-    <img src="assets/event3.jpg" class="gallery-img" alt="Event 3">
-    <img src="assets/event4.jpg" class="gallery-img" alt="Event 4">
+<div class="gallery-grid">
+  <a href="#event1"><img src="assets/event1.jpg" class="gallery-img" alt="Event 1"></a>
+  <div id="event1" class="lightbox">
+    <a href="#!" class="lightbox-close-overlay"></a>
+    <div class="lightbox-content">
+      <a href="#!" class="exit-btn">&times;</a>
+      <img src="assets/event1.jpg">
+      <div class="lightbox-caption">
+        <h3>Fly-In Day</h3>
+        <p>Spring 2026 • Schenectady County Airport</p>
+      </div>
+    </div>
   </div>
+
+  <a href="#event2"><img src="assets/event2.jpg" class="gallery-img" alt="Event 2"></a>
+  <div id="event2" class="lightbox">
+    <a href="#!" class="lightbox-close-overlay"></a>
+    <div class="lightbox-content">
+      <a href="#!" class="exit-btn">&times;</a>
+      <img src="assets/event2.jpg">
+      <div class="lightbox-caption">
+        <h3>Ground School Session</h3>
+        <p>Winter 2025 • JEC Classroom</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="#event3"><img src="assets/event3.jpg" class="gallery-img" alt="Event 3"></a>
+  <div id="event3" class="lightbox">
+    <a href="#!" class="lightbox-close-overlay"></a>
+    <div class="lightbox-content">
+      <a href="#!" class="exit-btn">&times;</a>
+      <img src="assets/event3.jpg">
+      <div class="lightbox-caption">
+        <h3>Hangar Hangout</h3>
+        <p>Fall 2025 • Local Airfield</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="#event4"><img src="assets/event4.jpg" class="gallery-img" alt="Event 4"></a>
+  <div id="event4" class="lightbox">
+    <a href="#!" class="lightbox-close-overlay"></a>
+    <div class="lightbox-content">
+      <a href="#!" class="exit-btn">&times;</a>
+      <img src="assets/event4.jpg">
+      <div class="lightbox-caption">
+        <h3>Officer Meeting</h3>
+        <p>Fall 2025 • Union 3rd Floor</p>
+      </div>
+    </div>
+  </div>
+</div>
 
   <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
     <img src="assets/RFCLOGOthin.png" style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; mix-blend-mode: darken;" alt="RFC Logo">
