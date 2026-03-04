@@ -224,41 +224,41 @@ permalink: /officer-team/
   
   <div class="officer-grid">
     <div class="officer-card">
-      <img src="{{ '/assets/officer_andreas.jpg' | relative_url }}" class="officer-img" alt="Andreas Spiratos">
+      <img src="{{ '/assets/AndreasSpiratos.jpg' | relative_url }}" class="officer-img" alt="Andreas Spiratos">
       <div class="officer-info">
         <h3 class="officer-name">Andreas Spiratos</h3>
         <span class="officer-title">President</span>
         <div class="officer-meta">
-          📍 Athens, Greece <br>
-          📧 <a href="mailto:andrea@rpi.edu">andrea@rpi.edu</a> <br>
+          📍 Lyndhurst, NJ <br>
+          📧 <a href="mailto:spiraa2@rpi.edu">spiraa2@rpi.edu</a> <br>
           ✈️ <b>Favorite Plane:</b> Concorde
         </div>
-        <p class="officer-fact">"Fun Fact: I once flew a Cessna over the Aegean Sea!"</p>
+        <p class="officer-fact">"Fun Fact: I own a 1989 VW Jetta."</p>
       </div>
     </div>
 
   <div class="officer-card">
-      <img src="{{ '/assets/officer_jordan.jpg' | relative_url }}" class="officer-img" alt="Jordan Woodman">
+      <img src="{{ '/assets/JordanWoodman.jpg' | relative_url }}" class="officer-img" alt="Jordan Woodman">
       <div class="officer-info">
         <h3 class="officer-name">Jordan Woodman</h3>
         <span class="officer-title">Vice President</span>
         <div class="officer-meta">
-          📍 Seattle, WA <br>
-          📧 <a href="mailto:woodmj@rpi.edu">woodmj@rpi.edu</a> <br>
-          ✈️ <b>Favorite Plane:</b> Boeing 787 Dreamliner
+          📍 Bethel, CT <br>
+          📧 <a href="mailto:woodmj2@rpi.edu">woodmj2@rpi.edu</a> <br>
+          ✈️ <b>Favorite Plane:</b> F-35B
         </div>
-        <p class="officer-fact">"Fun Fact: My favorite aircraft is the Boeing 787 Dreamliner!"</p>
+        <p class="officer-fact">"Fun Fact: My dog is fat."</p>
       </div>
     </div>
 
   <div class="officer-card">
-      <img src="{{ '/assets/officer_jack.jpg' | relative_url }}" class="officer-img" alt="Jack Pirrong">
+      <img src="{{ '/assets/JackPirrong.jpg' | relative_url }}" class="officer-img" alt="Jack Pirrong">
       <div class="officer-info">
         <h3 class="officer-name">Jack Pirrong</h3>
         <span class="officer-title">Treasurer</span>
         <div class="officer-meta">
-          📍 Philadelphia, PA <br>
-          📧 <a href="mailto:pirroj@rpi.edu">pirroj@rpi.edu</a> <br>
+          📍 WHO KNOWS?? <br>
+          📧 <a href="mailto:pirroj3@rpi.edu">pirroj3@rpi.edu</a> <br>
           ✈️ <b>Favorite Plane:</b> Cirrus SR22
         </div>
         <p class="officer-fact">"Fun Fact: I have logged over 500 hours in Microsoft Flight Simulator!"</p>
@@ -266,13 +266,13 @@ permalink: /officer-team/
     </div>
 
   <div class="officer-card">
-      <img src="{{ '/assets/officer_stella.jpg' | relative_url }}" class="officer-img" alt="Stella Giarratana">
+      <img src="{{ '/assets/StellaGiarratana.jpg' | relative_url }}" class="officer-img" alt="Stella Giarratana">
       <div class="officer-info">
         <h3 class="officer-name">Stella Giarratana</h3>
         <span class="officer-title">Secretary</span>
         <div class="officer-meta">
           📍 Boston, MA <br>
-          📧 <a href="mailto:giarrs@rpi.edu">giarrs@rpi.edu</a> <br>
+          📧 <a href="mailto:giarrj@rpi.edu">giarrj@rpi.edu</a> <br>
           ✈️ <b>Favorite Plane:</b> Piper Archer
         </div>
         <p class="officer-fact">"Fun Fact: I am currently working on my Private Pilot License!"</p>
@@ -280,13 +280,13 @@ permalink: /officer-team/
     </div>
   
   <div class="officer-card">
-      <img src="{{ '/assets/officer_matthew.jpg' | relative_url }}" class="officer-img" alt="Matthew Fiorenza">
+      <img src="{{ '/assets/MatthewFiorenza.jpg' | relative_url }}" class="officer-img" alt="Matthew Fiorenza">
       <div class="officer-info">
         <h3 class="officer-name">Matthew Fiorenza</h3>
         <span class="officer-title">Flight Safety Officer</span>
         <div class="officer-meta">
           📍 New York, NY <br>
-          📧 <a href="mailto:fiorem@rpi.edu">fiorem@rpi.edu</a> <br>
+          📧 <a href="mailto:fiorem2@rpi.edu">fiorem2@rpi.edu</a> <br>
           ✈️ <b>Favorite Plane:</b> Airbus A350
         </div>
         <p class="officer-fact">"Fun Fact: My dream destination to fly to is the Swiss Alps!"</p>
