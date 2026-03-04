@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Officer Team
+title: Meet the Officers
 permalink: /officer-team/
 ---
 
@@ -49,7 +49,7 @@ permalink: /officer-team/
   }
   .nav-item:hover { color: var(--rfc-red); background-color: rgba(5, 61, 90, 0.08); transform: translateY(-2px); }
 
-  /* SIDEBAR STACK - CONSISTENT WITH JOIN/INDEX */
+  /* SIDEBAR STACK */
   .social-stack {
     position: fixed; bottom: 2.5rem; right: 2.5rem; 
     display: flex; flex-direction: column; gap: 1rem; z-index: 99999;
@@ -86,10 +86,11 @@ permalink: /officer-team/
     box-shadow: 0 -3rem 6rem rgba(0,0,0,0.6); min-height: 100vh;
   }
 
-  /* OFFICER GRID */
+  /* OFFICER GRID LOGIC */
   .officer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 3rem;
   }
 
@@ -97,6 +98,8 @@ permalink: /officer-team/
     background: white; border-radius: 2rem; overflow: hidden;
     border: 4px solid var(--rfc-blue); box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
     transition: 0.3s ease; text-align: center;
+    flex: 0 1 calc(33.333% - 2rem);
+    min-width: 300px;
   }
   .officer-card:hover { transform: translateY(-10px); border-color: var(--rfc-red); }
 
@@ -109,16 +112,27 @@ permalink: /officer-team/
   .officer-name { font-family: 'Notable', sans-serif; color: var(--rfc-blue); font-size: 1.5rem; margin: 0; text-transform: uppercase; }
   .officer-title { color: var(--rfc-red); font-family: 'Loubag-SemiBold'; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 5px; display: block; }
   
+  .officer-meta {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--rfc-blue);
+    opacity: 0.8;
+  }
+  .officer-meta a { color: var(--rfc-red); text-decoration: none; font-weight: bold; }
+
   .officer-fact { 
     margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #eee;
     font-size: 1rem; color: #444; line-height: 1.5; font-style: italic;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
+    .officer-card { flex: 0 1 calc(50% - 2rem); }
+  }
+
+  @media (max-width: 768px) {
     .hero-title-small { font-size: 12vw; }
     .main-wrapper { padding: 4rem 5%; }
-    .social-stack { bottom: 1.5rem; right: 1.5rem; }
-    .social-fab { width: 3.5rem; height: 3.5rem; }
+    .officer-card { flex: 0 1 100%; }
   }
 
   .developer-credit { text-decoration: none; color: var(--rfc-blue); font-weight: 800; transition: 0.3s; }
@@ -148,8 +162,8 @@ permalink: /officer-team/
 </div>
 
 <div class="officer-hero">
-  <h1 class="hero-title-small">MEET THE TEAM</h1>
-  <p style="font-family: 'Loubag-SemiBold'; letter-spacing: 0.5rem; color: var(--rfc-red); text-shadow: 0 5px 15px rgba(0,0,0,0.5);">STUDENTS, PILOTS, ENGINEERS, NERDS. [cite: 64]</p>
+  <h1 class="hero-title-small">MEET THE OFFICERS</h1>
+  <p style="font-family: 'Loubag-SemiBold'; letter-spacing: 0.5rem; color: var(--rfc-red); text-shadow: 0 5px 15px rgba(0,0,0,0.5);">STUDENTS, PILOTS, ENGINEERS, NERDS.</p>
 </div>
 
 <div class="main-wrapper">
@@ -158,18 +172,26 @@ permalink: /officer-team/
     <div class="officer-card">
       <img src="{{ '/assets/officer_andreas.jpg' | relative_url }}" class="officer-img" alt="Andreas Spiratos">
       <div class="officer-info">
-        <h3 class="officer-name">Andreas Spiratos [cite: 58]</h3>
-        <span class="officer-title">President [cite: 58]</span>
-        <p class="officer-fact">"Fun Fact: I once [Add Fun Fact Here]!"</p>
+        <h3 class="officer-name">Andreas Spiratos</h3>
+        <span class="officer-title">President</span>
+        <div class="officer-meta">
+          📍 Athens, Greece <br>
+          📧 <a href="mailto:andrea@rpi.edu">andrea@rpi.edu</a>
+        </div>
+        <p class="officer-fact">"Fun Fact: I once flew a Cessna over the Aegean Sea!"</p>
       </div>
     </div>
 
   <div class="officer-card">
       <img src="{{ '/assets/officer_jordan.jpg' | relative_url }}" class="officer-img" alt="Jordan Woodman">
       <div class="officer-info">
-        <h3 class="officer-name">Jordan Woodman [cite: 61]</h3>
-        <span class="officer-title">Vice President [cite: 62]</span>
-        <p class="officer-fact">"Fun Fact: My favorite aircraft is the [Add Plane Here]!"</p>
+        <h3 class="officer-name">Jordan Woodman</h3>
+        <span class="officer-title">Vice President</span>
+        <div class="officer-meta">
+          📍 Seattle, WA <br>
+          📧 <a href="mailto:woodmj@rpi.edu">woodmj@rpi.edu</a>
+        </div>
+        <p class="officer-fact">"Fun Fact: My favorite aircraft is the Boeing 787 Dreamliner!"</p>
       </div>
     </div>
 
@@ -178,25 +200,37 @@ permalink: /officer-team/
       <div class="officer-info">
         <h3 class="officer-name">Jack Pirrong</h3>
         <span class="officer-title">Treasurer</span>
-        <p class="officer-fact">"Fun Fact: I have logged over [X] hours in flight sims!"</p>
+        <div class="officer-meta">
+          📍 Philadelphia, PA <br>
+          📧 <a href="mailto:pirroj@rpi.edu">pirroj@rpi.edu</a>
+        </div>
+        <p class="officer-fact">"Fun Fact: I have logged over 500 hours in Microsoft Flight Simulator!"</p>
       </div>
     </div>
 
   <div class="officer-card">
       <img src="{{ '/assets/officer_stella.jpg' | relative_url }}" class="officer-img" alt="Stella Giarratana">
       <div class="officer-info">
-        <h3 class="officer-name">Stella Giarratana [cite: 69]</h3>
-        <span class="officer-title">Secretary [cite: 69]</span>
-        <p class="officer-fact">"Fun Fact: I am currently working on my [License Type]!"</p>
+        <h3 class="officer-name">Stella Giarratana</h3>
+        <span class="officer-title">Secretary</span>
+        <div class="officer-meta">
+          📍 Boston, MA <br>
+          📧 <a href="mailto:giarrs@rpi.edu">giarrs@rpi.edu</a>
+        </div>
+        <p class="officer-fact">"Fun Fact: I am currently working on my Private Pilot License!"</p>
       </div>
     </div>
 
   <div class="officer-card">
       <img src="{{ '/assets/officer_matthew.jpg' | relative_url }}" class="officer-img" alt="Matthew Fiorenza">
       <div class="officer-info">
-        <h3 class="officer-name">Matthew Fiorenza [cite: 59]</h3>
-        <span class="officer-title">Flight Safety Officer [cite: 60]</span>
-        <p class="officer-fact">"Fun Fact: My dream destination to fly to is [Place]!"</p>
+        <h3 class="officer-name">Matthew Fiorenza</h3>
+        <span class="officer-title">Flight Safety Officer</span>
+        <div class="officer-meta">
+          📍 New York, NY <br>
+          📧 <a href="mailto:fiorem@rpi.edu">fiorem@rpi.edu</a>
+        </div>
+        <p class="officer-fact">"Fun Fact: My dream destination to fly to is the Swiss Alps!"</p>
       </div>
     </div>
   </div>
@@ -204,7 +238,7 @@ permalink: /officer-team/
   <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
     <img src="{{ '/assets/RFCLOGOthin.png' | relative_url }}" style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; display: block; margin-left: auto; margin-right: auto; mix-blend-mode: darken;" alt="RFC Logo">
     <p><a href="https://www.linkedin.com/in/andreas-spiratos/" target="_blank" class="developer-credit">✈︎ Made by Andreas Spiratos ✈︎</a></p>
-    <p style="font-size: 0.9rem; opacity: 0.7;">© 2026 RPI Flying Club. All rights reserved. </p>
+    <p style="font-size: 0.9rem; opacity: 0.7;">© 2026 RPI Flying Club. All rights reserved.</p>
   </footer>
 </div>
 
