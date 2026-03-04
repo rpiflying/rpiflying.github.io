@@ -362,6 +362,14 @@ layout: home
 
   <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
     <img src="{{ '/assets/RFCLOGOthin.png' | relative_url }}" style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; mix-blend-mode: darken;" alt="RFC Logo">
+    <div style="margin-bottom: 1.5rem;">
+    <p style="font-family: 'Notable', sans-serif; font-size: 0.9rem; margin-bottom: 0.5rem; letter-spacing: 1px;">RADIO IN / CONTACT US</p>
+    <a href="mailto:rpiflying@gmail.com" 
+       style="text-decoration: none; color: var(--rfc-red); font-family: 'Loubag-SemiBold'; font-size: 1.2rem; transition: 0.3s opacity;"
+       onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+       rpiflying@gmail.com
+    </a>
+  </div>
     <p style="margin-bottom: 0.5rem;">
       <a href="https://www.linkedin.com/in/andreas-spiratos/" target="_blank" class="developer-credit">
         <span>✈︎</span> Made by Andreas Spiratos (President '25-'26) <span>✈︎</span>
