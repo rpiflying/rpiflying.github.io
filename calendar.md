@@ -42,7 +42,12 @@ permalink: /calendar/
     position: fixed; top: 0; left: 0; width: 100%; height: 5rem;
     background: #FFF3DC; display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%; z-index: 9999; border-bottom: 0.2rem solid var(--rfc-gold);
-    box-sizing: border-box;
+    box-sizing: border-box; /* 2. Ensure this is here */
+  }
+  
+  /* Ensure mobile height matches index.md exactly */
+  @media (max-width: 768px) { 
+    .top-nav { height: 4.5rem; } 
   }
 
   .nav-logo-img { height: 3.5rem; width: auto; mix-blend-mode: darken; transition: transform 0.3s; }
