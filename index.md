@@ -82,7 +82,7 @@ layout: home
   .animated-logo { 
     width: 11rem; 
     margin-bottom: 3.5rem; 
-    opacity: 0.65; 
+    opacity: 0.5; 
     filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
   }
 
