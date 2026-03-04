@@ -209,7 +209,14 @@ layout: home
   }
 
   @media (max-width: 768px) {
-    .section-title { font-size: 2.5rem; } /* Mobile Title size */
+    .section-title {
+      font-size: 2.8rem; /* Makes "Life at RFC" larger and more legible */
+      text-align: center;
+      width: 100%;       /* Forces the element to span the full width for true centering */
+      display: block;    /* Ensures it behaves as a full-width block */
+      margin-left: auto;
+      margin-right: auto;
+    }
     .hero-title { font-size: 14vw; } 
     .hero-subtitle { font-size: 4.5vw; letter-spacing: 1vw; }
     .top-nav { height: 4.5rem; }
