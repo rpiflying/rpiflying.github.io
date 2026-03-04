@@ -38,10 +38,10 @@ layout: home
 
   header.site-header, .site-title, #header, .header-site { display: none !important; }
 
-  /* 1. NAVIGATION & HAMBURGER */
+  /* 1. NAVIGATION */
   .top-nav {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 6.5rem;
+    top: 0; left: 0; width: 100%; height: 7rem; /* Increased height for the thin logo */
     background: #FFF3DC; 
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%; z-index: 9999;
@@ -49,41 +49,27 @@ layout: home
     box-sizing: border-box;
   }
 
-  .nav-logo-img { height: 5.5rem; width: auto; mix-blend-mode: darken; }
+  /* NEW THIN LOGO - BIGGER */
+  .nav-logo-img { 
+    height: 6rem; /* Now much larger thanks to the thin aspect ratio */
+    width: auto; 
+    mix-blend-mode: darken; 
+    transition: transform 0.3s ease;
+  }
+  .nav-logo-img:hover { transform: scale(1.02); }
 
-  /* Desktop Nav */
   .nav-links { display: flex; gap: 1rem; align-items: center; }
   .nav-item { 
     text-decoration: none; color: var(--rfc-blue); font-weight: 800; 
-    font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
+    font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px;
     padding: 0.6rem 1rem; transition: 0.3s;
   }
+  .nav-item:hover { color: var(--rfc-red); }
 
-  /* Hamburger Icon */
-  .menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    z-index: 10001;
-  }
-  .menu-toggle span {
-    width: 35px; height: 3px;
-    background: var(--rfc-blue);
-    border-radius: 10px;
-    transition: 0.3s;
-  }
+  .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 10001; }
+  .menu-toggle span { width: 35px; height: 3px; background: var(--rfc-blue); border-radius: 10px; }
 
   /* 2. HERO SECTION */
-  .hero-banner-bg {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: url('assets/BANNER.png') no-repeat center center;
-    background-size: cover;
-    filter: blur(3px) brightness(0.6);
-    z-index: 1; transition: filter 0.6s ease-out;
-  }
-  .blurred-more { filter: blur(18px) brightness(0.35) !important; }
-
   .hero-content-layer {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -116,53 +102,43 @@ layout: home
 
   .section-title {
     font-family: 'Notable', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.8rem); /* Fixed font scaling issue */
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
     color: var(--rfc-blue);
     text-align: center;
     margin-bottom: 3rem;
-    line-height: 1.1;
   }
 
-  .advancing-panel { text-align: center; margin-bottom: 6rem; }
-  .advancing-panel p { color: #333; font-size: 1.4rem; max-width: 900px; margin: 0 auto; line-height: 1.7; }
-
-  .achievement-panel {
-    background: white; padding: 4rem; border-radius: 2.5rem;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; margin-bottom: 6rem; border: 0.6rem solid var(--rfc-red);
-    gap: 3rem; width: 100%; box-sizing: border-box;
+  /* 4. SOCIAL BUTTONS (Discord & Instagram) */
+  .social-stack {
+    position: fixed; bottom: 2.5rem; right: 2.5rem; 
+    display: flex; flex-direction: column; gap: 1rem; z-index: 99999;
   }
 
-  .achievement-text { flex: 1; min-width: 60%; }
-  .bar-logo { height: 13rem; width: auto; }
+  .social-fab {
+    width: 4.5rem; height: 4.5rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: white; overflow: hidden;
+  }
+  .social-fab:hover { transform: scale(1.15) translateY(-5px); box-shadow: 0 1rem 2rem rgba(0,0,0,0.4); }
+  .social-fab img { width: 100%; height: 100%; object-fit: cover; }
 
-  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 2rem; }
-  .gallery-img { width: 100%; height: 30rem; object-fit: cover; border-radius: 2rem; }
-
-  /* MOBILE RESPONSIVE LOGIC */
+  /* Mobile Responsive */
   @media (max-width: 992px) {
     .menu-toggle { display: flex; }
-    
     .nav-links {
       position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
       background: var(--rfc-tan); flex-direction: column; 
       justify-content: center; transition: 0.5s; z-index: 10000;
-      box-shadow: -10px 0 30px rgba(0,0,0,0.3);
     }
-
     .nav-links.active { right: 0; }
-    .nav-item { font-size: 1.5rem; width: 100%; text-align: center; padding: 1.5rem 0; }
   }
 
-  @media (max-width: 768px) {
-    .hero-subtitle { font-size: 4.5vw; letter-spacing: 1vw; }
-    .top-nav { height: 5.5rem; }
-    .nav-logo-img { height: 4.5rem; }
-  }
 </style>
 
 <nav class="top-nav">
-  <a href="/"><img src="assets/RFCLOGO.png" class="nav-logo-img" alt="RFC Logo"></a>
+  <a href="/"><img src="assets/RFCLOGOthin.png" class="nav-logo-img" alt="RFC Logo"></a>
   
   <div class="menu-toggle" id="mobile-menu">
     <span></span><span></span><span></span>
@@ -176,6 +152,15 @@ layout: home
     <a href="/join" class="nav-item" style="background: var(--rfc-red); color: white; border-radius: 4px;">Join Us</a>
   </div>
 </nav>
+
+<div class="social-stack">
+  <a href="https://www.instagram.com/rpiflyingclub/" class="social-fab" target="_blank">
+    <img src="assets/Instagram_logo_2016.png" alt="Instagram">
+  </a>
+  <a href="https://discord.gg/rXG86ZeBwj" class="social-fab" target="_blank">
+    <img src="assets/discord-logo-icon-editorial-free-vector.jpg" alt="Discord">
+  </a>
+</div>
 
 <div class="hero-banner-bg" id="heroBg"></div>
 <div class="hero-content-layer">
@@ -203,15 +188,15 @@ layout: home
   </div>
 
   <h2 class="section-title">Life at RFC</h2>
-  <div class="gallery-grid">
-    <img src="assets/event1.jpg" class="gallery-img" alt="Event 1">
-    <img src="assets/event2.jpg" class="gallery-img" alt="Event 2">
-    <img src="assets/event3.jpg" class="gallery-img" alt="Event 3">
-    <img src="assets/event4.jpg" class="gallery-img" alt="Event 4">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 2rem;">
+    <img src="assets/event1.jpg" style="width:100%; height:30rem; object-fit:cover; border-radius:2rem;" alt="Event 1">
+    <img src="assets/event2.jpg" style="width:100%; height:30rem; object-fit:cover; border-radius:2rem;" alt="Event 2">
+    <img src="assets/event3.jpg" style="width:100%; height:30rem; object-fit:cover; border-radius:2rem;" alt="Event 3">
+    <img src="assets/event4.jpg" style="width:100%; height:30rem; object-fit:cover; border-radius:2rem;" alt="Event 4">
   </div>
 
   <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
-    <img src="assets/RFCLOGO.png" style="height: 6rem; opacity: 0.9; margin-bottom: 2rem; mix-blend-mode: darken;" alt="RFC Logo">
+    <img src="assets/RFCLOGOthin.png" style="height: 6rem; opacity: 0.9; margin-bottom: 2rem; mix-blend-mode: darken;" alt="RFC Logo">
     <p>© 2026 RPI Flying Club. All rights reserved.</p>
   </footer>
 </div>
@@ -226,7 +211,6 @@ layout: home
     }
   };
 
-  // Mobile Menu Logic
   const menuToggle = document.getElementById('mobile-menu');
   const navList = document.getElementById('nav-list');
   menuToggle.addEventListener('click', () => {
