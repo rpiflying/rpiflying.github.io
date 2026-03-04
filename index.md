@@ -22,7 +22,7 @@ layout: home
     background-size: cover;
   }
 
-  /* 1. Navigation Bar */
+  /* 1. Navigation */
   .top-nav {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 80px;
@@ -31,24 +31,14 @@ layout: home
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%; z-index: 9999;
     border-bottom: 1px solid rgba(0,0,0,0.05);
-    box-sizing: border-box;
   }
 
   .nav-logo-img { height: 50px; }
-
   .nav-links { display: flex; gap: 20px; align-items: center; }
-  .nav-item { 
-    text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; 
-    transition: 0.3s; padding: 8px 12px; border-radius: 6px;
-  }
-  .nav-item:hover { color: var(--rpi-red); }
+  .nav-item { text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; transition: 0.3s; padding: 8px 12px; }
+  .nav-btn-special { background: var(--rpi-red); color: white !important; padding: 10px 20px; border-radius: 4px; }
 
-  .nav-btn-special { 
-    background: var(--rpi-red); color: white !important; 
-    padding: 10px 20px; border-radius: 4px;
-  }
-
-  /* 2. CENTERED & SCALED HERO */
+  /* 2. BLURRED STICKY HERO */
   .hero-container {
     position: relative;
     width: 100%;
@@ -56,55 +46,53 @@ layout: home
     overflow: hidden;
   }
 
-  .hero-banner {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 100vh;
+  .hero-banner-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
     background: url('assets/BANNER.png') no-repeat center center;
-    background-size: cover; /* Ensures the image covers the area without distortion */
-    display: flex;
-    flex-direction: column;
-    align-items: center;    /* Horizontal Center */
-    justify-content: center; /* Vertical Center */
+    background-size: cover;
+    filter: blur(8px) brightness(0.7); /* Blurred out as requested */
+    transform: scale(1.1); /* Prevents white edges from the blur */
     z-index: 1;
   }
 
-  .hero-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.25);
-  }
-
-  .hero-content {
+  .hero-content-layer {
     position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Center Horizontal */
+    justify-content: center; /* Center Vertical */
     z-index: 5;
+    color: white;
     text-align: center;
-    width: 100%;
   }
 
-  /* MASSIVE CENTERED TEXT */
+  .animated-logo {
+    width: 140px; 
+    margin-top: 50px; /* Positions it a bit lower */
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+  }
+
   .hero-title { 
     font-size: 13vw; 
     font-weight: 900; 
     font-style: italic;
     line-height: 0.85; 
     letter-spacing: -0.04em; 
-    margin: 0 auto;
+    margin: 0;
     text-transform: uppercase;
-    text-shadow: 0 10px 50px rgba(0,0,0,0.6);
-    display: inline-block;
-    width: 100%;
+    text-shadow: 0 10px 50px rgba(0,0,0,0.5);
   }
 
   .hero-subtitle {
-    font-size: 2.2vw;
+    font-size: 2vw;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 2.2vw;
+    letter-spacing: 2vw;
     margin-top: 30px;
-    padding-left: 2.2vw; /* Balances the letter spacing offset */
-    text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+    padding-left: 2vw;
     color: white;
   }
 
@@ -118,7 +106,7 @@ layout: home
     box-shadow: 0 -30px 60px rgba(0,0,0,0.3);
   }
 
-  /* Achievement Box */
+  /* Achievement / Award Section */
   .achievement-panel {
     background: #ffffff;
     padding: 60px;
@@ -127,15 +115,11 @@ layout: home
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin: 60px 0;
-    color: #111;
+    margin-bottom: 80px;
     border: 8px solid var(--rpi-red);
   }
 
-  .bar-logo {
-    height: 180px; 
-    border-radius: 10px;
-  }
+  .bar-logo { height: 180px; }
 
   /* Discord FAB */
   .discord-fab {
@@ -163,13 +147,11 @@ layout: home
 </a>
 
 <div class="hero-container">
-  <header class="hero-banner">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1 class="hero-title">YOUR JOURNEY<br>STARTS HERE</h1>
-      <p class="hero-subtitle">RPI FLYING CLUB</p>
-    </div>
-  </header>
+  <div class="hero-banner-bg"></div> <div class="hero-content-layer">
+    <img src="assets/RFC-Discord-Logo-Animated-Extended.gif" class="animated-logo" alt="RFC Logo">
+    <h1 class="hero-title">YOUR JOURNEY<br>STARTS HERE</h1>
+    <p class="hero-subtitle">RPI FLYING CLUB</p>
+  </div>
 </div>
 
 <div class="main-wrapper">
@@ -183,10 +165,10 @@ layout: home
     <img src="assets/RPI-Brand-Comp_Runway-Bar_Black-BG-Logo.png" class="bar-logo" alt="Runway Bar Award">
   </div>
 
-  <div style="text-align: center; margin: 100px 0;">
+  <div style="text-align: center; margin: 80px 0;">
     <h2 style="font-size: 3rem; font-weight: 800;">Advancing Aviation at Rensselaer</h2>
-    <p style="color: #666; font-size: 1.25rem; max-width: 750px; margin: 25px auto; line-height: 1.8;">
-      We are the RPI Flying Club. Whether you are chasing your private pilot license or simply love aviation, we provide the community and resources to help you take flight.
+    <p style="color: #666; font-size: 1.25rem; max-width: 750px; margin: 25px auto;">
+      We are the RPI Flying Club. From the flight deck to the classroom, we provide the community and resources to help you take flight.
     </p>
   </div>
 
