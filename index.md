@@ -121,12 +121,15 @@ layout: home
   }
   
   #main-heading {
-    font-size: 4rem; /* Increased from 3.5rem */
+    /*font-size: 4rem;  Increased from 3.5rem */
+    font-size: clamp(2rem, 4.5vw, 4rem);
     margin-top: 2rem;
+    white-space: nowrap;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1100px) {
     #main-heading {
-      font-size: 2.8rem; /* Scales it down so it doesn't break on phones */
+      white-space: normal; /* Allows it to wrap only on smaller tablets/phones */
+      font-size: 2.5rem;
     }
   }
   
