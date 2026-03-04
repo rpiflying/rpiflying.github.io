@@ -124,6 +124,11 @@ layout: home
     font-size: 4.5rem; /* Increased from 3.5rem */
     margin-top: 2rem;
   }
+  @media (max-width: 768px) {
+    #main-heading {
+      font-size: 2.8rem; /* Scales it down so it doesn't break on phones */
+    }
+  }
   
   .advancing-panel { text-align: center; margin-bottom: 6rem; }
   .advancing-panel p { color: #333; font-size: 1.4rem; max-width: 900px; margin: 0 auto; line-height: 1.7; }
