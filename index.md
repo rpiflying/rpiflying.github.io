@@ -3,9 +3,14 @@ layout: home
 ---
 
 <head>
-  <link rel="icon" type="image/png" href="{{ '/assets/RFC_icon.png?v=2' | relative_url }}">
-  <link rel="apple-touch-icon" href="{{ '/assets/RFC_icon.png' | relative_url }}">
+  <title>RPI Flying Club</title>
+  <link rel="icon" type="image/png" href="{{ '/assets/RFCLOGOthin.png?v=5' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/RFCLOGOthin.png?v=5' | relative_url }}">
+  
   <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
+
+  <meta property="og:title" content="RPI Flying Club">
+  <meta name="description" content="RPI Flying Club - Students, Pilots, Engineers, Nerds.">
 </head>
 
 <style>
