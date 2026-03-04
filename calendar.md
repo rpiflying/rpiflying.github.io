@@ -21,9 +21,10 @@ permalink: /calendar/
     --rfc-gold: #CC8917;
   }
 
-  /* CRITICAL: Fixes the Nav Bar jumping/sizing issues */
+  /* CRITICAL UI FIXES */
   * { box-sizing: border-box; }
-  html { overflow-y: scroll; } 
+  html { overflow-y: scroll; font-size: 16px; }
+  @media (max-width: 768px) { html { font-size: 14px; } }
 
   body { 
     margin: 0; padding: 0;
@@ -34,24 +35,45 @@ permalink: /calendar/
     overflow-x: hidden;
   }
 
-  /* NAVIGATION - Carbon Copy of Index.md */
+  header.site-header, .site-title, #header, .header-site { display: none !important; }
+
+  /* 1. NAVIGATION - Carbon Copy of Index.md */
   .top-nav {
     position: fixed; top: 0; left: 0; width: 100%; height: 5rem;
     background: #FFF3DC; display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%; z-index: 9999; border-bottom: 0.2rem solid var(--rfc-gold);
+    box-sizing: border-box;
   }
-  .nav-logo-img { height: 3.5rem; width: auto; mix-blend-mode: darken; transition: 0.3s; }
+
+  .nav-logo-img { height: 3.5rem; width: auto; mix-blend-mode: darken; transition: transform 0.3s; }
   .nav-logo-img:hover { transform: scale(1.05); }
+
   .nav-links { display: flex; gap: 1rem; align-items: center; }
+
   .nav-item { 
     text-decoration: none; color: var(--rfc-blue); font-weight: 800; font-size: 0.85rem; 
     text-transform: uppercase; letter-spacing: 1px; padding: 0.6rem 1.2rem; 
-    border-radius: 8px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
-    display: inline-block;
+    border-radius: 8px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative; display: inline-block;
   }
-  .nav-item:hover { color: var(--rfc-red); background-color: rgba(5, 61, 90, 0.08); transform: translateY(-2px); }
 
-  /* SIDEBAR STACK */
+  .nav-item:hover { 
+    background-color: rgba(5, 61, 90, 0.08); 
+    color: var(--rfc-red); 
+    transform: translateY(-2px); 
+  }
+
+  .nav-links a[style*="background: var(--rfc-red)"]:hover {
+    background-color: #a30302 !important;
+    box-shadow: 0 4px 15px rgba(204, 4, 3, 0.3);
+    transform: scale(1.05) translateY(-2px) !important;
+    color: white !important;
+  }
+
+  .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 10001; }
+  .menu-toggle span { width: 30px; height: 3px; background: var(--rfc-blue); border-radius: 10px; }
+
+  /* 2. SIDEBAR STACK */
   .social-stack {
     position: fixed; bottom: 2.5rem; right: 2.5rem; 
     display: flex; flex-direction: column; gap: 1rem; z-index: 99999;
@@ -66,7 +88,7 @@ permalink: /calendar/
   .social-fab:hover { transform: scale(1.15) translateY(-5px); }
   .social-fab img { width: 100%; height: 100%; object-fit: cover; }
 
-  /* BACKGROUND & HERO */
+  /* 3. HERO SECTION */
   .hero-banner-bg {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: url('{{ "/assets/Heading.png" | relative_url }}') no-repeat center center;
@@ -81,48 +103,71 @@ permalink: /calendar/
   }
   .hero-title-small { font-family: 'Notable', sans-serif; font-size: 6vw; text-shadow: 0 1rem 3rem rgba(0,0,0,0.8); margin: 0; }
 
-  /* CONTENT WRAPPER */
+  /* 4. MAIN CONTENT */
   .main-wrapper {
     background: var(--rfc-tan); position: relative; z-index: 100;
-    border-radius: 4rem 4rem 0 0; padding: 4rem 8%;
+    border-radius: 4rem 4rem 0 0; padding: 6rem 8%;
     box-shadow: 0 -3rem 6rem rgba(0,0,0,0.6); min-height: 100vh;
   }
 
-  .meeting-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+  .meeting-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 4rem; }
   .meeting-info-box {
     background: white; border: 4px solid var(--rfc-blue);
-    border-radius: 2rem; padding: 2rem; box-shadow: 0 1rem 2rem rgba(0,0,0,0.05);
+    border-radius: 2rem; padding: 2.5rem; box-shadow: 0 1rem 2rem rgba(0,0,0,0.05);
+    transition: 0.3s ease;
   }
+  .meeting-info-box:hover { transform: translateY(-5px); border-color: var(--rfc-gold); }
   .meeting-info-box h2 { font-family: 'Notable', sans-serif; color: var(--rfc-blue); font-size: 1.6rem; margin: 0 0 1rem 0; }
 
   .calendar-embed-container {
     position: relative; padding-bottom: 75%; height: 0; overflow: hidden;
-    border-radius: 2rem; border: 4px solid var(--rfc-gold);
+    border-radius: 2.5rem; border: 0.5rem solid var(--rfc-gold);
     box-shadow: 0 2rem 4rem rgba(0,0,0,0.15); background: white;
   }
   .calendar-embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
+  /* FOOTER & CREDITS */
+  .developer-credit {
+    text-decoration: none; color: var(--rfc-blue); font-weight: 800; font-size: 1.1rem;
+    transition: all 0.3s ease; display: inline-block;
+  }
+  .developer-credit span { font-size: 0.8rem; margin: 0 4px; transition: transform 0.3s ease; display: inline-block; }
+  .developer-credit:hover { color: var(--rfc-red); transform: translateY(-2px); }
+  .developer-credit:hover span { transform: translate(2px, -2px); }
+
+  /* MOBILE RESPONSIVENESS */
+  @media (max-width: 992px) {
+    .menu-toggle { display: flex; }
+    .nav-links {
+      position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
+      background: var(--rfc-tan); display: flex; flex-direction: column; 
+      justify-content: flex-start; padding-top: 6rem; transition: 0.5s; z-index: 10000;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+    }
+    .nav-links.active { right: 0; }
+    .nav-item { font-size: 1.5rem; width: 100%; text-align: center; padding: 1.5rem 0; }
+  }
+
   @media (max-width: 900px) {
-    .top-nav { height: 4.5rem; }
-    .nav-logo-img { height: 3rem; }
-    .nav-links { display: none; } /* Consider adding your mobile menu toggle here later */
     .meeting-grid { grid-template-columns: 1fr; }
     .hero-title-small { font-size: 12vw; }
-    .main-wrapper { padding: 3rem 5%; border-radius: 2.5rem 2.5rem 0 0; }
+    .main-wrapper { padding: 4rem 5%; border-radius: 2.5rem 2.5rem 0 0; }
     .calendar-embed-container { padding-bottom: 150%; }
     .social-stack { bottom: 1.5rem; right: 1.5rem; }
     .social-fab { width: 3.5rem; height: 3.5rem; }
   }
-
-  .developer-credit { text-decoration: none; color: var(--rfc-blue); font-weight: 800; transition: 0.3s; display: inline-block; }
-  .developer-credit:hover { color: var(--rfc-red); transform: translateY(-2px); }
 </style>
 
 <div class="hero-banner-bg" id="heroBg"></div>
 
 <nav class="top-nav">
   <a href="{{ '/' | relative_url }}"><img src="{{ '/assets/RFCLOGOthin.png' | relative_url }}" class="nav-logo-img" alt="RFC Logo"></a>
-  <div class="nav-links">
+  
+  <div class="menu-toggle" id="mobile-menu">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="nav-links" id="nav-list">
     <a href="{{ '/about' | relative_url }}" class="nav-item">About</a>
     <a href="{{ '/ground-school' | relative_url }}" class="nav-item">Ground School</a>
     <a href="{{ '/officer-team' | relative_url }}" class="nav-item">Officers</a>
@@ -164,7 +209,7 @@ permalink: /calendar/
   </div>
 
   <div class="calendar-embed-container">
-    <iframe id="rfc-calendar" src="https://calendar.google.com/calendar/embed?src=rpiflying%40gmail.com&ctz=America%2FNew_York" frameborder="0" scrolling="no"></iframe>
+    <iframe id="rfc-calendar" src="https://calendar.google.com/calendar/embed?src=rpiflying%40gmail.com&ctz=America%2FNew_York&showTitle=0&showNav=1&showPrint=0&color=%23CC0403" frameborder="0" scrolling="no"></iframe>
   </div>
 
   <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
@@ -178,14 +223,15 @@ permalink: /calendar/
       </a>
     </p>
   <p style="font-size: 0.9rem; opacity: 0.7;">© 2026 RPI Flying Club. All rights reserved.</p>
-</footer>
+  </footer>
+</div>
 
 <script>
   function optimizeCalendar() {
     const calendar = document.getElementById('rfc-calendar');
     const isMobile = window.innerWidth < 768;
-    let calendarUrl = "https://calendar.google.com/calendar/embed?src=rpiflying%40gmail.com&ctz=America%2FNew_York&showTitle=0&showNav=1&showPrint=0&color=%23CC0403";
-    calendar.src = isMobile ? calendarUrl + "&mode=AGENDA" : calendarUrl;
+    let baseUrl = "https://calendar.google.com/calendar/embed?src=rpiflying%40gmail.com&ctz=America%2FNew_York&showTitle=0&showNav=1&showPrint=0&color=%23CC0403";
+    calendar.src = isMobile ? baseUrl + "&mode=AGENDA" : baseUrl;
   }
 
   window.onscroll = function() {
@@ -196,6 +242,12 @@ permalink: /calendar/
       bg.classList.remove("blurred-more");
     }
   };
+
+  const menuToggle = document.getElementById('mobile-menu');
+  const navList = document.getElementById('nav-list');
+  menuToggle.addEventListener('click', () => {
+    navList.classList.toggle('active');
+  });
 
   window.addEventListener('load', optimizeCalendar);
   window.addEventListener('resize', optimizeCalendar);
