@@ -184,6 +184,13 @@ layout: home
 </div>
 
 <div class="main-wrapper">
+
+  <div style="text-align: center; margin: 80px 0;">
+    <h2 style="font-size: 3.5rem; font-weight: 800; letter-spacing: -2px;">Advancing Aviation at RPI</h2>
+    <p style="color: #666; font-size: 1.3rem; max-width: 800px; margin: 25px auto;">
+      The RPI Flying Club is a student-run organization dedicated to making flight accessible to the RPI community.
+    </p>
+  </div>
   
   <div class="achievement-panel">
     <div style="max-width: 450px;">
@@ -192,13 +199,6 @@ layout: home
       <span style="font-size: 0.8rem; color: #888; font-style: italic;">Logo designed by Kaden Tennent, Ex-President '23-'25</span>
     </div>
     <img src="assets/RPI-Brand-Comp_Runway-Bar_Black-BG-Logo.png" class="bar-logo" alt="Runway Bar Award">
-  </div>
-
-  <div style="text-align: center; margin: 80px 0;">
-    <h2 style="font-size: 3.5rem; font-weight: 800; letter-spacing: -2px;">Advancing Aviation at RPI</h2>
-    <p style="color: #666; font-size: 1.3rem; max-width: 800px; margin: 25px auto;">
-      The RPI Flying Club is a student-run organization dedicated to making flight accessible to the RPI community.
-    </p>
   </div>
 
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
