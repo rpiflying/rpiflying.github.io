@@ -21,8 +21,9 @@ permalink: /calendar/
     --rfc-gold: #CC8917;
   }
 
-  /* Force identical box model as index.md */
+  /* CRITICAL: Fixes the Nav Bar jumping/sizing issues */
   * { box-sizing: border-box; }
+  html { overflow-y: scroll; } 
 
   body { 
     margin: 0; padding: 0;
@@ -33,47 +34,24 @@ permalink: /calendar/
     overflow-x: hidden;
   }
 
-  /* NAVIGATION - 100% Match to Index.md */
+  /* NAVIGATION - Carbon Copy of Index.md */
   .top-nav {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 5rem;
-    background: #FFF3DC; 
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%; z-index: 9999;
-    border-bottom: 0.2rem solid var(--rfc-gold);
+    position: fixed; top: 0; left: 0; width: 100%; height: 5rem;
+    background: #FFF3DC; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; z-index: 9999; border-bottom: 0.2rem solid var(--rfc-gold);
   }
-
-  .nav-logo-img { 
-    height: 3.5rem; 
-    width: auto; 
-    mix-blend-mode: darken; 
-    transition: transform 0.3s;
-  }
+  .nav-logo-img { height: 3.5rem; width: auto; mix-blend-mode: darken; transition: 0.3s; }
   .nav-logo-img:hover { transform: scale(1.05); }
-
   .nav-links { display: flex; gap: 1rem; align-items: center; }
-
   .nav-item { 
-    text-decoration: none; 
-    color: var(--rfc-blue); 
-    font-weight: 800; 
-    font-size: 0.85rem; 
-    text-transform: uppercase; 
-    letter-spacing: 1px;
-    padding: 0.6rem 1.2rem; 
-    border-radius: 8px; 
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
-    position: relative;
+    text-decoration: none; color: var(--rfc-blue); font-weight: 800; font-size: 0.85rem; 
+    text-transform: uppercase; letter-spacing: 1px; padding: 0.6rem 1.2rem; 
+    border-radius: 8px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
     display: inline-block;
   }
-  
-  .nav-item:hover { 
-    background-color: rgba(5, 61, 90, 0.08); 
-    color: var(--rfc-red); 
-    transform: translateY(-2px); 
-  }
+  .nav-item:hover { color: var(--rfc-red); background-color: rgba(5, 61, 90, 0.08); transform: translateY(-2px); }
 
-  /* SIDEBAR */
+  /* SIDEBAR STACK */
   .social-stack {
     position: fixed; bottom: 2.5rem; right: 2.5rem; 
     display: flex; flex-direction: column; gap: 1rem; z-index: 99999;
@@ -85,13 +63,55 @@ permalink: /calendar/
     transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     background: white; overflow: hidden;
   }
+  .social-fab:hover { transform: scale(1.15) translateY(-5px); }
   .social-fab img { width: 100%; height: 100%; object-fit: cover; }
 
-  /* MOBILE FIXES */
-  @media (max-width: 768px) {
+  /* BACKGROUND & HERO */
+  .hero-banner-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: url('{{ "/assets/Heading.png" | relative_url }}') no-repeat center center;
+    background-size: cover; filter: blur(3px) brightness(0.6);
+    z-index: 1; transition: filter 0.6s ease-out;
+  }
+  .blurred-more { filter: blur(18px) brightness(0.35) !important; }
+
+  .calendar-hero {
+    height: 45vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--rfc-tan); text-align: center; position: relative; z-index: 5;
+  }
+  .hero-title-small { font-family: 'Notable', sans-serif; font-size: 6vw; text-shadow: 0 1rem 3rem rgba(0,0,0,0.8); margin: 0; }
+
+  /* CONTENT WRAPPER */
+  .main-wrapper {
+    background: var(--rfc-tan); position: relative; z-index: 100;
+    border-radius: 4rem 4rem 0 0; padding: 4rem 8%;
+    box-shadow: 0 -3rem 6rem rgba(0,0,0,0.6); min-height: 100vh;
+  }
+
+  .meeting-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+  .meeting-info-box {
+    background: white; border: 4px solid var(--rfc-blue);
+    border-radius: 2rem; padding: 2rem; box-shadow: 0 1rem 2rem rgba(0,0,0,0.05);
+  }
+  .meeting-info-box h2 { font-family: 'Notable', sans-serif; color: var(--rfc-blue); font-size: 1.6rem; margin: 0 0 1rem 0; }
+
+  .calendar-embed-container {
+    position: relative; padding-bottom: 75%; height: 0; overflow: hidden;
+    border-radius: 2rem; border: 4px solid var(--rfc-gold);
+    box-shadow: 0 2rem 4rem rgba(0,0,0,0.15); background: white;
+  }
+  .calendar-embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+  @media (max-width: 900px) {
     .top-nav { height: 4.5rem; }
     .nav-logo-img { height: 3rem; }
-    .nav-links { display: none; } /* Or keep your toggle script if you use it */
+    .nav-links { display: none; } /* Consider adding your mobile menu toggle here later */
+    .meeting-grid { grid-template-columns: 1fr; }
+    .hero-title-small { font-size: 12vw; }
+    .main-wrapper { padding: 3rem 5%; border-radius: 2.5rem 2.5rem 0 0; }
+    .calendar-embed-container { padding-bottom: 150%; }
+    .social-stack { bottom: 1.5rem; right: 1.5rem; }
+    .social-fab { width: 3.5rem; height: 3.5rem; }
   }
 
   .developer-credit { text-decoration: none; color: var(--rfc-blue); font-weight: 800; transition: 0.3s; display: inline-block; }
@@ -101,10 +121,7 @@ permalink: /calendar/
 <div class="hero-banner-bg" id="heroBg"></div>
 
 <nav class="top-nav">
-  <a href="{{ '/' | relative_url }}">
-    <img src="{{ '/assets/RFCLOGOthin.png' | relative_url }}" class="nav-logo-img" alt="RFC Logo">
-  </a>
-  
+  <a href="{{ '/' | relative_url }}"><img src="{{ '/assets/RFCLOGOthin.png' | relative_url }}" class="nav-logo-img" alt="RFC Logo"></a>
   <div class="nav-links">
     <a href="{{ '/about' | relative_url }}" class="nav-item">About</a>
     <a href="{{ '/ground-school' | relative_url }}" class="nav-item">Ground School</a>
@@ -151,19 +168,17 @@ permalink: /calendar/
   </div>
 
   <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
-  <img src="{{ '/assets/RFCLOGOthin.png' | relative_url }}" 
-       style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; display: block; margin-left: auto; margin-right: auto;" 
-       alt="RFC Logo">
+    <img src="{{ '/assets/RFCLOGOthin.png' | relative_url }}" 
+         style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; display: block; margin-left: auto; margin-right: auto; mix-blend-mode: darken;" 
+         alt="RFC Logo">
   
   <p style="margin-bottom: 0.5rem;">
-    <a href="https://www.linkedin.com/in/andreas-spiratos/" target="_blank" class="developer-credit">
-      <span>✈︎</span> Made by Andreas Spiratos (President '25-'26) <span>✈︎</span>
-    </a>
-  </p>
-  
+      <a href="https://www.linkedin.com/in/andreas-spiratos/" target="_blank" class="developer-credit">
+        <span>✈︎</span> Made by Andreas Spiratos (President '25-'26) <span>✈︎</span>
+      </a>
+    </p>
   <p style="font-size: 0.9rem; opacity: 0.7;">© 2026 RPI Flying Club. All rights reserved.</p>
-  </footer>
-</div>
+</footer>
 
 <script>
   function optimizeCalendar() {
@@ -173,7 +188,6 @@ permalink: /calendar/
     calendar.src = isMobile ? calendarUrl + "&mode=AGENDA" : calendarUrl;
   }
 
-  // Scroll Blur Logic
   window.onscroll = function() {
     var bg = document.getElementById("heroBg");
     if (document.documentElement.scrollTop > 60) {
