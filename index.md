@@ -119,7 +119,12 @@ layout: home
     margin-bottom: 3rem;
     line-height: 1.1;
   }
-
+  
+  #main-heading {
+    font-size: 4.5rem; /* Increased from 3.5rem */
+    margin-top: 2rem;
+  }
+  
   .advancing-panel { text-align: center; margin-bottom: 6rem; }
   .advancing-panel p { color: #333; font-size: 1.4rem; max-width: 900px; margin: 0 auto; line-height: 1.7; }
 
@@ -170,6 +175,7 @@ layout: home
     .top-nav { height: 4.5rem; }
     .nav-logo-img { height: 3rem; }
   }
+  
 </style>
 
 <nav class="top-nav">
@@ -207,7 +213,7 @@ layout: home
 <div class="main-wrapper">
   
   <div class="advancing-panel">
-    <h2 class="section-title">Advancing Aviation at RPI</h2>
+    <h2 class="section-title" id="main-heading">Advancing Aviation at RPI</h2>
     <p>
       Students, Pilots, Engineers, Nerds. We are the community for all aviation enthusiasts at Rensselaer. We provide the resources, networking, and environment to jumpstart your aviation journey.
     </p>
