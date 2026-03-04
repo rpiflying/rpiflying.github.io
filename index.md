@@ -2,209 +2,148 @@
 layout: home
 ---
 
+<head>
+  <link rel="icon" type="image/png" href="assets/RFC_icon.png">
+</head>
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
   :root {
     --rpi-red: #D6001C;
-    --dark-blue: #011E5D;
   }
 
-  /* 1. Hiding the default Jekyll Header */
-  header.site-header, .site-title, #header { 
-    display: none !important; 
-  }
+  /* 1. Global Styles & New Background */
+  header.site-header, .site-title, #header { display: none !important; }
 
-  body, html {
+  body { 
     margin: 0; padding: 0;
-    overflow-x: hidden;
     font-family: 'Inter', sans-serif;
+    background: url('assets/bannerbackground.png') no-repeat center center fixed;
+    background-size: cover;
     scroll-behavior: smooth;
   }
 
-  /* 2. Custom Top Navigation Bar */
+  /* 2. Navigation Bar with Logo */
   .top-nav {
     position: fixed;
-    top: 0; left: 0; width: 100%;
-    height: 70px;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5%;
-    z-index: 9999;
+    top: 0; left: 0; width: 100%; height: 80px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; z-index: 9999;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     box-sizing: border-box;
   }
 
-  .nav-logo {
-    font-weight: 800;
-    color: var(--rpi-red);
-    text-decoration: none;
-    font-size: 1.2rem;
-    letter-spacing: -1px;
+  .nav-logo-img { height: 50px; transition: transform 0.3s; }
+  .nav-logo-img:hover { transform: scale(1.05); }
+
+  .nav-links { display: flex; gap: 25px; align-items: center; }
+  .nav-item { 
+    text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; 
+    transition: 0.3s; padding: 8px 12px; border-radius: 6px;
+  }
+  .nav-item:hover { color: var(--rpi-red); background: rgba(214, 0, 28, 0.05); }
+
+  .nav-btn-special { 
+    background: var(--rpi-red); color: white !important; 
+    padding: 10px 20px; box-shadow: 0 4px 15px rgba(214, 0, 28, 0.2); 
   }
 
-  .nav-links {
-    display: flex;
-    gap: 20px;
-  }
-
-  .nav-item {
-    text-decoration: none;
-    color: #444;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: 0.3s;
-    padding: 8px 12px;
-    border-radius: 6px;
-  }
-
-  .nav-item:hover {
-    color: var(--rpi-red);
-    background: rgba(214, 0, 28, 0.05);
-  }
-
-  .nav-btn-special {
-    background: var(--rpi-red);
-    color: white !important;
-    box-shadow: 0 4px 10px rgba(214, 0, 28, 0.2);
-  }
-
-  /* 3. Full-Width Hero Section */
+  /* 3. Hero Section with Animated GIF */
   .hero-section {
-    position: relative;
-    width: 100vw;
-    height: 85vh; /* Taller hero since nav is now at top */
-    background-image: url('assets/BANNER.png');
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 90vh; display: flex; align-items: center; justify-content: center;
+    flex-direction: column; text-align: center; color: white;
   }
 
-  .hero-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
-    backdrop-filter: blur(2px);
-  }
+  .animated-logo { width: 180px; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(255,255,255,0.2)); }
 
-  .hero-text {
-    position: relative;
-    text-align: center;
-    color: white;
-    z-index: 2;
-    padding: 20px;
-  }
+  .hero-title { font-size: 5.5rem; font-weight: 800; line-height: 0.85; letter-spacing: -4px; margin: 0; }
 
-  /* 4. Content Styling */
+  /* 4. White Content Content Area */
   .main-wrapper {
-    background: white;
-    position: relative;
-    z-index: 10;
-    margin-top: -5vh; /* Overlaps hero slightly */
-    border-radius: 40px 40px 0 0;
-    padding: 80px 5%;
+    background: white; position: relative; z-index: 10;
+    border-radius: 50px 50px 0 0; padding: 100px 8%;
+    box-shadow: 0 -30px 60px rgba(0,0,0,0.2);
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1100px;
-    margin: 40px auto;
+  /* 5. Partnership Section */
+  .partner-box {
+    background: #f9f9f9; border-radius: 20px; padding: 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 80px; border: 1px solid #eee;
   }
+  .partner-logo { height: 80px; opacity: 0.8; transition: 0.3s; }
+  .partner-logo:hover { opacity: 1; transform: scale(1.05); }
 
-  .benefit-card {
-    padding: 40px;
-    border-radius: 24px;
-    background: #fdfdfd;
-    border: 1px solid #f0f0f0;
-    transition: 0.4s;
+  /* Grid & Cards */
+  .event-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px; margin: 40px 0;
   }
-
-  .benefit-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+  .event-img { 
+    width: 100%; height: 350px; object-fit: cover; border-radius: 20px; 
+    transition: 0.5s; filter: grayscale(30%);
   }
+  .event-img:hover { filter: grayscale(0%); transform: scale(1.02); }
 
-  /* 5. Discord Floating Button */
   .discord-fab {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #5865F2;
-    color: white !important;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 20px rgba(88, 101, 242, 0.4);
-    z-index: 9999;
-    text-decoration: none;
+    position: fixed; bottom: 30px; right: 30px; background: #5865F2;
+    color: white !important; width: 65px; height: 65px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 25px rgba(88, 101, 242, 0.4); z-index: 9999;
     transition: 0.3s;
-  }
-
-  .discord-fab:hover { transform: scale(1.1) rotate(5deg); }
-
-  @media (max-width: 768px) {
-    .nav-links { display: none; } /* We can add a mobile menu later */
-    .hero-text h1 { font-size: 2.5rem !important; }
   }
 </style>
 
 <nav class="top-nav">
-  <a href="/" class="nav-logo">RPI FLYING CLUB</a>
+  <a href="/"><img src="assets/RFCLOGO.png" class="nav-logo-img" alt="RFC Logo"></a>
   <div class="nav-links">
     <a href="/about" class="nav-item">About</a>
     <a href="/ground-school" class="nav-item">Ground School</a>
-    <a href="#leadership" class="nav-item">Officers</a>
+    <a href="#events" class="nav-item">Events</a>
     <a href="/calendar" class="nav-item">Calendar</a>
     <a href="/join" class="nav-item nav-btn-special">Join Us</a>
   </div>
 </nav>
 
 <a href="https://discord.gg/rXG86ZeBwj" class="discord-fab" target="_blank">
-  <span style="font-weight: 800; font-size: 0.7rem;">DISCORD</span>
+  <img src="assets/RFC-Discord-Logo-Animated-Extended.gif" style="width: 40px; border-radius: 50%;">
 </a>
 
 <header class="hero-section">
-  <div class="hero-overlay"></div>
-  <div class="hero-text">
-    <h1 style="font-size: 5rem; font-weight: 800; margin: 0; letter-spacing: -3px; line-height: 0.9;">YOUR JOURNEY<br>STARTS HERE</h1>
-    <p style="font-size: 1.5rem; font-weight: 300; margin-top: 20px; letter-spacing: 2px; text-transform: uppercase;">Advancing Aviation at Rensselaer</p>
-  </div>
+  <img src="assets/RFC-Discord-Logo-Animated-Extended.gif" class="animated-logo" alt="RFC">
+  <h1 class="hero-title">YOUR JOURNEY<br>STARTS HERE</h1>
+  <p style="font-size: 1.5rem; text-transform: uppercase; letter-spacing: 4px; margin-top: 20px; opacity: 0.9;">Advancing Aviation at Rensselaer</p>
 </header>
 
 <div class="main-wrapper">
-  <div style="text-align: center; max-width: 800px; margin: 0 auto 60px;">
-    <h2 style="font-size: 2.5rem; font-weight: 800; color: #111;">Pilot? Planespotter?<br>Aviation enthusiast?</h2>
-    <p style="font-size: 1.2rem; color: #666; line-height: 1.8; margin-top: 20px;">
-      We are the club for you. From flight training resources to industry networking, we make aviation accessible to the RPI community.
+  
+  <div class="partner-box">
+    <div>
+      <h4 style="margin: 0; color: #888; text-transform: uppercase; letter-spacing: 1px;">Training Partner</h4>
+      <p style="font-size: 1.2rem; font-weight: 700;">Partnering with local flight schools to get you in the air.</p>
+    </div>
+    <img src="assets/hewison_transparent.png" class="partner-logo" alt="Hewison Aviation">
+  </div>
+
+  <div style="text-align: center; margin-bottom: 80px;">
+    <h2 style="font-size: 3rem; font-weight: 800;">Join the community.</h2>
+    <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 20px auto;">
+      From ground school to fly-ins, the RPI Flying Club provides the wings for your ambition.
     </p>
   </div>
 
-  <div class="grid">
-    <div class="benefit-card">
-      <h3 style="color: var(--rpi-red); font-size: 1.8rem;">Membership</h3>
-      <p style="font-size: 1.1rem; font-weight: 600;">$30 / Semester • $50 / Year</p>
-      <p style="color: #666;">Includes access to all fly-ins, airport tours, social nights (with free food), and exclusive merchandise.</p>
-    </div>
-
-  <div class="benefit-card">
-    <h3 style="color: var(--rpi-red); font-size: 1.8rem;">Career Path</h3>
-    <p style="color: #666;">Join a network of alumni at <strong>Boeing, Delta, Lockheed Martin,</strong> and <strong>Pratt & Whitney</strong>.</p>
-  </div>
+  <h2 id="events" style="font-weight: 800; font-size: 2rem;">Latest Events</h2>
+  <div class="event-grid">
+    <img src="assets/event1.jpg" class="event-img" alt="RFC Event 1">
+    <img src="assets/event2.jpg" class="event-img" alt="RFC Event 2">
+    <img src="assets/event3.jpg" class="event-img" alt="RFC Event 3">
   </div>
 
-  <h2 id="leadership" style="text-align: center; font-size: 2.5rem; font-weight: 800; margin-top: 100px;">Our Leadership</h2>
-  <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); text-align: center;">
+  <h2 style="text-align: center; font-size: 2.5rem; font-weight: 800; margin-top: 100px;">Our Leadership</h2>
+  <div class="event-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); text-align: center;">
     <div><strong style="color: var(--rpi-red); font-size: 1.3rem;">Andreas</strong><br><small>President</small></div>
     <div><strong style="color: var(--rpi-red); font-size: 1.3rem;">Jordan</strong><br><small>Vice President</small></div>
     <div><strong style="color: var(--rpi-red); font-size: 1.3rem;">Shane</strong><br><small>Treasurer</small></div>
@@ -212,7 +151,11 @@ layout: home
     <div><strong style="color: var(--rpi-red); font-size: 1.3rem;">Matthew</strong><br><small>Safety Officer</small></div>
   </div>
 
-  <footer style="margin-top: 100px; text-align: center; padding-top: 40px; border-top: 1px solid #eee; color: #ccc; font-size: 0.9rem;">
+  <div style="margin-top: 80px; text-align: center;">
+    <img src="assets/RPI-Brand-Comp_Runway-Bar_Black-transparent-Logo.png" style="height: 60px; opacity: 0.5;" alt="Runway Bar Logo">
+  </div>
+
+  <footer style="margin-top: 100px; text-align: center; border-top: 1px solid #eee; padding-top: 50px; color: #bbb;">
     <p>Rensselaer Union, Troy, NY | rpiflying@gmail.com</p>
     <p>© 2026 RPI Flying Club</p>
   </footer>
