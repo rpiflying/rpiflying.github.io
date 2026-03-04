@@ -143,7 +143,7 @@ permalink: /calendar/
         <strong style="color: var(--rfc-red);">WHERE:</strong> Phalanx Room (RU3502)
       </p>
     </div>
-    <div class="meeting-info-box" style="border-color: var(--rfc-gold);">
+    <div class="meeting-info-box" style="border-color: var(--rfc-red);">
       <h2>Officer Meetings</h2>
       <p style="font-size: 1.1rem; line-height: 1.6; margin: 0;">
         <strong style="color: var(--rfc-red);">WHEN:</strong> Tuesdays, 5:00 PM – 6:00 PM <br>
