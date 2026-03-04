@@ -2,7 +2,8 @@
 title: RPI Flying Club
 name: Rensselaer Flying Club
 description: "The official hub for aviation education, ground school, and aviation events at RPI."
-url: "https://rpiflying.github.io"
+#url: "https://rpiflying.github.io"
+url: "https://rpiflying.club"
 baseurl: ""
 
 # Branding Assets 
