@@ -41,13 +41,19 @@ layout: home
 
   /* 1. NAVIGATION */
   .top-nav {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 5rem;
-    background: #FFF3DC; 
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%; z-index: 9999;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 5rem; /* This will now be the total height including border */
+    background: #FFF3DC;  
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    padding: 0 5%; 
+    z-index: 9999;
     border-bottom: 0.2rem solid var(--rfc-gold);
-    box-sizing: border-box;
+    box-sizing: border-box; /* Explicitly ensure border-box is active here */
   }
 
   .nav-logo-img { 
