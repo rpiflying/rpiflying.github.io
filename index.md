@@ -113,7 +113,7 @@ layout: home
     margin-bottom: 4rem; 
     opacity: 0.75; 
     
-    border-radius: 50%;                  Makes it a perfect circle */
+    border-radius: 50%;                  /* Makes it a perfect circle */
     border: 4px solid var(--rfc-gold);  /* Adds an aviation gold ring */
     background: rgba(255,255,255,0.1);  /* Subtle glass effect */
     box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Makes the circle "pop" */
