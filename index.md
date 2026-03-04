@@ -200,8 +200,8 @@ layout: home
     .menu-toggle { display: flex; }
     .nav-links {
       position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
-      background: var(--rfc-tan); flex-direction: column; 
-      justify-content: center; transition: 0.5s; z-index: 10000;
+      background: var(--rfc-tan); display: flex; flex-direction: column; 
+      justify-content: flex-start; padding-top: 6rem; transition: 0.5s; z-index: 10000;
       box-shadow: -10px 0 30px rgba(0,0,0,0.3);
     }
     .nav-links.active { right: 0; }
