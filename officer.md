@@ -118,15 +118,28 @@ permalink: /officer-team/
 
   /* OFFICER GRID LOGIC (FLEX FOR CENTERING) */
   .officer-grid {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem; /* Keep the breathing room */
+    max-width: 1400px; /* Prevents cards from getting comically wide on ultra-wide screens */
+    margin: 0 auto;
   }
 
   .officer-card {
-    background: white; border-radius: 2rem; overflow: hidden;
-    border: 4px solid var(--rfc-blue); box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
-    transition: 0.3s ease; text-align: center;
-    flex: 0 1 calc(33.333% - 2rem);
-    min-width: 300px;
+    background: white;
+    border-radius: 2rem;
+    overflow: hidden;
+    border: 4px solid var(--rfc-blue);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+    text-align: center;
+    
+    /* Change flex to grow more aggressively */
+    flex: 1 1 350px; 
+    max-width: 450px; /* Keeps them from looking like wide rectangles */
+    display: flex;
+    flex-direction: column;
   }
   .officer-card:hover { transform: translateY(-10px); border-color: var(--rfc-red); }
 
@@ -154,7 +167,7 @@ permalink: /officer-team/
 
   /* RESPONSIVENESS */
   @media (max-width: 1100px) {
-    .officer-card { flex: 0 1 calc(50% - 2rem); }
+      .officer-card { flex: 1 1 40%;  max-width: 500px; }
   }
 
   @media (max-width: 992px) {
@@ -171,8 +184,8 @@ permalink: /officer-team/
 
   @media (max-width: 768px) {
     .hero-title-small { font-size: 12vw; }
-    .main-wrapper { padding: 4rem 5%; }
-    .officer-card { flex: 0 1 100%; }
+    .officer-card { flex: 1 1 100%; max-width: 100%; }
+    .main-wrapper { padding: 4rem 1.5rem; }
     .social-stack { bottom: 1.5rem; right: 1.5rem; }
     .social-fab { width: 3.5rem; height: 3.5rem; }
   }
