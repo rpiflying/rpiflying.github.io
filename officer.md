@@ -48,6 +48,7 @@ permalink: /officer-team/
   /* Standardize the mobile breakpoint height */
   @media (max-width: 768px) { 
     .top-nav { height: 4.5rem; } 
+    .nav-logo-img { height: 3rem !important; width: auto; mix-blend-mode: darken; }
   }
 
   .nav-logo-img { height: 3.5rem; width: auto; mix-blend-mode: darken; transition: transform 0.3s; }
