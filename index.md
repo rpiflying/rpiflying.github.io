@@ -244,7 +244,7 @@ layout: home
   .lightbox-content {
     position: relative;
     max-width: 90%;
-    max-height: 85vh;
+    max-height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -260,12 +260,14 @@ layout: home
   /* Exit Button Styling */
   .exit-btn {
     position: absolute;
-    top: -50px;
-    right: 0;
+    top: 10px;        /* Move it inside the image area */
+    right: 20px;      /* Move it away from the edge */
     color: white;
-    font-size: 40px;
+    font-size: 50px;  /* Make it big and easy to hit on mobile */
     text-decoration: none;
     font-weight: bold;
+    z-index: 100001;  /* Ensure it is the highest element */
+    text-shadow: 0 0 10px rgba(0,0,0,0.8); /* Glow to see it on bright photos */
     transition: 0.3s;
   }
   .exit-btn:hover { color: var(--rfc-red); }
@@ -346,8 +348,8 @@ layout: home
       <a href="#!" class="exit-btn">&times;</a>
       <img src="assets/event1.jpg">
       <div class="lightbox-caption">
-        <h3>Fly-In Day</h3>
-        <p>Spring 2026 • Schenectady County Airport</p>
+        <h3>Green Mountain Aviation Field Day</h3>
+        <p>Fall 2024 • Burlington International Airport (BTV), VT</p>
       </div>
     </div>
   </div>
@@ -359,8 +361,8 @@ layout: home
       <a href="#!" class="exit-btn">&times;</a>
       <img src="assets/event2.jpg">
       <div class="lightbox-caption">
-        <h3>Ground School Session</h3>
-        <p>Winter 2025 • JEC Classroom</p>
+        <h3>KittyHawk Rentals Aircraft Tour</h3>
+        <p>Fall 2024 • Schenectady County Airport (SCH), NY</p>
       </div>
     </div>
   </div>
@@ -372,8 +374,8 @@ layout: home
       <a href="#!" class="exit-btn">&times;</a>
       <img src="assets/event3.jpg">
       <div class="lightbox-caption">
-        <h3>Hangar Hangout</h3>
-        <p>Fall 2025 • Local Airfield</p>
+        <h3>Flight Simulator Night</h3>
+        <p>Fall 2025 • Union 3rd Floor RU3202</p>
       </div>
     </div>
   </div>
@@ -385,8 +387,8 @@ layout: home
       <a href="#!" class="exit-btn">&times;</a>
       <img src="assets/event4.jpg">
       <div class="lightbox-caption">
-        <h3>Officer Meeting</h3>
-        <p>Fall 2025 • Union 3rd Floor</p>
+        <h3>KittyHawk Rentals Aircraft Tour</h3>
+        <p>Fall 2025 • Schenectady County Airport (SCH), NY</p>
       </div>
     </div>
   </div>
