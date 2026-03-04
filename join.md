@@ -45,6 +45,10 @@ permalink: /join/
     box-sizing: border-box;
   }
 
+  @media (max-width: 768px) { 
+    .top-nav { height: 4.5rem; } 
+  }
+
   .nav-logo-img { height: 3.5rem; width: auto; mix-blend-mode: darken; transition: transform 0.3s; }
   .nav-logo-img:hover { transform: scale(1.05); }
 
