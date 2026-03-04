@@ -11,7 +11,6 @@ permalink: /calendar/
 </head>
 
 <style>
-  /* REUSING YOUR EXACT DESIGN TOKENS */
   @font-face { font-family: 'Loubag'; src: url('{{ "/assets/loubag.ttf" | relative_url }}') format('truetype'); }
   @font-face { font-family: 'Loubag-SemiBold'; src: url('{{ "/assets/loubag-semi-bold.ttf" | relative_url }}') format('truetype'); }
 
@@ -28,9 +27,9 @@ permalink: /calendar/
     background: url('{{ "/assets/bannerbackground.png" | relative_url }}') no-repeat center center fixed;
     background-size: cover;
     background-color: var(--rfc-blue);
+    overflow-x: hidden;
   }
 
-  /* 1. NAVIGATION REUSE */
   .top-nav {
     position: fixed; top: 0; left: 0; width: 100%; height: 5rem;
     background: #FFF3DC; display: flex; align-items: center; justify-content: space-between;
@@ -38,55 +37,60 @@ permalink: /calendar/
   }
   .nav-logo-img { height: 3.5rem; mix-blend-mode: darken; }
   .nav-links { display: flex; gap: 1rem; }
-  .nav-item { 
-    text-decoration: none; color: var(--rfc-blue); font-weight: 800; font-size: 0.85rem; 
-    text-transform: uppercase; padding: 0.6rem 1.2rem; transition: all 0.3s;
-  }
+  .nav-item { text-decoration: none; color: var(--rfc-blue); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; padding: 0.6rem 1.2rem; transition: 0.3s; }
   .nav-item:hover { color: var(--rfc-red); transform: translateY(-2px); }
 
-  /* 2. CALENDAR SPECIFIC HERO */
   .calendar-hero {
-    height: 60vh; /* Shorter than home hero */
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    color: var(--rfc-tan); text-align: center; position: relative; z-index: 5;
+    height: 45vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--rfc-gold); text-align: center; position: relative; z-index: 5;
   }
-  .hero-title-small { 
-    font-family: 'Notable', sans-serif; font-size: 6vw; 
-    text-shadow: 0 1rem 3rem rgba(0,0,0,0.8); margin: 0;
-  }
+  .hero-title-small { font-family: 'Notable', sans-serif; font-size: 6vw; text-shadow: 0 1rem 3rem rgba(0,0,0,0.8); margin: 0; }
 
-  /* 3. CALENDAR CONTENT WRAPPER */
   .main-wrapper {
     background: var(--rfc-tan); position: relative; z-index: 100;
     border-radius: 4rem 4rem 0 0; padding: 4rem 8%;
     box-shadow: 0 -3rem 6rem rgba(0,0,0,0.6); min-height: 100vh;
   }
 
+  /* Info Section Grid */
+  .meeting-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
   .meeting-info-box {
     background: white; border: 4px solid var(--rfc-blue);
-    border-radius: 2rem; padding: 2.5rem; margin-bottom: 4rem;
-    display: flex; flex-direction: column; gap: 1rem;
+    border-radius: 2rem; padding: 2rem;
     box-shadow: 0 1rem 2rem rgba(0,0,0,0.05);
   }
 
-  /* RESPONSIVE IFRAME */
+  .meeting-info-box h2 { 
+    font-family: 'Notable', sans-serif; 
+    color: var(--rfc-blue); 
+    font-size: 1.6rem; 
+    margin: 0 0 1rem 0; 
+  }
+
   .calendar-embed-container {
     position: relative; padding-bottom: 75%; height: 0; overflow: hidden;
     border-radius: 2rem; border: 4px solid var(--rfc-gold);
-    box-shadow: 0 2rem 4rem rgba(0,0,0,0.15);
+    box-shadow: 0 2rem 4rem rgba(0,0,0,0.15); background: white;
   }
+
   .calendar-embed-container iframe {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
   }
 
-  @media (max-width: 768px) {
-    .hero-title-small { font-size: 12vw; }
-    .main-wrapper { padding: 3rem 5%; }
+  @media (max-width: 900px) {
+    .meeting-grid { grid-template-columns: 1fr; }
+    .hero-title-small { font-size: 14vw; }
+    .main-wrapper { padding: 3rem 5%; border-radius: 2.5rem 2.5rem 0 0; }
+    .calendar-embed-container { padding-bottom: 150%; }
   }
 
-  /* Developer Credit (Reused) */
   .developer-credit { text-decoration: none; color: var(--rfc-blue); font-weight: 800; transition: 0.3s; }
-  .developer-credit:hover { color: var(--rfc-red); }
 </style>
 
 <nav class="top-nav">
@@ -107,26 +111,47 @@ permalink: /calendar/
 
 <div class="main-wrapper">
   
-  <div class="meeting-info-box">
-    <h2 style="font-family: 'Notable', sans-serif; color: var(--rfc-blue); font-size: 2rem; margin: 0;">Weekly General Meetings</h2>
-    <p style="font-size: 1.2rem; color: #333; margin: 0.5rem 0;">
-      <strong style="color: var(--rfc-red);">WHEN:</strong> Wednesdays, 8:00 PM – 9:00 PM <br>
-      <strong style="color: var(--rfc-red);">WHERE:</strong> Phalanx Room (RU3502), Rensselaer Union
-    </p>
-    <p style="opacity: 0.8; line-height: 1.5;">Our meetings are open to all students. Whether you are a licensed pilot or just like planes, come join the community!</p>
+  <div class="meeting-grid">
+    <div class="meeting-info-box">
+      <h2>General Meetings</h2>
+      <p style="font-size: 1.1rem; line-height: 1.6; margin: 0;">
+        <strong style="color: var(--rfc-red);">WHEN:</strong> Wednesdays, 8:00 PM <br>
+        <strong style="color: var(--rfc-red);">WHERE:</strong> Phalanx Room (RU3502)
+      </p>
+      <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 10px;">Open to all RPI students and aviation enthusiasts.</p>
+    </div>
+
+  <div class="meeting-info-box" style="border-color: var(--rfc-gold);">
+      <h2>Officer Meetings</h2>
+      <p style="font-size: 1.1rem; line-height: 1.6; margin: 0;">
+        <strong style="color: var(--rfc-red);">WHEN:</strong> Tuesdays, 5:00 PM – 6:00 PM <br>
+        <strong style="color: var(--rfc-red);">WHERE:</strong> Room 3602 (RU3602)
+      </p>
+      <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 10px;">Executive board planning and organizational sessions.</p>
+    </div>
   </div>
 
   <div class="calendar-embed-container">
-    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&src=cnBpZmx5aW5nQGdtYWlsLmNvbQ&src=MzU3MWU2ZjNlZDZlOTRjZDAwOWViNTMzYmE3YmQ3OTQ4ZTNkZTIyYzk1MmExZDc3ZGZmMDQ2NzY3NjI3MTEzY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23CC0403&color=%23053D5A" frameborder="0" scrolling="no"></iframe>
+    <iframe id="rfc-calendar" src="https://calendar.google.com/calendar/embed?src=rpiflying%40gmail.com&ctz=America%2FNew_York" frameborder="0" scrolling="no"></iframe>
   </div>
 
-  <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
-    <img src="{{ '/assets/RFCLOGOthin.png' | relative_url }}" style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; mix-blend-mode: darken;" alt="RFC Logo">
-    <p style="margin-bottom: 0.5rem;">
-      <a href="https://www.linkedin.com/in/andreas-spiratos/" target="_blank" class="developer-credit">
-        <span>✈︎</span> Made by Andreas Spiratos (President '25-'26) <span>✈︎</span>
-      </a>
-    </p>
-    <p style="font-size: 0.9rem; opacity: 0.7;">© 2026 RPI Flying Club. All rights reserved.</p>
+  <footer style="text-align: center; padding-top: 5rem; margin-top: 5rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
+    <p><a href="https://www.linkedin.com/in/andreas-spiratos/" target="_blank" class="developer-credit">✈︎ Made by Andreas Spiratos ✈︎</a></p>
   </footer>
 </div>
+
+<script>
+  function optimizeCalendar() {
+    const calendar = document.getElementById('rfc-calendar');
+    const isMobile = window.innerWidth < 768;
+    let calendarUrl = "https://calendar.google.com/calendar/embed?src=rpiflying%40gmail.com&ctz=America%2FNew_York&showTitle=0&showNav=1&showPrint=0&color=%23CC0403";
+    
+    if (isMobile) {
+      calendar.src = calendarUrl + "&mode=AGENDA";
+    } else {
+      calendar.src = calendarUrl;
+    }
+  }
+  window.addEventListener('load', optimizeCalendar);
+  window.addEventListener('resize', optimizeCalendar);
+</script>
