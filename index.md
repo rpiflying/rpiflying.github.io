@@ -3,7 +3,7 @@ layout: home
 ---
 
 <head>
-  <link rel="icon" type="image/png" href="{{ '/assets/RFC_icon.png' | relative_url }}">
+  <link rel="icon" type="image/png" href="{{ '/assets/RFC_icon.png?v=2' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ '/assets/RFC_icon.png' | relative_url }}">
   <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
 </head>
