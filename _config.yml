@@ -1,7 +1,10 @@
 # Global Site Metadata
 title: RPI Flying Club
 name: Rensselaer Flying Club
-description: "The official hub for aviation education, ground school, and aviation events at RPI."
+# Change 'description' to 'tagline' to stop it from auto-appearing in the tab
+tagline: "The official hub for aviation education, ground school, and aviation events at RPI."
+# Keep the actual description short
+description: "" 
 #url: "https://rpiflying.github.io"
 url: "https://rpiflying.club"
 baseurl: ""
