@@ -9,7 +9,7 @@ title_override: true
   
   {% seo title=false %}
 
-  <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico?v=2' | relative_url }}">
+  <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico?v=3' | relative_url }}">
   
   <meta property="og:title" content="RPI Flying Club">
   <meta property="og:description" content="The official hub for aviation education, ground school, and aviation events at RPI.">
