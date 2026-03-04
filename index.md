@@ -7,13 +7,10 @@ title_override: true
 <head>
   <title>RPI Flying Club</title>
   
-  {% seo title=false %}
-
-  <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico?v=3' | relative_url }}">
-  
-  <meta property="og:title" content="RPI Flying Club">
   <meta property="og:description" content="The official hub for aviation education, ground school, and aviation events at RPI.">
-
+  <meta name="description" content="The official hub for aviation education, ground school, and aviation events at RPI.">
+  
+  <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico?v=3' | relative_url }}">
   <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
 </head>
 
