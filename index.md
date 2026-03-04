@@ -42,27 +42,27 @@ layout: home
   /* 1. NAVIGATION */
   .top-nav {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 5.5rem;
-    background: rgba(255, 243, 220, 0.95);
-    backdrop-filter: blur(15px);
+    top: 0; left: 0; width: 100%; height: 6.5rem;
+    background: #FFF3DC; 
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%; z-index: 9999;
     border-bottom: 0.25rem solid var(--rfc-gold);
     box-sizing: border-box;
   }
 
-  .nav-logo-img { height: 4rem; width: auto; }
+  .nav-logo-img { 
+    height: 5.5rem; 
+    width: auto; 
+    mix-blend-mode: darken; 
+  }
 
   .nav-links { display: flex; gap: 1rem; align-items: center; }
   .nav-item { 
     text-decoration: none; color: var(--rfc-blue); font-weight: 800; 
-    font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+    font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
     padding: 0.6rem 1rem; transition: 0.3s;
   }
   .nav-item:hover { color: var(--rfc-red); }
-
-  .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 10001; }
-  .menu-toggle span { width: 30px; height: 3px; background: var(--rfc-blue); border-radius: 10px; }
 
   /* 2. HERO SECTION */
   .hero-container { position: relative; width: 100%; height: 100vh; overflow: hidden; }
@@ -83,8 +83,8 @@ layout: home
 
   .animated-logo { 
     width: 11rem; 
-    margin-bottom: 3.5rem; 
-    opacity: 0.75; /* Added transparency as requested */
+    margin-bottom: 4rem; 
+    opacity: 0.75;
     filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
   }
 
@@ -96,9 +96,15 @@ layout: home
   }
 
   .hero-subtitle {
-    font-family: 'Loubag-SemiBold', sans-serif; /* Semi-Bold Loubag */
-    font-size: 2.2vw; text-transform: uppercase;
-    letter-spacing: 2.6vw; margin-top: 1.5rem; padding-left: 2.6vw; color: var(--rfc-gold);
+    font-family: 'Loubag-SemiBold', sans-serif;
+    font-weight: 900; 
+    font-size: 2.8vw; 
+    text-transform: uppercase;
+    letter-spacing: 2.4vw; 
+    margin-top: 1.8rem; 
+    padding-left: 2.4vw; 
+    color: var(--rfc-gold);
+    text-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.5);
   }
 
   /* 3. MAIN CONTENT */
@@ -107,66 +113,60 @@ layout: home
     position: relative; z-index: 100; margin-top: 100vh;
     border-radius: 4rem 4rem 0 0; padding: 6rem 8%;
     box-shadow: 0 -3rem 6rem rgba(0,0,0,0.6);
+    box-sizing: border-box;
   }
 
-  /* FULL WIDTH PANEL - Advancing Aviation */
+  .section-title {
+    font-family: 'Notable', sans-serif;
+    font-size: 3.5rem;
+    color: var(--rfc-blue);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
   .advancing-panel {
     text-align: center; margin-bottom: 6rem;
   }
 
-  .advancing-panel h2 {
-    font-family: 'Notable', sans-serif; font-size: 3.5rem; color: var(--rfc-blue);
-    margin-bottom: 1.5rem;
-  }
-
   .advancing-panel p {
-    color: #333; font-size: 1.4rem; max-width: 100%; margin: 0 auto; line-height: 1.7;
+    color: #333; font-size: 1.4rem; max-width: 900px; margin: 0 auto; line-height: 1.7;
   }
 
-  /* AWARD SECTION - Now swapped and wider */
   .achievement-panel {
     background: white; padding: 4rem; border-radius: 2.5rem;
-    display: flex; align-items: center; justify-content: space-between; /* Space-between for width */
+    display: flex; align-items: center; justify-content: space-between;
     flex-wrap: wrap; margin-bottom: 6rem; border: 0.6rem solid var(--rfc-red);
     gap: 3rem; width: 100%; box-sizing: border-box;
   }
 
-  .achievement-text { flex: 1; min-width: 60%; } /* Forces text to fill more width */
-
+  .achievement-text { flex: 1; min-width: 60%; }
   .bar-logo { height: 13rem; width: auto; }
 
-  @media (max-width: 768px) {
-    .menu-toggle { display: flex; }
-    .nav-links {
-      position: fixed; top: 0; right: -100%; width: 75%; height: 100vh;
-      background: var(--rfc-tan); flex-direction: column; 
-      justify-content: center; transition: 0.5s; z-index: 10000;
-      box-shadow: -10px 0 30px rgba(0,0,0,0.2);
-    }
-    .nav-links.active { right: 0; }
-    .hero-title { font-size: 12vw; white-space: normal; }
-    .hero-subtitle { font-size: 4.5vw; letter-spacing: 1vw; }
-    .achievement-text { min-width: 100%; text-align: center; }
-    .achievement-panel { justify-content: center; padding: 2.5rem; }
-    .advancing-panel h2 { font-size: 2.2rem; }
+  /* Gallery Grid */
+  .gallery-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); 
+    gap: 2rem;
+  }
+  .gallery-img {
+    width: 100%; 
+    height: 30rem; 
+    object-fit: cover; 
+    border-radius: 2rem;
   }
 
-  .discord-fab {
-    position: fixed; bottom: 2.5rem; right: 2.5rem; 
-    background: #5865F2; width: 4.5rem; height: 4.5rem; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.3); z-index: 99999;
+  @media (max-width: 768px) {
+    .hero-subtitle { font-size: 4.5vw; letter-spacing: 1vw; }
+    .section-title { font-size: 2.2rem; }
+    .top-nav { height: 5.5rem; }
+    .nav-logo-img { height: 4.5rem; }
   }
-  .discord-fab img { width: 100%; height: 100%; border-radius: 50%; }
 
 </style>
 
 <nav class="top-nav">
-  <a href="/"><img src="assets/RFCLOGO.png" class="nav-logo-img" alt="RFC Logo"></a> <div class="menu-toggle" id="mobile-menu">
-    <span></span><span></span><span></span>
-  </div>
-
-  <div class="nav-links" id="nav-list">
+  <a href="/"><img src="assets/RFCLOGO.png" class="nav-logo-img" alt="RFC Logo"></a>
+  <div class="nav-links">
     <a href="/about" class="nav-item">About</a>
     <a href="/ground-school" class="nav-item">Ground School</a>
     <a href="/officer-team" class="nav-item">Officers</a>
@@ -174,10 +174,6 @@ layout: home
     <a href="/join" class="nav-item" style="background: var(--rfc-red); color: white; border-radius: 4px;">Join Us</a>
   </div>
 </nav>
-
-<a href="https://discord.gg/rXG86ZeBwj" class="discord-fab" target="_blank">
-  <img src="assets/discord-logo-icon-editorial-free-vector.jpg" alt="Discord">
-</a>
 
 <div class="hero-banner-bg" id="heroBg"></div>
 <div class="hero-content-layer">
@@ -189,7 +185,7 @@ layout: home
 <div class="main-wrapper">
   
   <div class="advancing-panel">
-    <h2>Advancing Aviation at RPI</h2>
+    <h2 class="section-title">Advancing Aviation at RPI</h2>
     <p>
       Students, Pilots, Engineers, Nerds. We are the community for all aviation enthusiasts at Rensselaer. We provide the resources, networking, and environment to jumpstart your aviation journey.
     </p>
@@ -203,15 +199,17 @@ layout: home
     <img src="assets/RPI-Brand-Comp_Runway-Bar_Black-BG-Logo.png" class="bar-logo" alt="Runway Bar Award">
   </div>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); gap: 2rem;">
-    <img src="assets/event1.jpg" style="width:100%; height:30rem; object-fit:cover; border-radius:2rem;" alt="Event 1">
-    <img src="assets/event2.jpg" style="width:100%; height:30rem; object-fit:cover; border-radius:2rem;" alt="Event 2">
-    <img src="assets/event3.jpg" style="width:100%; height:30rem; object-fit:cover; border-radius:2rem;" alt="Event 3">
+  <h2 class="section-title">Life at RFC</h2>
+  <div class="gallery-grid">
+    <img src="assets/event1.jpg" class="gallery-img" alt="Event 1">
+    <img src="assets/event2.jpg" class="gallery-img" alt="Event 2">
+    <img src="assets/event3.jpg" class="gallery-img" alt="Event 3">
+    <img src="assets/event4.jpg" class="gallery-img" alt="Event 4">
   </div>
 
   <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
-    <img src="assets/RFCLOGO.png" style="height: 6rem; opacity: 0.9; margin-bottom: 2rem;" alt="RFC Logo">
-    <p>© 2025 RPI Flying Club. All rights reserved.</p>
+    <img src="assets/RFCLOGO.png" style="height: 6rem; opacity: 0.9; margin-bottom: 2rem; mix-blend-mode: darken;" alt="RFC Logo">
+    <p>© 2026 RPI Flying Club. All rights reserved.</p>
   </footer>
 </div>
 
@@ -224,10 +222,4 @@ layout: home
       bg.classList.remove("blurred-more");
     }
   };
-
-  const menuToggle = document.getElementById('mobile-menu');
-  const navList = document.getElementById('nav-list');
-  menuToggle.addEventListener('click', () => {
-    navList.classList.toggle('active');
-  });
 </script>
