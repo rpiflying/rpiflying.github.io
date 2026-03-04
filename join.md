@@ -180,16 +180,16 @@ permalink: /join/
       <span style="font-weight: bold;">PER SEMESTER </span>
       <div style="margin: 1.5rem 0; height: 2px; background: rgba(255,255,255,0.2);"></div>
       <div class="dues-price" style="font-size: 2.2rem;">$50</div>
-      <span style="font-weight: bold;">FULL YEAR (SAVE $10!) [cite: 21, 22]</span>
+      <span style="font-weight: bold;">FULL YEAR (SAVE $10!)</span>
     </div>
 
   <div class="benefits-card">
       <h2>Member Benefits </h2>
       <ul class="step-list" style="margin: 0;">
-        <li><div class="step-num" style="background: var(--rfc-gold);">✈</div> <span>Access to all club meetings, trips, & events [cite: 24, 25]</span></li>
+        <li><div class="step-num" style="background: var(--rfc-gold);">✈</div> <span>Access to all club meetings, trips, & events </span></li>
         <li><div class="step-num" style="background: var(--rfc-gold);">✈</div> <span>Discounted paid trip fees </span></li>
         <li><div class="step-num" style="background: var(--rfc-gold);">✈</div> <span>Free food & drinks at Social Nights </span></li>
-        <li><div class="step-num" style="background: var(--rfc-gold);">✈</div> <span>Members-only merchandise store access [cite: 33]</span></li>
+        <li><div class="step-num" style="background: var(--rfc-gold);">✈</div> <span>Members-only merchandise store access </span></li>
       </ul>
     </div>
   </div>
