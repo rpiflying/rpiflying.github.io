@@ -241,6 +241,19 @@ layout: home
     .hero-subtitle { font-size: 4.5vw; letter-spacing: 1vw; }
     .top-nav { height: 4.5rem; }
     .nav-logo-img { height: 3rem !important; width: auto; mix-blend-mode: darken; }
+    .achievement-panel {
+      flex-direction: column; /* Stacks text on top of logo */
+      justify-content: center;
+      align-items: center;
+      text-align: center;      /* Centers the text lines */
+      padding: 2.5rem;
+    }
+
+    .achievement-text {
+      flex: none;
+      width: 100%;
+      min-width: 0;
+    }
   }
 </style>
 
