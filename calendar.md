@@ -157,7 +157,7 @@ permalink: /calendar/
   </div>
 
   <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
-  <img src="assets/RFCLOGOthin.png" style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; mix-blend-mode: darken;" alt="RFC Logo">
+  <img src="assets/RFCLOGO.png" style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; mix-blend-mode: darken;" alt="RFC Logo">
   
   <p style="margin-bottom: 0.5rem;">
     <a href="https://www.linkedin.com/in/andreas-spiratos/" target="_blank" class="developer-credit">
