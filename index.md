@@ -122,13 +122,26 @@ layout: home
   .advancing-panel p { color: #333; font-size: 1.4rem; max-width: 900px; margin: 0 auto; line-height: 1.7; }
 
   .achievement-panel {
-    background: white; padding: 4rem; border-radius: 2.5rem;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; margin-bottom: 6rem; border: 0.6rem solid var(--rfc-red);
-    gap: 3rem; width: 100%; box-sizing: border-box;
+    background: white; 
+    padding: 4rem; 
+    border-radius: 2.5rem;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; /* Changed from space-between to center */
+    flex-wrap: wrap; 
+    margin-bottom: 6rem; 
+    border: 0.6rem solid var(--rfc-red);
+    gap: 4rem; /* Increased gap for better breathing room */
+    width: 100%; 
+    box-sizing: border-box;
   }
 
-  .bar-logo { height: 13rem; width: auto; }
+  .achievement-text { 
+    flex: 1; 
+    min-width: 300px; /* Prevents text from becoming too narrow */
+  }
+
+  .bar-logo { height: 13rem; width: auto; object-fit: contain ;}
 
   /* 5. CLICKABLE EVENT PICTURES (BOARDS) */
   .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 3rem; }
