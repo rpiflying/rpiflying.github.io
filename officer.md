@@ -143,7 +143,7 @@ permalink: /officer-team/
   }
   .officer-card:hover { transform: translateY(-10px); border-color: var(--rfc-red); }
 
-  .officer-img { width: 100%; height: 350px; object-fit: cover; border-bottom: 4px solid var(--rfc-gold); }
+  .officer-img { width: 100%; height: 400px; object-fit: cover; border-bottom: 4px solid var(--rfc-gold); }
   .officer-info { padding: 2rem; }
   .officer-name { font-family: 'Notable', sans-serif; color: var(--rfc-blue); font-size: 1.5rem; margin: 0; text-transform: uppercase; }
   .officer-title { color: var(--rfc-red); font-family: 'Loubag-SemiBold'; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 5px; display: block; }
