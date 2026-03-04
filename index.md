@@ -4,57 +4,62 @@ layout: home
 
 <head>
   <link rel="icon" type="image/png" href="assets/RFC_icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
 </head>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,600;0,800;0,900;1,900&display=swap');
-
+  /* Base brand colors */
   :root {
-    --rpi-red: #D6001C;
+    --rfc-red: #CC0403;
+    --rfc-blue: #053D5A;
+    --rfc-tan: #FFF3DC;
+    --rfc-gold: #CC8917;
   }
 
-  /* 1. NUCLEAR HEADER REMOVAL */
+  /* Loubag font style for body/secondary text */
+  body { 
+    margin: 0; padding: 0;
+    font-family: 'Loubag', sans-serif; /* Ensure Loubag is hosted in your assets */
+    background: url('assets/bannerbackground.png') no-repeat center center fixed;
+    background-size: cover;
+    background-color: var(--rfc-blue);
+    color: var(--rfc-blue);
+  }
+
+  /* NUCLEAR HEADER REMOVAL */
   header.site-header, .site-title, #header, .header-site, .nav-bar { 
     display: none !important; 
     height: 0 !important;
-    opacity: 0 !important;
   }
 
-  body { 
-    margin: 0; padding: 0;
-    font-family: 'Inter', sans-serif;
-    background: url('assets/bannerbackground.png') no-repeat center center fixed;
-    background-size: cover;
-    background-color: #000;
-  }
-
-  /* 2. NAVIGATION */
+  /* 1. NAVIGATION */
   .top-nav {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 80px;
-    background: rgba(255, 255, 255, 0.95);
+    top: 0; left: 0; width: 100%; height: 85px;
+    background: rgba(255, 243, 220, 0.95); /* Light Tan Background */
     backdrop-filter: blur(15px);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%; z-index: 9999;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 3px solid var(--rfc-gold); /* Gold accent line */
     box-sizing: border-box;
   }
 
-  .nav-logo-img { height: 50px; }
-  .nav-links { display: flex; gap: 10px; align-items: center; }
+  .nav-logo-img { height: 55px; }
+  .nav-links { display: flex; gap: 12px; align-items: center; }
+  
   .nav-item { 
-    text-decoration: none; color: #111; font-weight: 800; font-size: 0.8rem; 
-    text-transform: uppercase; letter-spacing: 1px; padding: 10px 12px; transition: 0.3s;
+    text-decoration: none; color: var(--rfc-blue); font-weight: 800; font-size: 0.85rem; 
+    text-transform: uppercase; letter-spacing: 1px; padding: 10px 14px; transition: 0.3s;
   }
-  .nav-item:hover { color: var(--rpi-red); }
+  .nav-item:hover { color: var(--rfc-red); }
 
   .nav-btn-join { 
-    background: var(--rpi-red); color: white !important; border-radius: 4px;
-    border: 2px solid var(--rpi-red); transition: 0.3s;
+    background: var(--rfc-red); color: white !important; border-radius: 4px;
+    border: 2px solid var(--rfc-red);
   }
-  .nav-btn-join:hover { background: transparent; color: var(--rpi-red) !important; }
+  .nav-btn-join:hover { background: transparent; color: var(--rfc-red) !important; }
 
-  /* 3. HERO SECTION (LOCKED) */
+  /* 2. HERO SECTION (LOCKED) */
   .hero-container {
     position: relative;
     width: 100%;
@@ -67,17 +72,13 @@ layout: home
     top: 0; left: 0; width: 100%; height: 100%;
     background: url('assets/BANNER.png') no-repeat center center;
     background-size: cover;
-    /* Start with light blur */
-    filter: blur(4px) brightness(0.6); 
-    transform: scale(1.1);
+    filter: blur(3px) brightness(0.6); /* Start light unblurred */
+    transform: scale(1.05);
     z-index: 1;
-    transition: filter 0.5s ease-out;
+    transition: filter 0.6s ease-out;
   }
 
-  /* JavaScript will trigger this class to increase blur on scroll */
-  .blurred-more {
-    filter: blur(15px) brightness(0.4) !important;
-  }
+  .blurred-more { filter: blur(18px) brightness(0.35) !important; }
 
   .hero-content-layer {
     position: fixed;
@@ -93,14 +94,15 @@ layout: home
   }
 
   .animated-logo { 
-    width: 130px; 
-    margin-bottom: 30px; /* Higher up from the text */
-    filter: drop-shadow(0 0 20px rgba(255,255,255,0.4));
+    width: 160px; 
+    margin-bottom: 50px; /* Moved higher */
+    filter: drop-shadow(0 0 30px rgba(204, 137, 23, 0.4)); /* Gold Glow */
   }
 
   .hero-title { 
-    font-size: 11.5vw; 
-    font-weight: 900; /* Ultra Bold */
+    font-family: 'Notable', sans-serif;
+    font-size: 11.2vw; 
+    font-weight: 900; 
     font-style: italic;
     line-height: 1; 
     letter-spacing: -0.05em; 
@@ -109,21 +111,22 @@ layout: home
     width: 98vw;
     white-space: nowrap;
     text-shadow: 0 15px 60px rgba(0,0,0,0.9);
+    color: var(--rfc-tan);
   }
 
   .hero-subtitle {
-    font-size: 2vw;
-    font-weight: 600;
+    font-size: 2.2vw;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 2.8vw;
     margin-top: 25px;
     padding-left: 2.8vw;
-    opacity: 0.9;
+    color: var(--rfc-gold);
   }
 
-  /* 4. SCROLLABLE CONTENT */
+  /* 3. SCROLLABLE CONTENT */
   .main-wrapper {
-    background: white;
+    background: var(--rfc-tan); /* Light Tan Section */
     position: relative;
     z-index: 100;
     margin-top: 100vh;
@@ -132,8 +135,9 @@ layout: home
     box-shadow: 0 -50px 100px rgba(0,0,0,0.7);
   }
 
+  /* Award Section */
   .achievement-panel {
-    background: #ffffff;
+    background: white;
     padding: 60px;
     border-radius: 30px;
     display: flex;
@@ -141,10 +145,13 @@ layout: home
     justify-content: space-around;
     flex-wrap: wrap;
     margin-bottom: 80px;
-    border: 8px solid var(--rpi-red);
+    border: 8px solid var(--rfc-red);
+    box-shadow: 0 20px 50px rgba(5, 61, 90, 0.1);
   }
 
   .bar-logo { height: 180px; }
+
+  h2 { font-family: 'Notable', sans-serif; color: var(--rfc-blue); }
 
   .discord-fab {
     position: fixed; bottom: 30px; right: 30px; 
@@ -184,21 +191,21 @@ layout: home
 </div>
 
 <div class="main-wrapper">
-
-  <div style="text-align: center; margin: 80px 0;">
-    <h2 style="font-size: 3.5rem; font-weight: 800; letter-spacing: -2px;">Advancing Aviation at RPI</h2>
-    <p style="color: #666; font-size: 1.3rem; max-width: 800px; margin: 25px auto;">
-      The RPI Flying Club is a student-run organization dedicated to making flight accessible to the RPI community.
-    </p>
-  </div>
   
   <div class="achievement-panel">
     <div style="max-width: 450px;">
-      <h2 style="font-size: 2.5rem; font-weight: 900; margin: 0;">AWARD WINNING BRAND</h2>
-      <p style="font-size: 1.2rem; margin-top: 15px; color: #444;">Winner of the RPI Brand Competition. Our identity reflects the speed and precision of aviation.</p>
+      <h2 style="font-size: 2.5rem; margin: 0;">AWARD WINNING BRAND</h2>
+      <p style="font-size: 1.2rem; margin-top: 15px; color: var(--rfc-blue);">Winner of the RPI Brand Competition. Designed to reflect the speed and precision of aviation[cite: 58].</p>
       <span style="font-size: 0.8rem; color: #888; font-style: italic;">Logo designed by Kaden Tennent, Ex-President '23-'25</span>
     </div>
     <img src="assets/RPI-Brand-Comp_Runway-Bar_Black-BG-Logo.png" class="bar-logo" alt="Runway Bar Award">
+  </div>
+
+  <div style="text-align: center; margin: 80px 0;">
+    <h2 style="font-size: 3.5rem; letter-spacing: -1px;">Advancing Aviation at RPI</h2>
+    <p style="color: #444; font-size: 1.3rem; max-width: 800px; margin: 25px auto;">
+      Students, Pilots, Engineers, Nerds. We are the community for all aviation enthusiasts at Rensselaer[cite: 64, 65].
+    </p>
   </div>
 
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
@@ -207,17 +214,17 @@ layout: home
     <img src="assets/event3.jpg" style="width:100%; height:450px; object-fit:cover; border-radius:25px;" alt="Event 3">
   </div>
 
-  <footer style="text-align: center; padding-top: 100px; margin-top: 100px; border-top: 1px solid #eee; color: #bbb;">
-    <img src="assets/RFCLOGO.png" style="height: 80px; opacity: 0.8; margin-bottom: 20px;" alt="RFC Logo">
-    <p>Rensselaer Union, Troy, NY | rpiflying@gmail.com</p>
-    <p>© 2026 RPI Flying Club</p>
+  <footer style="text-align: center; padding-top: 100px; margin-top: 100px; border-top: 1px solid var(--rfc-gold); color: var(--rfc-blue);">
+    <img src="assets/RFCLOGO.png" style="height: 80px; opacity: 0.9; margin-bottom: 20px;" alt="RFC Logo">
+    <p>Rensselaer Union, Troy, NY | rpiflying@gmail.com [cite: 44]</p>
+    <p>© 2025 RPI Flying Club. All rights reserved[cite: 66, 67].</p>
   </footer>
 </div>
 
 <script>
   window.onscroll = function() {
     var bg = document.getElementById("heroBg");
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
       bg.classList.add("blurred-more");
     } else {
       bg.classList.remove("blurred-more");
