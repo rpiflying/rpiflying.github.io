@@ -424,8 +424,8 @@ layout: home
   <img src="assets/RFCLOGOthin.png" style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; mix-blend-mode: darken;" alt="RFC Logo">
   
   <p style="margin-bottom: 0.5rem;">
-    <a href="https://www.linkedin.com/in/your-profile-here" target="_blank" class="developer-credit">
-      Made by Andreas Spiratos <span>↗</span>
+    <a href="https://www.linkedin.com/in/andreas-spiratos/" target="_blank" class="developer-credit">
+      <span>✈︎</span> Made by Andreas Spiratos (President '25-'26) <span>✈︎</span>
     </a>
   </p>
   
