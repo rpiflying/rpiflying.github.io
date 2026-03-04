@@ -1,5 +1,7 @@
 ---
 layout: home
+title: RPI Flying Club
+seo_title: RPI Flying Club
 ---
 
 <head>
