@@ -13,17 +13,24 @@ layout: home
     --rpi-red: #D6001C;
   }
 
-  header.site-header, .site-title, #header { display: none !important; }
+  /* 1. KILL DEFAULT HEADER (Absolute removal) */
+  header.site-header, .site-title, #header, .header-site { 
+    display: none !important; 
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
   body { 
     margin: 0; padding: 0;
     font-family: 'Inter', sans-serif;
     background: url('assets/bannerbackground.png') no-repeat center center fixed;
     background-size: cover;
-    background-color: #000; /* Dark base for the fade-in */
+    background-color: #000;
   }
 
-  /* 1. Navigation (Hidden on start, fades in) */
+  /* 2. NAVIGATION REBUILD */
   .top-nav {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 80px;
@@ -32,32 +39,62 @@ layout: home
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 5%; z-index: 9999;
     border-bottom: 1px solid rgba(0,0,0,0.05);
+    box-sizing: border-box;
     animation: fadeIn 2s ease-in-out;
   }
 
-  /* 2. THE CINEMATIC HERO */
+  .nav-logo-img { height: 50px; }
+
+  .nav-links { display: flex; gap: 15px; align-items: center; }
+
+  .nav-item { 
+    text-decoration: none; 
+    color: #111; 
+    font-weight: 700; 
+    font-size: 0.85rem; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    transition: 0.3s;
+  }
+
+  .nav-item:hover { color: var(--rpi-red); }
+
+  /* Red Join Button */
+  .nav-btn-join { 
+    background: var(--rpi-red); 
+    color: white !important; 
+    border-radius: 4px;
+    border: 2px solid var(--rpi-red);
+    box-shadow: 0 4px 12px rgba(214, 0, 28, 0.2);
+  }
+
+  .nav-btn-join:hover {
+    background: transparent;
+    color: var(--rpi-red) !important;
+  }
+
+  /* 3. THE FIXED SINGLE-LINE HERO */
   .hero-container {
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background: #000;
   }
 
   .hero-banner-bg {
-    position: absolute;
+    position: fixed; /* Keeps the image locked while scrolling */
     top: 0; left: 0; width: 100%; height: 100%;
     background: url('assets/BANNER.png') no-repeat center center;
     background-size: cover;
-    /* Stronger blur and initial darkness */
-    filter: blur(10px) brightness(0.5); 
+    filter: blur(12px) brightness(0.45); 
     transform: scale(1.1);
     z-index: 1;
   }
 
   .hero-content-layer {
-    position: relative;
-    height: 100vh;
+    position: fixed; /* Keeps the text locked while scrolling */
+    top: 0; left: 0; width: 100%; height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,60 +102,46 @@ layout: home
     z-index: 5;
     color: white;
     text-align: center;
-    /* The Fade-Up Animation */
     animation: onLoadFadeUp 1.5s cubic-bezier(0.2, 1, 0.3, 1);
   }
 
-  /* TEXT AT 95% WIDTH */
   .hero-title { 
-    font-size: 15vw; /* Adjusted for maximum impact */
+    font-size: 11.5vw; /* Perfectly tuned for 1 line */
     font-weight: 900; 
     font-style: italic;
-    line-height: 0.8; 
+    line-height: 1; 
     letter-spacing: -0.05em; 
     margin: 0;
     text-transform: uppercase;
-    width: 95vw; /* 95% width as requested */
+    width: 95vw;
+    white-space: nowrap; /* Forces one line */
     text-shadow: 0 20px 80px rgba(0,0,0,0.8);
   }
 
   .hero-subtitle {
-    font-size: 2.2vw;
+    font-size: 2vw;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 3vw; /* Very wide spread */
+    letter-spacing: 2.5vw;
     margin-top: 20px;
-    padding-left: 3vw;
+    padding-left: 2.5vw;
     opacity: 0.8;
   }
 
-  .animated-logo {
-    width: 150px;
-    margin-bottom: 10px;
-    filter: drop-shadow(0 0 30px rgba(255,255,255,0.4));
-  }
+  .animated-logo { width: 140px; margin-bottom: 10px; }
 
-  /* 3. ANIMATIONS */
-  @keyframes onLoadFadeUp {
-    0% { opacity: 0; transform: translateY(50px); filter: blur(10px); }
-    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
-  }
-
-  @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
-  /* 4. CONTENT SLIDE-OVER */
+  /* 4. SCROLLABLE CONTENT SLIDE */
   .main-wrapper {
     background: white;
     position: relative;
-    z-index: 10;
+    z-index: 100; /* Must be higher than the fixed layers */
+    margin-top: 100vh; /* Starts exactly after the first screen */
     border-radius: 60px 60px 0 0;
     padding: 100px 8%;
-    box-shadow: 0 -40px 100px rgba(0,0,0,0.5); /* Strong shadow for depth */
+    box-shadow: 0 -50px 100px rgba(0,0,0,0.6);
   }
 
+  /* Achievement Panel */
   .achievement-panel {
     background: #ffffff;
     padding: 60px;
@@ -131,25 +154,35 @@ layout: home
     border: 8px solid var(--rpi-red);
   }
 
-  .bar-logo { height: 180px; }
+  .bar-logo { height: 180px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
+  /* 5. Discord FAB */
   .discord-fab {
     position: fixed; bottom: 30px; right: 30px; 
     background: #5865F2;
     width: 70px; height: 70px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 10px 25px rgba(88, 101, 242, 0.4); z-index: 9999;
+    box-shadow: 0 10px 25px rgba(88, 101, 242, 0.4); z-index: 99999;
     overflow: hidden;
   }
   .discord-fab img { width: 100%; height: 100%; object-fit: cover; }
+
+  @keyframes onLoadFadeUp {
+    0% { opacity: 0; transform: translateY(80px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
 </style>
 
 <nav class="top-nav">
-  <a href="/"><img src="assets/RFCLOGO.png" style="height:50px;" alt="RFC Logo"></a>
+  <a href="/"><img src="assets/RFCLOGO.png" class="nav-logo-img" alt="RFC Logo"></a>
   <div class="nav-links">
     <a href="/about" class="nav-item">About</a>
     <a href="/ground-school" class="nav-item">Ground School</a>
-    <a href="/join" class="nav-item nav-btn-special">Join Us</a>
+    <a href="/officer-team" class="nav-item">Officers</a>
+    <a href="/calendar" class="nav-item">Calendar</a>
+    <a href="/join" class="nav-item nav-btn-join">Join Us</a>
   </div>
 </nav>
 
@@ -157,13 +190,11 @@ layout: home
   <img src="assets/discord-logo-icon-editorial-free-vector.jpg" alt="Discord">
 </a>
 
-<div class="hero-container">
-  <div class="hero-banner-bg"></div>
-  <div class="hero-content-layer">
-    <img src="assets/RFC-Discord-Logo-Animated-Extended.gif" class="animated-logo" alt="RFC Logo">
-    <h1 class="hero-title">YOUR JOURNEY<br>STARTS HERE</h1>
-    <p class="hero-subtitle">RPI FLYING CLUB</p>
-  </div>
+<div class="hero-banner-bg"></div>
+<div class="hero-content-layer">
+  <img src="assets/RFC-Discord-Logo-Animated-Extended.gif" class="animated-logo" alt="RFC Logo">
+  <h1 class="hero-title">YOUR JOURNEY STARTS HERE</h1>
+  <p class="hero-subtitle">RPI FLYING CLUB</p>
 </div>
 
 <div class="main-wrapper">
@@ -179,8 +210,8 @@ layout: home
 
   <div style="text-align: center; margin: 80px 0;">
     <h2 style="font-size: 3.5rem; font-weight: 800; letter-spacing: -2px;">Advancing Aviation at RPI</h2>
-    <p style="color: #666; font-size: 1.3rem; max-width: 800px; margin: 25px auto; line-height: 1.6;">
-      Whether you're training for your Private Pilot License or just love spotting, the RPI Flying Club is your home on campus.
+    <p style="color: #666; font-size: 1.3rem; max-width: 800px; margin: 25px auto;">
+      The RPI Flying Club is a student-run organization dedicated to making flight accessible to the RPI community.
     </p>
   </div>
 
