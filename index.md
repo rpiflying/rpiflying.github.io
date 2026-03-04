@@ -203,7 +203,7 @@ layout: home
 <div class="main-wrapper">
   
   <div class="advancing-panel">
-    <h2 class="section-title">Advancing Aviation at RPI</h2>
+    <h1 class="section-title">Advancing Aviation at RPI</h1>
     <p>
       Students, Pilots, Engineers, Nerds. We are the community for all aviation enthusiasts at Rensselaer. We provide the resources, networking, and environment to jumpstart your aviation journey.
     </p>
