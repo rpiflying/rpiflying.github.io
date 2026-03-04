@@ -45,7 +45,6 @@ permalink: /officer-team/
     box-sizing: border-box;
   }
 
-  /* Standardize the mobile breakpoint height */
   @media (max-width: 768px) { 
     .top-nav { height: 4.5rem; } 
     .nav-logo-img { height: 3rem !important; width: auto; mix-blend-mode: darken; }
@@ -116,13 +115,13 @@ permalink: /officer-team/
     box-shadow: 0 -3rem 6rem rgba(0,0,0,0.6); min-height: 100vh;
   }
 
-  /* OFFICER GRID LOGIC (FLEX FOR CENTERING) */
+  /* OFFICER GRID LOGIC */
   .officer-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 3rem; /* Keep the breathing room */
-    max-width: 1400px; /* Prevents cards from getting comically wide on ultra-wide screens */
+    gap: 3rem;
+    max-width: 1400px;
     margin: 0 auto;
   }
 
@@ -134,21 +133,19 @@ permalink: /officer-team/
     box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
     transition: 0.3s ease;
     text-align: center;
-    
-    /* Change flex to grow more aggressively */
-    flex: 1 1 350px; 
-    max-width: 450px; /* Keeps them from looking like wide rectangles */
+    flex: 1 1 380px; /* Increased base width from 350px to 380px */
+    max-width: 480px; /* Increased max width */
     display: flex;
     flex-direction: column;
   }
   .officer-card:hover { transform: translateY(-10px); border-color: var(--rfc-red); }
 
-  .officer-img { width: 100%; height: 400px; object-fit: cover; border-bottom: 4px solid var(--rfc-gold); }
-  .officer-info { padding: 2rem; }
+  .officer-img { width: 100%; height: 380px; object-fit: cover; border-bottom: 4px solid var(--rfc-gold); }
+  .officer-info { padding: 2rem; display: flex; flex-direction: column; flex-grow: 1; }
   .officer-name { font-family: 'Notable', sans-serif; color: var(--rfc-blue); font-size: 1.5rem; margin: 0; text-transform: uppercase; }
   .officer-title { color: var(--rfc-red); font-family: 'Loubag-SemiBold'; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; margin-top: 5px; display: block; }
   
-  .officer-meta { margin-top: 1rem; font-size: 0.85rem; color: var(--rfc-blue); opacity: 0.8; line-height: 1.6; }
+  .officer-meta { margin-top: 1rem; font-size: 0.9rem; color: var(--rfc-blue); opacity: 0.9; line-height: 1.8; }
   .officer-meta a { color: var(--rfc-red); text-decoration: none; font-weight: bold; }
 
   .officer-fact { 
@@ -167,7 +164,7 @@ permalink: /officer-team/
 
   /* RESPONSIVENESS */
   @media (max-width: 1100px) {
-      .officer-card { flex: 1 1 40%;  max-width: 500px; }
+      .officer-card { flex: 1 1 45%; max-width: 500px; }
   }
 
   @media (max-width: 992px) {
@@ -233,7 +230,8 @@ permalink: /officer-team/
         <span class="officer-title">President</span>
         <div class="officer-meta">
           📍 Athens, Greece <br>
-          📧 <a href="mailto:andrea@rpi.edu">andrea@rpi.edu</a>
+          📧 <a href="mailto:andrea@rpi.edu">andrea@rpi.edu</a> <br>
+          ✈️ <b>Favorite Plane:</b> Concorde
         </div>
         <p class="officer-fact">"Fun Fact: I once flew a Cessna over the Aegean Sea!"</p>
       </div>
@@ -246,7 +244,8 @@ permalink: /officer-team/
         <span class="officer-title">Vice President</span>
         <div class="officer-meta">
           📍 Seattle, WA <br>
-          📧 <a href="mailto:woodmj@rpi.edu">woodmj@rpi.edu</a>
+          📧 <a href="mailto:woodmj@rpi.edu">woodmj@rpi.edu</a> <br>
+          ✈️ <b>Favorite Plane:</b> Boeing 787 Dreamliner
         </div>
         <p class="officer-fact">"Fun Fact: My favorite aircraft is the Boeing 787 Dreamliner!"</p>
       </div>
@@ -259,7 +258,8 @@ permalink: /officer-team/
         <span class="officer-title">Treasurer</span>
         <div class="officer-meta">
           📍 Philadelphia, PA <br>
-          📧 <a href="mailto:pirroj@rpi.edu">pirroj@rpi.edu</a>
+          📧 <a href="mailto:pirroj@rpi.edu">pirroj@rpi.edu</a> <br>
+          ✈️ <b>Favorite Plane:</b> Cirrus SR22
         </div>
         <p class="officer-fact">"Fun Fact: I have logged over 500 hours in Microsoft Flight Simulator!"</p>
       </div>
@@ -272,7 +272,8 @@ permalink: /officer-team/
         <span class="officer-title">Secretary</span>
         <div class="officer-meta">
           📍 Boston, MA <br>
-          📧 <a href="mailto:giarrs@rpi.edu">giarrs@rpi.edu</a>
+          📧 <a href="mailto:giarrs@rpi.edu">giarrs@rpi.edu</a> <br>
+          ✈️ <b>Favorite Plane:</b> Piper Archer
         </div>
         <p class="officer-fact">"Fun Fact: I am currently working on my Private Pilot License!"</p>
       </div>
@@ -285,7 +286,8 @@ permalink: /officer-team/
         <span class="officer-title">Flight Safety Officer</span>
         <div class="officer-meta">
           📍 New York, NY <br>
-          📧 <a href="mailto:fiorem@rpi.edu">fiorem@rpi.edu</a>
+          📧 <a href="mailto:fiorem@rpi.edu">fiorem@rpi.edu</a> <br>
+          ✈️ <b>Favorite Plane:</b> Airbus A350
         </div>
         <p class="officer-fact">"Fun Fact: My dream destination to fly to is the Swiss Alps!"</p>
       </div>
