@@ -227,6 +227,7 @@ layout: home
     .hero-title { font-size: 14vw; } 
     .hero-subtitle { font-size: 4.5vw; letter-spacing: 1vw; }
     .top-nav { height: 4.5rem; }
+    .nav-logo-img { height: 3rem !important; width: auto; mix-blend-mode: darken; }
   }
 </style>
 
