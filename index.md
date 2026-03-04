@@ -58,13 +58,45 @@ layout: home
   .nav-logo-img:hover { transform: scale(1.05); }
 
   .nav-links { display: flex; gap: 1rem; align-items: center; }
+
+  /* 1. Base Nav Link Style */
+  .nav-item { 
+    text-decoration: none; 
+    color: var(--rfc-blue); 
+    font-weight: 800; 
+    font-size: 0.85rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    padding: 0.6rem 1.2rem; 
+    border-radius: 8px; /* Canva uses soft rounded corners */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth "pop" transition */
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* 2. Hover Effect (The Canva "Pill") */
+  .nav-item:hover { 
+    background-color: rgba(5, 61, 90, 0.08); /* Subtle blue tint background */
+    color: var(--rfc-red); /* Text shifts to club red */
+    transform: translateY(-2px); /* Gentle lift */
+  }
+  
+  /* 3. Fancy "Join Us" Button Override */
+  /* This targets the button with the red background in your HTML */
+  .nav-links a[style*="background: var(--rfc-red)"]:hover {
+    background-color: #a30302 !important; /* Deeper red on hover */
+    box-shadow: 0 4px 15px rgba(204, 4, 3, 0.3); /* Soft red glow */
+    transform: scale(1.05) translateY(-2px) !important; /* Grow and lift */
+    color: white !important;
+  }
+  /*
   .nav-item { 
     text-decoration: none; color: var(--rfc-blue); font-weight: 800; 
     font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
     padding: 0.5rem 0.8rem; transition: 0.3s;
   }
   .nav-item:hover { color: var(--rfc-red); }
-
+  */
   .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 10001; }
   .menu-toggle span { width: 30px; height: 3px; background: var(--rfc-blue); border-radius: 10px; }
 
@@ -89,7 +121,8 @@ layout: home
     margin-bottom: 4rem; 
     opacity: 0.75; 
     
-    border-radius: 50%;                 /* Makes it a perfect circle */
+    /*border-radius: 50%;                  Makes it a perfect circle */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Diamond/Wing shape */
     border: 4px solid var(--rfc-gold);  /* Adds an aviation gold ring */
     background: rgba(255,255,255,0.1);  /* Subtle glass effect */
     box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Makes the circle "pop" */
