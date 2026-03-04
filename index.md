@@ -8,7 +8,6 @@ layout: home
 </head>
 
 <style>
-  /* Load local Loubag fonts from assets */
   @font-face {
     font-family: 'Loubag';
     src: url('assets/loubag.ttf') format('truetype');
@@ -39,7 +38,7 @@ layout: home
 
   header.site-header, .site-title, #header, .header-site { display: none !important; }
 
-  /* 1. NAVIGATION */
+  /* 1. NAVIGATION & HAMBURGER */
   .top-nav {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 6.5rem;
@@ -50,22 +49,32 @@ layout: home
     box-sizing: border-box;
   }
 
-  .nav-logo-img { 
-    height: 5.5rem; 
-    width: auto; 
-    mix-blend-mode: darken; 
-  }
+  .nav-logo-img { height: 5.5rem; width: auto; mix-blend-mode: darken; }
 
+  /* Desktop Nav */
   .nav-links { display: flex; gap: 1rem; align-items: center; }
   .nav-item { 
     text-decoration: none; color: var(--rfc-blue); font-weight: 800; 
     font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
     padding: 0.6rem 1rem; transition: 0.3s;
   }
-  .nav-item:hover { color: var(--rfc-red); }
+
+  /* Hamburger Icon */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 10001;
+  }
+  .menu-toggle span {
+    width: 35px; height: 3px;
+    background: var(--rfc-blue);
+    border-radius: 10px;
+    transition: 0.3s;
+  }
 
   /* 2. HERO SECTION */
-  .hero-container { position: relative; width: 100%; height: 100vh; overflow: hidden; }
   .hero-banner-bg {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: url('assets/BANNER.png') no-repeat center center;
@@ -81,12 +90,7 @@ layout: home
     z-index: 5; color: white; text-align: center;
   }
 
-  .animated-logo { 
-    width: 11rem; 
-    margin-bottom: 4rem; 
-    opacity: 0.75;
-    filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
-  }
+  .animated-logo { width: 11rem; margin-bottom: 4rem; opacity: 0.75; }
 
   .hero-title { 
     font-family: 'Notable', sans-serif;
@@ -97,13 +101,8 @@ layout: home
 
   .hero-subtitle {
     font-family: 'Loubag-SemiBold', sans-serif;
-    font-weight: 900; 
-    font-size: 2.8vw; 
-    text-transform: uppercase;
-    letter-spacing: 2.4vw; 
-    margin-top: 1.8rem; 
-    padding-left: 2.4vw; 
-    color: var(--rfc-gold);
+    font-weight: 900; font-size: 2.8vw; text-transform: uppercase;
+    letter-spacing: 2.4vw; margin-top: 1.8rem; padding-left: 2.4vw; color: var(--rfc-gold);
     text-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.5);
   }
 
@@ -113,24 +112,19 @@ layout: home
     position: relative; z-index: 100; margin-top: 100vh;
     border-radius: 4rem 4rem 0 0; padding: 6rem 8%;
     box-shadow: 0 -3rem 6rem rgba(0,0,0,0.6);
-    box-sizing: border-box;
   }
 
   .section-title {
     font-family: 'Notable', sans-serif;
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 5vw, 3.8rem); /* Fixed font scaling issue */
     color: var(--rfc-blue);
     text-align: center;
     margin-bottom: 3rem;
+    line-height: 1.1;
   }
 
-  .advancing-panel {
-    text-align: center; margin-bottom: 6rem;
-  }
-
-  .advancing-panel p {
-    color: #333; font-size: 1.4rem; max-width: 900px; margin: 0 auto; line-height: 1.7;
-  }
+  .advancing-panel { text-align: center; margin-bottom: 6rem; }
+  .advancing-panel p { color: #333; font-size: 1.4rem; max-width: 900px; margin: 0 auto; line-height: 1.7; }
 
   .achievement-panel {
     background: white; padding: 4rem; border-radius: 2.5rem;
@@ -142,31 +136,39 @@ layout: home
   .achievement-text { flex: 1; min-width: 60%; }
   .bar-logo { height: 13rem; width: auto; }
 
-  /* Gallery Grid */
-  .gallery-grid {
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); 
-    gap: 2rem;
-  }
-  .gallery-img {
-    width: 100%; 
-    height: 30rem; 
-    object-fit: cover; 
-    border-radius: 2rem;
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 2rem; }
+  .gallery-img { width: 100%; height: 30rem; object-fit: cover; border-radius: 2rem; }
+
+  /* MOBILE RESPONSIVE LOGIC */
+  @media (max-width: 992px) {
+    .menu-toggle { display: flex; }
+    
+    .nav-links {
+      position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
+      background: var(--rfc-tan); flex-direction: column; 
+      justify-content: center; transition: 0.5s; z-index: 10000;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+    }
+
+    .nav-links.active { right: 0; }
+    .nav-item { font-size: 1.5rem; width: 100%; text-align: center; padding: 1.5rem 0; }
   }
 
   @media (max-width: 768px) {
     .hero-subtitle { font-size: 4.5vw; letter-spacing: 1vw; }
-    .section-title { font-size: 2.2rem; }
     .top-nav { height: 5.5rem; }
     .nav-logo-img { height: 4.5rem; }
   }
-
 </style>
 
 <nav class="top-nav">
   <a href="/"><img src="assets/RFCLOGO.png" class="nav-logo-img" alt="RFC Logo"></a>
-  <div class="nav-links">
+  
+  <div class="menu-toggle" id="mobile-menu">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="nav-links" id="nav-list">
     <a href="/about" class="nav-item">About</a>
     <a href="/ground-school" class="nav-item">Ground School</a>
     <a href="/officer-team" class="nav-item">Officers</a>
@@ -195,6 +197,7 @@ layout: home
     <div class="achievement-text">
       <h2 style="font-family: 'Notable', sans-serif; color: var(--rfc-blue); font-size: 2.8rem; margin: 0; line-height: 1.1;">AWARD WINNING BRAND</h2>
       <p style="font-size: 1.3rem; margin-top: 1.5rem; color: var(--rfc-blue); line-height: 1.5;">Winner of the RPI Brand Competition. Designed to reflect the speed and precision of aviation. Our identity is built to represent the future of flight on campus.</p>
+      <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 1rem;">Brand design by Kaden Tennent '25</p>
     </div>
     <img src="assets/RPI-Brand-Comp_Runway-Bar_Black-BG-Logo.png" class="bar-logo" alt="Runway Bar Award">
   </div>
@@ -222,4 +225,11 @@ layout: home
       bg.classList.remove("blurred-more");
     }
   };
+
+  // Mobile Menu Logic
+  const menuToggle = document.getElementById('mobile-menu');
+  const navList = document.getElementById('nav-list');
+  menuToggle.addEventListener('click', () => {
+    navList.classList.toggle('active');
+  });
 </script>
