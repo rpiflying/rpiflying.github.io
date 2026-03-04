@@ -116,7 +116,7 @@ layout: home
     font-size: 3.5rem; 
     color: var(--rfc-blue);
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     line-height: 1.1;
   }
   
