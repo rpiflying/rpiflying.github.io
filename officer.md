@@ -233,7 +233,7 @@ permalink: /officer-team/
           📧 <a href="mailto:spiraa2@rpi.edu">spiraa2@rpi.edu</a> <br>
           ✈️ <b>Favorite Plane:</b> Concorde
         </div>
-        <p class="officer-fact">"Fun Fact: I own a 1989 VW Jetta."</p>
+        <p class="officer-fact">Fun Fact: "I own a 1989 VW Jetta."</p>
       </div>
     </div>
 
@@ -247,7 +247,7 @@ permalink: /officer-team/
           📧 <a href="mailto:woodmj2@rpi.edu">woodmj2@rpi.edu</a> <br>
           ✈️ <b>Favorite Plane:</b> F-35B
         </div>
-        <p class="officer-fact">"Fun Fact: My dog is fat."</p>
+        <p class="officer-fact">Fun Fact: "My dog is fat."</p>
       </div>
     </div>
 
@@ -257,11 +257,11 @@ permalink: /officer-team/
         <h3 class="officer-name">Jack Pirrong</h3>
         <span class="officer-title">Treasurer</span>
         <div class="officer-meta">
-          📍 WHO KNOWS?? <br>
+          📍 Bellingham, MA <br>
           📧 <a href="mailto:pirroj3@rpi.edu">pirroj3@rpi.edu</a> <br>
-          ✈️ <b>Favorite Plane:</b> Cirrus SR22
+          ✈️ <b>Favorite Plane:</b> Douglas A-4 Skyhawk
         </div>
-        <p class="officer-fact">"Fun Fact: I have logged over 500 hours in Microsoft Flight Simulator!"</p>
+        <p class="officer-fact">Fun Fact: "love me some veal parm"</p>
       </div>
     </div>
 
