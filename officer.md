@@ -247,7 +247,7 @@ permalink: /officer-team/
           📧 <a href="mailto:woodmj2@rpi.edu">woodmj2@rpi.edu</a> <br>
           ✈️ <b>Favorite Plane:</b> F-35B
         </div>
-        <p class="officer-fact">Fun Fact: "My dog is fat."</p>
+        <p class="officer-fact">Fun Fact: "My dog is fat"</p>
       </div>
     </div>
 
@@ -271,11 +271,11 @@ permalink: /officer-team/
         <h3 class="officer-name">Stella Giarratana</h3>
         <span class="officer-title">Secretary</span>
         <div class="officer-meta">
-          📍 Boston, MA <br>
+          📍 Wethersfield, CT <br>
           📧 <a href="mailto:giarrj@rpi.edu">giarrj@rpi.edu</a> <br>
-          ✈️ <b>Favorite Plane:</b> Piper Archer
+          ✈️ <b>Favorite Plane:</b> Boeing 314 Clipper
         </div>
-        <p class="officer-fact">"Fun Fact: I am currently working on my Private Pilot License!"</p>
+        <p class="officer-fact">Fun Fact: "Am fine with pineapples on pizza"</p>
       </div>
     </div>
   
