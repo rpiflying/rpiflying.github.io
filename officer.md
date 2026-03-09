@@ -285,11 +285,11 @@ permalink: /officer-team/
         <h3 class="officer-name">Matthew Fiorenza</h3>
         <span class="officer-title">Flight Safety Officer</span>
         <div class="officer-meta">
-          📍 New York, NY <br>
+          📍 Oakton, VA <br>
           📧 <a href="mailto:fiorem2@rpi.edu">fiorem2@rpi.edu</a> <br>
-          ✈️ <b>Favorite Plane:</b> Airbus A350
+          ✈️ <b>Favorite Plane:</b> F-16
         </div>
-        <p class="officer-fact">"Fun Fact: My dream destination to fly to is the Swiss Alps!"</p>
+        <p class="officer-fact">Fun Fact: "I can ride a unicycle"</p>
       </div>
     </div>
   </div>
