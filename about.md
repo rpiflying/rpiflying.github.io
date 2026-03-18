@@ -183,18 +183,18 @@ permalink: /about/
   
   <div class="content-section">
     <h2 class="about-h2">WHO WE ARE</h2>
-    <p class="about-p"> EDIT THIS - The RPI Flying Club (RFC) is Rensselaer Polytechnic Institute's premier organization for aviation enthusiasts, aspiring pilots, and aerospace engineers. Founded to bridge the gap between classroom theory and the sky, we provide students with the resources, community, and training needed to take flight.</p>
-    <p class="about-p">EDIT THIS -Whether you have 1,000 flight hours or have never stepped foot on a tarmac, the RFC is a home for anyone who looks up when a plane flies over.</p>
+    <p class="about-p"> The RPI Flying Club (RFC) is RPI's leading club for student engagement in aviation. We are a group of aviation enthusiasts, pilots, and engineers looking to forward experience in the world of aviation.</p>
+    <p class="about-p">Whether you have a thousand flight hours or have never been to an airport, the RFC is a home for anyone who looks up when a plane flies over.</p>
   </div>
 
   <div class="stat-grid">
     <div class="stat-card">
-      <span class="stat-number">EDIT THIS -100+</span>
+      <span class="stat-number">8+</span>
       <span class="stat-label">Active Members</span>
     </div>
     <div class="stat-card">
       <span class="stat-number">Weekly</span>
-      <span class="stat-label">Ground School</span>
+      <span class="stat-label">Meetings and Ground School</span>
     </div>
     <div class="stat-card">
       <span class="stat-number">1951</span>
@@ -204,7 +204,7 @@ permalink: /about/
 
   <div class="content-section" style="margin-top: 6rem;">
     <h2 class="about-h2">WHAT WE DO</h2>
-    <p class="about-p">EDIT THIS -Our club operates several key programs designed to make aviation accessible. From our FAA-aligned Ground School sessions to our immersive flight simulator lab, we ensure our members are prepared for the cockpit.</p>
+    <p class="about-p">Our club operates several key programs designed to engage students in aviation. From our Ground School sessions to our immersive flight simulator experiences, we ensure our members are prepared for the cockpit.</p>
     <ul class="about-p" style="text-align: left;">
       <li><strong>Flight Training Support:</strong> Connections to local flight schools and instructors.</li>
       <li><strong>Industry Trips:</strong> Visits to airports, ATC towers, and aerospace manufacturing hubs.</li>
