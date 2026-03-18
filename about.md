@@ -189,7 +189,7 @@ permalink: /about/
 
   <div class="stat-grid">
     <div class="stat-card">
-      <span class="stat-number">8+</span>
+      <span class="stat-number">10+</span>
       <span class="stat-label">Active Members</span>
     </div>
     <div class="stat-card">
