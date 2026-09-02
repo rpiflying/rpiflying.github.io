@@ -343,7 +343,7 @@ permalink: /officer-team/
     </div>
   </div>
   <!-- SPRING 2026 OFFICER GRID (HISTORICAL TEMPLATE) -->
-  <div class="officer-grid" id="grid-spring2026">
+  <div class="officer-grid" id="grid-spring2026" style="display: none;">
     <div class="officer-card">
       <img src="{{ '/assets/AndreasSpiratos.jpg' | relative_url }}" class="officer-img" alt="Andreas Spiratos">
       <div class="officer-info">
@@ -390,7 +390,7 @@ permalink: /officer-team/
       <img src="{{ '/assets/StellaGiarratana.jpg' | relative_url }}" class="officer-img" alt="Stella Giarratana">
       <div class="officer-info">
         <h3 class="officer-name">Stella Giarratana</h3>
-        <span class="officer-title">Mrs.</span>
+        <span class="officer-title">Secretary</span>
         <div class="officer-meta">
           📍 Wethersfield, CT <br>
           📧 <a href="mailto:giarrj@rpi.edu">giarrj@rpi.edu</a> <br>
