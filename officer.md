@@ -318,7 +318,7 @@ permalink: /officer-team/
       <img src="{{ '/assets/stock.png' | relative_url }}" class="officer-img" alt="Stock Img">
       <div class="officer-info">
         <h3 class="officer-name">Could Be You?</h3>
-        <span class="officer-title">Secreatary</span>
+        <span class="officer-title">Secretary</span>
         <div class="officer-meta">
           📍 N/A <br>
           📧 <a href="mailto:rpiflying@gmail.com">rpiflying@gmail.com</a> <br>
