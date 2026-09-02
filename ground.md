@@ -214,7 +214,7 @@ permalink: /ground-school/
   </div>
     <p style="margin-bottom: 0.5rem;">
       <a href="https://www.linkedin.com/in/andreas-spiratos/" target="_blank" class="developer-credit">
-        <span>✈︎</span> Made by Andreas Spiratos (President '25-'26) <span>✈︎</span>
+        <span>✈︎</span> Made by Andreas Spiratos (President '25-'27) <span>✈︎</span>
       </a>
     </p>
     <p style="font-size: 0.9rem; opacity: 0.7;">© 2026 RPI Flying Club. All rights reserved.</p>
