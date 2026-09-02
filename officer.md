@@ -115,6 +115,44 @@ permalink: /officer-team/
     box-shadow: 0 -3rem 6rem rgba(0,0,0,0.6); min-height: 100vh;
   }
 
+  /* SEMESTER DROPDOWN SELECTOR STYLING */
+  .term-select-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .term-select-label {
+    font-family: 'Loubag-SemiBold', sans-serif;
+    color: var(--rfc-blue);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .term-select {
+    font-family: 'Loubag-SemiBold', sans-serif;
+    background-color: white;
+    color: var(--rfc-blue);
+    border: 3px solid var(--rfc-gold);
+    border-radius: 12px;
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08);
+  }
+
+  .term-select:hover, .term-select:focus {
+    border-color: var(--rfc-red);
+    transform: translateY(-2px);
+    box-shadow: 0 0.8rem 1.5rem rgba(0,0,0,0.12);
+  }
+  
   /* OFFICER GRID LOGIC */
   .officer-grid {
     display: flex;
@@ -221,8 +259,17 @@ permalink: /officer-team/
 </div>
 
 <div class="main-wrapper">
-  
-  <div class="officer-grid">
+  <!-- SEMESTER DROPDOWN MENU -->
+  <div class="term-select-wrapper">
+    <label for="termSelect" class="term-select-label">Select Term:</label>
+    <select id="termSelect" class="term-select">
+      <option value="spring2026">Spring 2026 Officer Team (Current)</option>
+      <option value="fall2025">Fall 2025 Officer Team</option>
+      <option value="spring2025">Spring 2025 Officer Team</option>
+    </select>
+  </div>
+  <!-- OFFICER GRID S2026-->
+  <div class="officer-grid" id="grid-spring2026">
     <div class="officer-card">
       <img src="{{ '/assets/AndreasSpiratos.jpg' | relative_url }}" class="officer-img" alt="Andreas Spiratos">
       <div class="officer-info">
@@ -269,7 +316,7 @@ permalink: /officer-team/
       <img src="{{ '/assets/StellaGiarratana.jpg' | relative_url }}" class="officer-img" alt="Stella Giarratana">
       <div class="officer-info">
         <h3 class="officer-name">Stella Giarratana</h3>
-        <span class="officer-title">Secretary</span>
+        <span class="officer-title">Mrs.</span>
         <div class="officer-meta">
           📍 Wethersfield, CT <br>
           📧 <a href="mailto:giarrj@rpi.edu">giarrj@rpi.edu</a> <br>
@@ -293,7 +340,16 @@ permalink: /officer-team/
       </div>
     </div>
   </div>
+  <!-- FALL 2025 OFFICER GRID (HISTORICAL TEMPLATE) -->
+  <div class="officer-grid" id="grid-fall2025" style="display: none;">
+    <!-- Copy and edit officer card elements here for Fall 2025 -->
+  </div>
 
+  <!-- SPRING 2025 OFFICER GRID (HISTORICAL TEMPLATE) -->
+  <div class="officer-grid" id="grid-spring2025" style="display: none;">
+    <!-- Copy and edit officer card elements here for Spring 2025 -->
+  </div>
+  
   <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
     <img src="{{ '/assets/RFCLOGOthin.png' | relative_url }}" 
          style="height: 4rem; opacity: 0.9; margin-bottom: 2rem; display: block; margin-left: auto; margin-right: auto; mix-blend-mode: darken;" 
@@ -330,4 +386,22 @@ permalink: /officer-team/
   menuToggle.addEventListener('click', () => {
     navList.classList.toggle('active');
   });
+  // SEMESTER DROPDOWN SWITCHER LOGIC
+  const termSelect = document.getElementById('termSelect');
+  if (termSelect) {
+    termSelect.addEventListener('change', function() {
+      const selectedTerm = this.value;
+      
+      // Hide all officer grids
+      document.querySelectorAll('.officer-grid').forEach(grid => {
+        grid.style.display = 'none';
+      });
+
+      // Show the selected grid
+      const targetGrid = document.getElementById('grid-' + selectedTerm);
+      if (targetGrid) {
+        targetGrid.style.display = 'flex';
+      }
+    });
+  }
 </script>
