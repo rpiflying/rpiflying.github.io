@@ -315,7 +315,7 @@ permalink: /officer-team/
     </div>
 
   <div class="officer-card">
-      <img src="{{ '/assets/Stock.png' | relative_url }}" class="officer-img" alt="Stock Img">
+      <img src="{{ '/assets/stock.png' | relative_url }}" class="officer-img" alt="Stock Img">
       <div class="officer-info">
         <h3 class="officer-name">Could Be You?</h3>
         <span class="officer-title">Secreatary</span>
