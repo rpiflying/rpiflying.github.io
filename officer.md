@@ -263,12 +263,86 @@ permalink: /officer-team/
   <div class="term-select-wrapper">
     <label for="termSelect" class="term-select-label">Select Term:</label>
     <select id="termSelect" class="term-select">
-      <option value="spring2026">Spring 2026 Officer Team (Current)</option>
+      <option value="spring2026">Fall 2026 Officer Team (Current)</option>
+      <option value="spring2026">Spring 2026 Officer Team</option>
       <option value="fall2025">Fall 2025 Officer Team</option>
       <option value="spring2025">Spring 2025 Officer Team</option>
     </select>
   </div>
-  <!-- OFFICER GRID S2026-->
+  
+  <!-- FALL 2026 OFFICER GRID (Current) -->
+  <div class="officer-grid" id="grid-fall2026">
+    <div class="officer-card">
+      <img src="{{ '/assets/AndreasSpiratos.jpg' | relative_url }}" class="officer-img" alt="Andreas Spiratos">
+      <div class="officer-info">
+        <h3 class="officer-name">Andreas Spiratos</h3>
+        <span class="officer-title">President</span>
+        <div class="officer-meta">
+          📍 Lyndhurst, NJ <br>
+          📧 <a href="mailto:spiraa2@rpi.edu">spiraa2@rpi.edu</a> <br>
+          ✈️ <b>Favorite Plane:</b> Concorde
+        </div>
+        <p class="officer-fact">Fun Fact: "I own a 1989 VW Jetta."</p>
+      </div>
+    </div>
+
+  <div class="officer-card">
+      <img src="{{ '/assets/JordanWoodman.jpg' | relative_url }}" class="officer-img" alt="Jordan Woodman">
+      <div class="officer-info">
+        <h3 class="officer-name">Jordan Woodman</h3>
+        <span class="officer-title">Vice President</span>
+        <div class="officer-meta">
+          📍 Bethel, CT <br>
+          📧 <a href="mailto:woodmj2@rpi.edu">woodmj2@rpi.edu</a> <br>
+          ✈️ <b>Favorite Plane:</b> F-35B
+        </div>
+        <p class="officer-fact">Fun Fact: "My dog is fat"</p>
+      </div>
+    </div>
+
+  <div class="officer-card">
+      <img src="{{ '/assets/JackPirrong.jpg' | relative_url }}" class="officer-img" alt="Jack Pirrong">
+      <div class="officer-info">
+        <h3 class="officer-name">Jack Pirrong</h3>
+        <span class="officer-title">Treasurer</span>
+        <div class="officer-meta">
+          📍 Bellingham, MA <br>
+          📧 <a href="mailto:pirroj3@rpi.edu">pirroj3@rpi.edu</a> <br>
+          ✈️ <b>Favorite Plane:</b> Douglas A-4 Skyhawk
+        </div>
+        <p class="officer-fact">Fun Fact: "love me some veal parm"</p>
+      </div>
+    </div>
+
+  <div class="officer-card">
+      <img src="{{ '/assets/Stock.jpg' | relative_url }}" class="officer-img" alt="Stock Img">
+      <div class="officer-info">
+        <h3 class="officer-name">Could Be You?</h3>
+        <span class="officer-title">Secreatary</span>
+        <div class="officer-meta">
+          📍 N/A <br>
+          📧 <a href="mailto:rpiflying@gmail.com">rpiflying@gmail.com</a> <br>
+          ✈️ <b>Favorite Plane:</b> Yours!
+        </div>
+        <p class="officer-fact">Fun Fact: "This could be you!"</p>
+      </div>
+    </div>
+  
+  <div class="officer-card">
+      <img src="{{ '/assets/KadenTennent.jpg' | relative_url }}" class="officer-img" alt="Kaden Tennent">
+      <div class="officer-info">
+        <h3 class="officer-name">Kaden Tennent</h3>
+        <span class="officer-title">Flight Safety Officer</span>
+        <div class="officer-meta">
+          📍 Bolton Landing, NY <br>
+          📧 <a href="mailto:tennek@rpi.edu">tennek@rpi.edu</a> <br>
+          ✈️ <b>Favorite Plane:</b> Concorde
+        </div>
+        <p class="officer-fact">Fun Fact: "I've flown 67,000 mph"</p>
+      </div>
+    </div>
+  </div>
+  <!-- SPRING 2026 OFFICER GRID (HISTORICAL TEMPLATE) -->
   <div class="officer-grid" id="grid-spring2026">
     <div class="officer-card">
       <img src="{{ '/assets/AndreasSpiratos.jpg' | relative_url }}" class="officer-img" alt="Andreas Spiratos">
