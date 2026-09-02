@@ -263,7 +263,7 @@ permalink: /officer-team/
   <div class="term-select-wrapper">
     <label for="termSelect" class="term-select-label">Select Term:</label>
     <select id="termSelect" class="term-select">
-      <option value="spring2026">Fall 2026 Officer Team (Current)</option>
+      <option value="fall2026">Fall 2026 Officer Team (Current)</option>
       <option value="spring2026">Spring 2026 Officer Team</option>
       <option value="fall2025">Fall 2025 Officer Team</option>
       <option value="spring2025">Spring 2025 Officer Team</option>
