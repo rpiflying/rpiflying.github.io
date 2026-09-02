@@ -279,13 +279,13 @@ permalink: /join/
       <li><div class="step-num">3</div> <span>Check the <strong>Calendar</strong> for our next meeting in the Phalanx Room!</span></li>
     </ul>
 
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLScA8EwJXh_nF05OwQ8YK7MFxR7l7vNgNr0qqi2jQ5tdF0d3gQ/viewform" target="_blank" class="external-button">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeT19uaDFYiB8DARBK8DEJ6Sxf2VAW0jiGQcNjJXmhG4ZRUgQ/viewform" target="_blank" class="external-button">
       Open Form in New Tab ↗
   </a>
   </div>
 
   <div class="form-container">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScA8EwJXh_nF05OwQ8YK7MFxR7l7vNgNr0qqi2jQ5tdF0d3gQ/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeT19uaDFYiB8DARBK8DEJ6Sxf2VAW0jiGQcNjJXmhG4ZRUgQ/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </div>
 
   <footer style="text-align: center; padding-top: 8rem; margin-top: 8rem; border-top: 3px solid var(--rfc-gold); color: var(--rfc-blue);">
@@ -302,7 +302,7 @@ permalink: /join/
   </div>
   <p style="margin-bottom: 0.5rem;">
       <a href="https://www.linkedin.com/in/andreas-spiratos/" target="_blank" class="developer-credit">
-        <span>✈︎</span> Made by Andreas Spiratos (President '25-'26) <span>✈︎</span>
+        <span>✈︎</span> Made by Andreas Spiratos (President '25-'27) <span>✈︎</span>
       </a>
     </p>
   <p style="font-size: 0.9rem; opacity: 0.7;">© 2026 RPI Flying Club. All rights reserved.</p>
