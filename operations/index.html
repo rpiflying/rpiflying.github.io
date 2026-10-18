@@ -5,23 +5,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RFC Club Operations Tracker</title>
   <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #0f172a;
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --rfc-red: #CC0403;
     }
-    iframe {
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body, html { width: 100%; height: 100%; overflow: hidden; background: var(--bg); color: var(--text); }
+
+    /* Top Auth Bar */
+    #authBar {
+      height: 42px;
+      background: var(--surface);
+      border-bottom: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      font-size: 13px;
+    }
+    .auth-left { display: flex; align-items: center; gap: 8px; color: var(--muted); }
+    .auth-tag {
+      background: rgba(204, 4, 3, 0.15);
+      color: var(--rfc-red);
+      border: 1px solid var(--rfc-red);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .auth-btn {
+      background: var(--rfc-red);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 12px;
+      transition: 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+    .auth-btn:hover { filter: brightness(1.15); }
+
+    /* Fullscreen Embed */
+    #appFrame {
       width: 100%;
-      height: 100%;
+      height: calc(100% - 42px);
       border: none;
       display: block;
+      background: #ffffff;
     }
   </style>
 </head>
 <body>
-  <iframe src="https://script.google.com/macros/s/AKfycbzabCCQDp6xDueCL5O12pcDeCIiupZJ27QfnVCtaJMHPIzQfnbKpq45NHtTxA6JT9ruPA/exec?authuser=rpiflying@gmail.com"></iframe>
+
+  <div id="authBar">
+    <div class="auth-left">
+      <span class="auth-tag">Officer Portal</span>
+      <span>Restricted to <strong>rpiflying@gmail.com</strong></span>
+    </div>
+    <div style="display:flex; gap:8px;">
+      <button class="auth-btn" onclick="openLoginWindow()">Sign In / Switch Account</button>
+      <button class="auth-btn" style="background:var(--surface); border:1px solid var(--border);" onclick="reloadApp()">↻ Reload</button>
+    </div>
+  </div>
+
+  <iframe
+    id="appFrame"
+    src="https://script.google.com/macros/s/AKfycbzabCCQDp6xDueCL5O12pcDeCIiupZJ27QfnVCtaJMHPIzQfnbKpq45NHtTxA6JT9ruPA/exec?authuser=rpiflying@gmail.com"
+  ></iframe>
+
+  <script>
+    function openLoginWindow() {
+      // Opens Google Account Chooser specifically targeting the club account
+      const loginUrl = 'https://accounts.google.com/AccountChooser?Email=rpiflying@gmail.com&continue=https://script.google.com/macros/s/AKfycbzabCCQDp6xDueCL5O12pcDeCIiupZJ27QfnVCtaJMHPIzQfnbKpq45NHtTxA6JT9ruPA/exec?authuser=rpiflying@gmail.com';
+      const authWindow = window.open(loginUrl, 'GoogleAuth', 'width=600,height=700');
+
+      // Polls for when the login window is closed, then refreshes the iframe
+      const timer = setInterval(() => {
+        if (!authWindow || authWindow.closed) {
+          clearInterval(timer);
+          reloadApp();
+        }
+      }, 1000);
+    }
+
+    function reloadApp() {
+      const frame = document.getElementById('appFrame');
+      frame.src = 'https://script.google.com/macros/s/AKfycbzabCCQDp6xDueCL5O12pcDeCIiupZJ27QfnVCtaJMHPIzQfnbKpq45NHtTxA6JT9ruPA/exec?authuser=rpiflying@gmail.com&t=' + Date.now();
+    }
+  </script>
 </body>
 </html>
