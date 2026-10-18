@@ -5,23 +5,163 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RFC Club Operations Tracker</title>
   <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #0f172a;
+    :root {
+      --rfc-red: #CC0403;
+      --rfc-blue: #053D5A;
+      --rfc-tan: #FFF3DC;
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
     }
-    iframe {
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body, html { width: 100%; height: 100%; overflow: hidden; background: var(--bg); color: var(--text); }
+
+    /* The Main App: Takes 100% of the screen with ZERO bars */
+    #appFrame {
       width: 100%;
       height: 100%;
       border: none;
-      display: block;
+      display: none;
+      background: #ffffff;
     }
+
+    /* Branded Loading & Login Screen */
+    #portalScreen {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+      padding: 24px;
+      z-index: 10;
+    }
+
+    .auth-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 32px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    .auth-badge {
+      display: inline-block;
+      background: rgba(204, 4, 3, 0.15);
+      color: var(--rfc-red);
+      border: 1px solid var(--rfc-red);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    h2 { font-size: 22px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    p { font-size: 14px; color: var(--muted); line-height: 1.5; margin-bottom: 24px; }
+
+    /* Spinner */
+    .spinner {
+      width: 38px;
+      height: 38px;
+      border: 3.5px solid var(--border);
+      border-top-color: var(--rfc-red);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 12px auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Login Action Button */
+    .btn-login {
+      display: none;
+      width: 100%;
+      background: var(--rfc-red);
+      color: #ffffff;
+      border: none;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: filter 0.15s, transform 0.15s;
+    }
+    .btn-login:hover { filter: brightness(1.15); transform: translateY(-1px); }
   </style>
 </head>
 <body>
-  <iframe src="https://script.google.com/macros/s/AKfycbzabCCQDp6xDueCL5O12pcDeCIiupZJ27QfnVCtaJMHPIzQfnbKpq45NHtTxA6JT9ruPA/exec?authuser=rpiflying@gmail.com"></iframe>
+
+  <!-- Fullscreen Web App -->
+  <iframe
+    id="appFrame"
+    src="https://script.google.com/macros/s/AKfycbzabCCQDp6xDueCL5O12pcDeCIiupZJ27QfnVCtaJMHPIzQfnbKpq45NHtTxA6JT9ruPA/exec?authuser=rpiflying@gmail.com"
+  ></iframe>
+
+  <!-- Dedicated Fallback Sign-In View -->
+  <div id="portalScreen">
+    <div class="auth-card">
+      <span class="auth-badge">RFC Officer Portal</span>
+      <h2 id="portalTitle">Connecting...</h2>
+      <p id="portalDesc">Checking authorization for <strong>rpiflying@gmail.com</strong>.</p>
+      
+      <div id="portalSpinner" class="spinner"></div>
+
+      <button id="loginBtn" class="btn-login" onclick="launchGoogleLogin()">
+        Sign In to Club Account
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const TARGET_APP_URL = 'https://script.google.com/macros/s/AKfycbzabCCQDp6xDueCL5O12pcDeCIiupZJ27QfnVCtaJMHPIzQfnbKpq45NHtTxA6JT9ruPA/exec?authuser=rpiflying@gmail.com';
+    let isAuthenticated = false;
+
+    // 1. Listen for the app's ready signal from inside the iframe
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.type === 'RFC_APP_AUTHENTICATED') {
+        isAuthenticated = true;
+        // Fade out sign-in screen and display 100% fullscreen app
+        document.getElementById('portalScreen').style.display = 'none';
+        document.getElementById('appFrame').style.display = 'block';
+      }
+    });
+
+    // 2. If the club account is not logged in, transition from spinner to login button
+    setTimeout(() => {
+      if (!isAuthenticated) {
+        document.getElementById('portalSpinner').style.display = 'none';
+        document.getElementById('portalTitle').textContent = 'Officer Login Required';
+        document.getElementById('portalDesc').textContent =
+          'You are not currently signed into the club account. Click below to sign in with rpiflying@gmail.com.';
+        document.getElementById('loginBtn').style.display = 'block';
+      }
+    }, 2400);
+
+    // 3. Proper OAuth URL Encoding to prevent Google's 400 Bad Request error
+    function launchGoogleLogin() {
+      const loginUrl = 'https://accounts.google.com/AccountChooser?Email=rpiflying@gmail.com&continue=' + encodeURIComponent(TARGET_APP_URL);
+      const authPopup = window.open(loginUrl, 'RFC_Google_Auth', 'width=540,height=680');
+
+      // Once the login popup completes, reload the iframe cleanly
+      const checkPopup = setInterval(() => {
+        if (!authPopup || authPopup.closed) {
+          clearInterval(checkPopup);
+          document.getElementById('loginBtn').style.display = 'none';
+          document.getElementById('portalSpinner').style.display = 'block';
+          document.getElementById('portalTitle').textContent = 'Verifying Session...';
+          document.getElementById('appFrame').src = TARGET_APP_URL + '&t=' + Date.now();
+        }
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
